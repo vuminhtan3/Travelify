@@ -14,6 +14,11 @@
 		B483C5A72A57FD2A004DD3AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B483C5A52A57FD2A004DD3AA /* Main.storyboard */; };
 		B483C5A92A57FD2C004DD3AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B483C5A82A57FD2C004DD3AA /* Assets.xcassets */; };
 		B483C5AC2A57FD2C004DD3AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B483C5AA2A57FD2C004DD3AA /* LaunchScreen.storyboard */; };
+		B483C5B52A57FEB7004DD3AA /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483C5B32A57FEB7004DD3AA /* OnboardingViewController.swift */; };
+		B483C5BC2A57FF66004DD3AA /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483C5BA2A57FF66004DD3AA /* OnboardingCollectionViewCell.swift */; };
+		B483C5BD2A57FF66004DD3AA /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B483C5BB2A57FF66004DD3AA /* OnboardingCollectionViewCell.xib */; };
+		B483C5C02A5834C6004DD3AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B483C5BF2A5834C6004DD3AA /* GoogleService-Info.plist */; };
+		B483C5C22A5836EB004DD3AA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483C5C12A5836EB004DD3AA /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,11 @@
 		B483C5A82A57FD2C004DD3AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B483C5AB2A57FD2C004DD3AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B483C5AD2A57FD2C004DD3AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B483C5B32A57FEB7004DD3AA /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		B483C5BA2A57FF66004DD3AA /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		B483C5BB2A57FF66004DD3AA /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
+		B483C5BF2A5834C6004DD3AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		B483C5C12A5836EB004DD3AA /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +66,6 @@
 				2F3CE1F246B10BD3AD6DFAC0 /* Pods-Travelify.debug.xcconfig */,
 				3E701AA646B6A5490CCB4586 /* Pods-Travelify.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -81,15 +90,52 @@
 		B483C59E2A57FD2A004DD3AA /* Travelify */ = {
 			isa = PBXGroup;
 			children = (
+				B483C5BE2A582DAE004DD3AA /* Utils */,
 				B483C59F2A57FD2A004DD3AA /* AppDelegate.swift */,
 				B483C5A12A57FD2A004DD3AA /* SceneDelegate.swift */,
 				B483C5A32A57FD2A004DD3AA /* ViewController.swift */,
 				B483C5A52A57FD2A004DD3AA /* Main.storyboard */,
+				B483C5B82A57FEC5004DD3AA /* Screens */,
 				B483C5A82A57FD2C004DD3AA /* Assets.xcassets */,
 				B483C5AA2A57FD2C004DD3AA /* LaunchScreen.storyboard */,
 				B483C5AD2A57FD2C004DD3AA /* Info.plist */,
+				B483C5BF2A5834C6004DD3AA /* GoogleService-Info.plist */,
 			);
 			path = Travelify;
+			sourceTree = "<group>";
+		};
+		B483C5B72A57FEBC004DD3AA /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				B483C5B32A57FEB7004DD3AA /* OnboardingViewController.swift */,
+				B483C5B92A57FF4C004DD3AA /* Cell */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		B483C5B82A57FEC5004DD3AA /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B483C5C12A5836EB004DD3AA /* RegisterViewController.swift */,
+				B483C5B72A57FEBC004DD3AA /* Onboarding */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		B483C5B92A57FF4C004DD3AA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B483C5BA2A57FF66004DD3AA /* OnboardingCollectionViewCell.swift */,
+				B483C5BB2A57FF66004DD3AA /* OnboardingCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B483C5BE2A582DAE004DD3AA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -103,6 +149,7 @@
 				B483C5982A57FD2A004DD3AA /* Sources */,
 				B483C5992A57FD2A004DD3AA /* Frameworks */,
 				B483C59A2A57FD2A004DD3AA /* Resources */,
+				5B7250E37297F89A4591EFFB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -153,13 +200,32 @@
 			files = (
 				B483C5AC2A57FD2C004DD3AA /* LaunchScreen.storyboard in Resources */,
 				B483C5A92A57FD2C004DD3AA /* Assets.xcassets in Resources */,
+				B483C5C02A5834C6004DD3AA /* GoogleService-Info.plist in Resources */,
 				B483C5A72A57FD2A004DD3AA /* Main.storyboard in Resources */,
+				B483C5BD2A57FF66004DD3AA /* OnboardingCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5B7250E37297F89A4591EFFB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Travelify/Pods-Travelify-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Travelify/Pods-Travelify-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Travelify/Pods-Travelify-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6A7BAEFD94EABA5B26C74E41 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -191,7 +257,10 @@
 			files = (
 				B483C5A42A57FD2A004DD3AA /* ViewController.swift in Sources */,
 				B483C5A02A57FD2A004DD3AA /* AppDelegate.swift in Sources */,
+				B483C5BC2A57FF66004DD3AA /* OnboardingCollectionViewCell.swift in Sources */,
+				B483C5C22A5836EB004DD3AA /* RegisterViewController.swift in Sources */,
 				B483C5A22A57FD2A004DD3AA /* SceneDelegate.swift in Sources */,
+				B483C5B52A57FEB7004DD3AA /* OnboardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
