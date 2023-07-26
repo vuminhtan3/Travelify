@@ -16,12 +16,15 @@ struct Onboarding {
 
 class OnboardingViewController: UIViewController {
 
+    
     @IBOutlet weak var collectionView: UICollectionView!
     private var datasource = [Onboarding]()
     private var currentPage = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.isNavigationBarHidden = true
         
         setupCollectionView()
         
@@ -52,6 +55,14 @@ class OnboardingViewController: UIViewController {
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
     }
+    
+    func routeToRegister() {
+        let registerVC = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
+        let nav = UINavigationController(rootViewController: registerVC)
+        guard let window = (UIApplication.shared.delegate as? AppDelegate)?.window else {return}
+        window.rootViewController = nav
+        window.makeKeyAndVisible()
+    }
 }
 
 //MARK: - Datasource Methods
@@ -71,7 +82,8 @@ extension OnboardingViewController: UICollectionViewDataSource {
             guard let self = self else {return}
             
             if indexPath.row + 1 == self.datasource.count {
-                UserDefaults.standard.setValue(true, forKey: "isCompletedOnboarding")
+                UserDefaultsService.shared.completedOnboarding = true
+                self.routeToRegister()
                 
 //                print("index: \(indexPath.row), currentPage: \(self.currentPage)")
             } else {

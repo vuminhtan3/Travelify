@@ -9,7 +9,7 @@ import UIKit
 
 class OnboardingCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var gradientView: GradientView!
+    @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var backgroundImgView: UIImageView!
     @IBOutlet weak var titleLb: UILabel!
     @IBOutlet weak var descritionLb: UILabel!
@@ -19,7 +19,7 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        nextBtn.layer.cornerRadius = nextBtn.bounds.height/2
+        nextBtn.layer.cornerRadius = nextBtn.bounds.height/4
         nextBtn.clipsToBounds = true
     }
     
@@ -55,7 +55,7 @@ class GradientView: UIView {
         super.awakeFromNib()
         
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
         gradientLayer.colors = [UIColor.clear.cgColor,UIColor.black.cgColor]
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)

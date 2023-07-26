@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		0E21CA0129A7299EADAF2A29 /* Pods_Travelify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C258C1F34FF94980BF80E67 /* Pods_Travelify.framework */; };
+		B42079C72A6A69D4008AA03F /* ExtensionHexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42079C62A6A69D4008AA03F /* ExtensionHexColor.swift */; };
+		B42079CB2A6A6F26008AA03F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42079C92A6A6F26008AA03F /* LoginViewController.swift */; };
+		B42079CC2A6A6F26008AA03F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B42079CA2A6A6F26008AA03F /* LoginViewController.xib */; };
+		B42079CF2A6A7859008AA03F /* ExtensionShowloading.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42079CE2A6A7859008AA03F /* ExtensionShowloading.swift */; };
+		B42079D32A6A7F9A008AA03F /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42079D12A6A7F9A008AA03F /* ForgotPasswordViewController.swift */; };
+		B42079D42A6A7F9A008AA03F /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B42079D22A6A7F9A008AA03F /* ForgotPasswordViewController.xib */; };
+		B449FE352A655886003960B1 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B449FE342A655886003960B1 /* OnboardingViewController.xib */; };
+		B449FE3E2A693CA6003960B1 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B449FE3D2A693CA6003960B1 /* UserDefaultsService.swift */; };
+		B449FE402A693E2F003960B1 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B449FE3F2A693E2F003960B1 /* RegisterViewController.xib */; };
 		B483C5A02A57FD2A004DD3AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483C59F2A57FD2A004DD3AA /* AppDelegate.swift */; };
 		B483C5A22A57FD2A004DD3AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483C5A12A57FD2A004DD3AA /* SceneDelegate.swift */; };
 		B483C5A42A57FD2A004DD3AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483C5A32A57FD2A004DD3AA /* ViewController.swift */; };
@@ -19,12 +28,23 @@
 		B483C5BD2A57FF66004DD3AA /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B483C5BB2A57FF66004DD3AA /* OnboardingCollectionViewCell.xib */; };
 		B483C5C02A5834C6004DD3AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B483C5BF2A5834C6004DD3AA /* GoogleService-Info.plist */; };
 		B483C5C22A5836EB004DD3AA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483C5C12A5836EB004DD3AA /* RegisterViewController.swift */; };
+		B4BAAD432A6E618600599DB8 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BAAD422A6E618600599DB8 /* Validator.swift */; };
+		B4BAAD452A70426500599DB8 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BAAD442A70426500599DB8 /* CustomUITextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2F3CE1F246B10BD3AD6DFAC0 /* Pods-Travelify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travelify.debug.xcconfig"; path = "Target Support Files/Pods-Travelify/Pods-Travelify.debug.xcconfig"; sourceTree = "<group>"; };
 		3E701AA646B6A5490CCB4586 /* Pods-Travelify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travelify.release.xcconfig"; path = "Target Support Files/Pods-Travelify/Pods-Travelify.release.xcconfig"; sourceTree = "<group>"; };
 		5C258C1F34FF94980BF80E67 /* Pods_Travelify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travelify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B42079C62A6A69D4008AA03F /* ExtensionHexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionHexColor.swift; sourceTree = "<group>"; };
+		B42079C92A6A6F26008AA03F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B42079CA2A6A6F26008AA03F /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		B42079CE2A6A7859008AA03F /* ExtensionShowloading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionShowloading.swift; sourceTree = "<group>"; };
+		B42079D12A6A7F9A008AA03F /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		B42079D22A6A7F9A008AA03F /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
+		B449FE342A655886003960B1 /* OnboardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
+		B449FE3D2A693CA6003960B1 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
+		B449FE3F2A693E2F003960B1 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		B483C59C2A57FD2A004DD3AA /* Travelify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travelify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B483C59F2A57FD2A004DD3AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B483C5A12A57FD2A004DD3AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +58,8 @@
 		B483C5BB2A57FF66004DD3AA /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
 		B483C5BF2A5834C6004DD3AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B483C5C12A5836EB004DD3AA /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		B4BAAD422A6E618600599DB8 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		B4BAAD442A70426500599DB8 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +91,33 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B42079C82A6A6EE3008AA03F /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				B483C5C12A5836EB004DD3AA /* RegisterViewController.swift */,
+				B449FE3F2A693E2F003960B1 /* RegisterViewController.xib */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		B42079CD2A6A6F2B008AA03F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B42079C92A6A6F26008AA03F /* LoginViewController.swift */,
+				B42079CA2A6A6F26008AA03F /* LoginViewController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B42079D02A6A78BF008AA03F /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				B42079D12A6A7F9A008AA03F /* ForgotPasswordViewController.swift */,
+				B42079D22A6A7F9A008AA03F /* ForgotPasswordViewController.xib */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
 		B483C5932A57FD2A004DD3AA = {
 			isa = PBXGroup;
 			children = (
@@ -90,11 +139,11 @@
 		B483C59E2A57FD2A004DD3AA /* Travelify */ = {
 			isa = PBXGroup;
 			children = (
-				B483C5BE2A582DAE004DD3AA /* Utils */,
 				B483C59F2A57FD2A004DD3AA /* AppDelegate.swift */,
 				B483C5A12A57FD2A004DD3AA /* SceneDelegate.swift */,
 				B483C5A32A57FD2A004DD3AA /* ViewController.swift */,
 				B483C5A52A57FD2A004DD3AA /* Main.storyboard */,
+				B483C5BE2A582DAE004DD3AA /* Utils */,
 				B483C5B82A57FEC5004DD3AA /* Screens */,
 				B483C5A82A57FD2C004DD3AA /* Assets.xcassets */,
 				B483C5AA2A57FD2C004DD3AA /* LaunchScreen.storyboard */,
@@ -108,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				B483C5B32A57FEB7004DD3AA /* OnboardingViewController.swift */,
+				B449FE342A655886003960B1 /* OnboardingViewController.xib */,
 				B483C5B92A57FF4C004DD3AA /* Cell */,
 			);
 			path = Onboarding;
@@ -116,8 +166,10 @@
 		B483C5B82A57FEC5004DD3AA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				B483C5C12A5836EB004DD3AA /* RegisterViewController.swift */,
 				B483C5B72A57FEBC004DD3AA /* Onboarding */,
+				B42079CD2A6A6F2B008AA03F /* Login */,
+				B42079D02A6A78BF008AA03F /* ForgotPassword */,
+				B42079C82A6A6EE3008AA03F /* Register */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -134,6 +186,11 @@
 		B483C5BE2A582DAE004DD3AA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B449FE3D2A693CA6003960B1 /* UserDefaultsService.swift */,
+				B4BAAD442A70426500599DB8 /* CustomUITextField.swift */,
+				B42079C62A6A69D4008AA03F /* ExtensionHexColor.swift */,
+				B42079CE2A6A7859008AA03F /* ExtensionShowloading.swift */,
+				B4BAAD422A6E618600599DB8 /* Validator.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -198,11 +255,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B42079CC2A6A6F26008AA03F /* LoginViewController.xib in Resources */,
 				B483C5AC2A57FD2C004DD3AA /* LaunchScreen.storyboard in Resources */,
 				B483C5A92A57FD2C004DD3AA /* Assets.xcassets in Resources */,
+				B42079D42A6A7F9A008AA03F /* ForgotPasswordViewController.xib in Resources */,
+				B449FE402A693E2F003960B1 /* RegisterViewController.xib in Resources */,
 				B483C5C02A5834C6004DD3AA /* GoogleService-Info.plist in Resources */,
 				B483C5A72A57FD2A004DD3AA /* Main.storyboard in Resources */,
 				B483C5BD2A57FF66004DD3AA /* OnboardingCollectionViewCell.xib in Resources */,
+				B449FE352A655886003960B1 /* OnboardingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,10 +316,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4BAAD452A70426500599DB8 /* CustomUITextField.swift in Sources */,
+				B42079CB2A6A6F26008AA03F /* LoginViewController.swift in Sources */,
 				B483C5A42A57FD2A004DD3AA /* ViewController.swift in Sources */,
+				B42079D32A6A7F9A008AA03F /* ForgotPasswordViewController.swift in Sources */,
+				B449FE3E2A693CA6003960B1 /* UserDefaultsService.swift in Sources */,
+				B4BAAD432A6E618600599DB8 /* Validator.swift in Sources */,
 				B483C5A02A57FD2A004DD3AA /* AppDelegate.swift in Sources */,
+				B42079C72A6A69D4008AA03F /* ExtensionHexColor.swift in Sources */,
 				B483C5BC2A57FF66004DD3AA /* OnboardingCollectionViewCell.swift in Sources */,
 				B483C5C22A5836EB004DD3AA /* RegisterViewController.swift in Sources */,
+				B42079CF2A6A7859008AA03F /* ExtensionShowloading.swift in Sources */,
 				B483C5A22A57FD2A004DD3AA /* SceneDelegate.swift in Sources */,
 				B483C5B52A57FEB7004DD3AA /* OnboardingViewController.swift in Sources */,
 			);
@@ -408,6 +476,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 42823CRJW7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Travelify/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -436,6 +505,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 42823CRJW7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Travelify/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
