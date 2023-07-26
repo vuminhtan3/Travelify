@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Travelify" customModuleProvider="target">
+            <connections>
+                <outlet property="emailTF" destination="wYS-45-Nvj" id="yad-BX-A38"/>
+                <outlet property="emailWarningLb" destination="uTu-NV-OE5" id="LxU-yo-ZHh"/>
+                <outlet property="facebookLoginBtn" destination="X7j-7a-yp1" id="3ds-w9-IIB"/>
+                <outlet property="googleLoginBtn" destination="jSo-W7-S55" id="Z6i-6g-Vsz"/>
+                <outlet property="loginBtn" destination="5o0-iH-3Ez" id="uLl-M6-uEp"/>
+                <outlet property="passwordTF" destination="rsA-Oy-5Gt" id="GPu-vZ-NbS"/>
+                <outlet property="passwordWarningLb" destination="a74-QK-aEC" id="Yvl-pE-0sG"/>
+                <outlet property="showPasswordBtn" destination="uvI-46-5yw" id="Z06-7X-YKK"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="aai-KW-CVk">
+                    <rect key="frame" x="121.66666666666669" y="59" width="150" height="150"/>
+                    <color key="tintColor" systemColor="labelColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="6PZ-31-eez"/>
+                        <constraint firstAttribute="width" secondItem="aai-KW-CVk" secondAttribute="height" id="uAj-P1-UDX"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đăng nhập" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96o-no-zD7">
+                    <rect key="frame" x="50" y="239" width="138.33333333333334" height="33.666666666666686"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6JL-ZX-Xl6">
+                    <rect key="frame" x="50" y="302.66666666666669" width="293" height="338.00000000000006"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7b1-OP-wbC">
+                            <rect key="frame" x="0.0" y="0.0" width="293" height="18"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nhập vào email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wYS-45-Nvj" customClass="CustomUITextField" customModule="Travelify" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="28" width="293" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Ti5-Iz-z9x"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                            <connections>
+                                <action selector="tappingTFHandle:" destination="-1" eventType="editingChanged" id="x5S-1g-rOt"/>
+                            </connections>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTu-NV-OE5">
+                            <rect key="frame" x="0.0" y="78" width="293" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" systemColor="systemRedColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mật khẩu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2d-NZ-2Rq">
+                            <rect key="frame" x="0.0" y="105" width="293" height="18"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="-30" translatesAutoresizingMaskIntoConstraints="NO" id="wqZ-Xf-GxH">
+                            <rect key="frame" x="0.0" y="133" width="293" height="40"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nhập vào mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rsA-Oy-5Gt" customClass="CustomUITextField" customModule="Travelify" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="293" height="40"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    <connections>
+                                        <action selector="tappingTFHandle:" destination="-1" eventType="editingDidEnd" id="TaM-Vt-Tci"/>
+                                    </connections>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvI-46-5yw">
+                                    <rect key="frame" x="263" y="0.0" width="30" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="zI4-xZ-klJ"/>
+                                    </constraints>
+                                    <color key="tintColor" systemColor="labelColor"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal">
+                                        <imageReference key="image" image="eye.slash" catalog="system" symbolScale="default"/>
+                                    </state>
+                                    <state key="selected">
+                                        <imageReference key="image" image="eye.slash" catalog="system" symbolScale="small"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="showPasswordBtnHandle:" destination="-1" eventType="touchUpInside" id="O3V-0J-It5"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="ImZ-BS-yJG"/>
+                            </constraints>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a74-QK-aEC">
+                            <rect key="frame" x="0.0" y="183" width="293" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" systemColor="systemRedColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5o0-iH-3Ez">
+                            <rect key="frame" x="0.0" y="209.99999999999994" width="293" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="jSX-Hd-eFm"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Đăng nhập">
+                                <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="baseBackgroundColor" systemColor="systemYellowColor"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="loginBtnTapped:" destination="-1" eventType="touchUpInside" id="Ahh-oH-mIa"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hoặc tiếp tục với" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMd-5H-QkB">
+                            <rect key="frame" x="0.0" y="259.99999999999994" width="293" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="pbO-TQ-YyH">
+                            <rect key="frame" x="0.0" y="287.99999999999994" width="293" height="50"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7v-Bv-T5K">
+                                    <rect key="frame" x="0.0" y="0.0" width="121.66666666666667" height="50"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSo-W7-S55">
+                                            <rect key="frame" x="71.666666666666671" y="0.0" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="jSo-W7-S55" secondAttribute="height" id="AbC-kB-lqX"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" backgroundImage="google"/>
+                                            <connections>
+                                                <action selector="googleLoginBtnTapped:" destination="-1" eventType="touchUpInside" id="B16-mS-Iq1"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="45h-UC-FBw"/>
+                                        <constraint firstAttribute="bottom" secondItem="jSo-W7-S55" secondAttribute="bottom" id="BNY-yS-1UO"/>
+                                        <constraint firstItem="jSo-W7-S55" firstAttribute="top" secondItem="w7v-Bv-T5K" secondAttribute="top" id="rY7-sf-DhB"/>
+                                        <constraint firstAttribute="trailing" secondItem="jSo-W7-S55" secondAttribute="trailing" id="uDV-fO-zJq"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qkc-jR-qUf">
+                                    <rect key="frame" x="171.66666666666666" y="0.0" width="121.33333333333334" height="50"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7j-7a-yp1">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="X7j-7a-yp1" secondAttribute="height" id="Cj6-Px-Egr"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" backgroundImage="facebook"/>
+                                            <connections>
+                                                <action selector="facebookLoginBtnTapped:" destination="-1" eventType="touchUpInside" id="xEz-YK-lHr"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="X7j-7a-yp1" firstAttribute="top" secondItem="Qkc-jR-qUf" secondAttribute="top" id="4u0-4V-36S"/>
+                                        <constraint firstAttribute="bottom" secondItem="X7j-7a-yp1" secondAttribute="bottom" id="RoL-EB-I2j"/>
+                                        <constraint firstItem="X7j-7a-yp1" firstAttribute="leading" secondItem="Qkc-jR-qUf" secondAttribute="leading" id="rUH-Pf-Yxp"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="TSD-gP-YS5">
+                    <rect key="frame" x="91.666666666666686" y="650.66666666666663" width="210" height="20"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bạn chưa có tài khoản" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdE-7u-csP">
+                            <rect key="frame" x="0.0" y="0.0" width="151" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbO-iK-ImA">
+                            <rect key="frame" x="153" y="0.0" width="57" height="20"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Đăng ký"/>
+                            <connections>
+                                <action selector="registerBtnTapped:" destination="-1" eventType="touchUpInside" id="N8e-9L-Ga9"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="GJS-Zr-Pu3"/>
+                    </constraints>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Yh-wt-RhN">
+                    <rect key="frame" x="140.66666666666666" y="680.66666666666663" width="112" height="30"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Quên mật khẩu?"/>
+                    <connections>
+                        <action selector="forgotPasswordBtnTapped:" destination="-1" eventType="touchUpInside" id="9sT-Ed-P14"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="96o-no-zD7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="5dN-fY-zAs"/>
+                <constraint firstItem="aai-KW-CVk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="B2W-gu-xcD"/>
+                <constraint firstItem="aai-KW-CVk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Bu7-wp-gOO"/>
+                <constraint firstItem="TSD-gP-YS5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="T9h-UF-Xtu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4Yh-wt-RhN" secondAttribute="bottom" id="TSY-HE-H84"/>
+                <constraint firstItem="4Yh-wt-RhN" firstAttribute="top" secondItem="TSD-gP-YS5" secondAttribute="bottom" constant="10" id="TTG-dL-cQg"/>
+                <constraint firstItem="TSD-gP-YS5" firstAttribute="top" secondItem="6JL-ZX-Xl6" secondAttribute="bottom" constant="10" id="UT0-CW-atT"/>
+                <constraint firstItem="6JL-ZX-Xl6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="Usn-jm-7Ac"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6JL-ZX-Xl6" secondAttribute="trailing" constant="50" id="aXp-gG-boV"/>
+                <constraint firstItem="6JL-ZX-Xl6" firstAttribute="top" secondItem="96o-no-zD7" secondAttribute="bottom" constant="30" id="fRz-Ps-Af9"/>
+                <constraint firstItem="4Yh-wt-RhN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fTL-pf-Fe1"/>
+                <constraint firstItem="96o-no-zD7" firstAttribute="top" secondItem="aai-KW-CVk" secondAttribute="bottom" constant="30" id="oUH-nF-zjP"/>
+            </constraints>
+            <point key="canvasLocation" x="-34.351145038167935" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="eye.slash" catalog="system" width="128" height="84"/>
+        <image name="facebook" width="450" height="450"/>
+        <image name="google" width="900" height="900"/>
+        <image name="logo-removebg-preview" width="500" height="500"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

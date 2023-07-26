@@ -20,6 +20,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         (UIApplication.shared.delegate as? AppDelegate)?.window = window
+        
+        let isCompleteOnboarding = UserDefaultsService.shared.completedOnboarding
+        if isCompleteOnboarding {
+            routeToRegister()
+        } else {
+            routeToOnboarding()
+        }
+        
+        func routeToRegister() {
+            let registerVC = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
+            let nav = UINavigationController(rootViewController: registerVC)
+            window?.rootViewController = nav
+            window?.makeKeyAndVisible()
+        }
+        
+        func routeToOnboarding() {
+            let onboardingVC = OnboardingViewController(nibName: "OnboardingViewController", bundle: nil)
+            let nav = UINavigationController(rootViewController: onboardingVC)
+            window?.rootViewController = nav
+            window?.makeKeyAndVisible()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
