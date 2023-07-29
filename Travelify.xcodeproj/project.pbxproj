@@ -28,6 +28,7 @@
 		B483C5BD2A57FF66004DD3AA /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B483C5BB2A57FF66004DD3AA /* OnboardingCollectionViewCell.xib */; };
 		B483C5C02A5834C6004DD3AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B483C5BF2A5834C6004DD3AA /* GoogleService-Info.plist */; };
 		B483C5C22A5836EB004DD3AA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483C5C12A5836EB004DD3AA /* RegisterViewController.swift */; };
+		B4B7DFAF2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B7DFAE2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift */; };
 		B4BAAD432A6E618600599DB8 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BAAD422A6E618600599DB8 /* Validator.swift */; };
 		B4BAAD452A70426500599DB8 /* CustomUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BAAD442A70426500599DB8 /* CustomUITextField.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		B483C5BB2A57FF66004DD3AA /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
 		B483C5BF2A5834C6004DD3AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B483C5C12A5836EB004DD3AA /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		B4B7DFAE2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleFirebaseErrorExtension.swift; sourceTree = "<group>"; };
 		B4BAAD422A6E618600599DB8 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		B4BAAD442A70426500599DB8 /* CustomUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUITextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,8 +170,8 @@
 			children = (
 				B483C5B72A57FEBC004DD3AA /* Onboarding */,
 				B42079CD2A6A6F2B008AA03F /* Login */,
-				B42079D02A6A78BF008AA03F /* ForgotPassword */,
 				B42079C82A6A6EE3008AA03F /* Register */,
+				B42079D02A6A78BF008AA03F /* ForgotPassword */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -191,6 +193,7 @@
 				B42079C62A6A69D4008AA03F /* ExtensionHexColor.swift */,
 				B42079CE2A6A7859008AA03F /* ExtensionShowloading.swift */,
 				B4BAAD422A6E618600599DB8 /* Validator.swift */,
+				B4B7DFAE2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4BAAD452A70426500599DB8 /* CustomUITextField.swift in Sources */,
+				B4B7DFAF2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift in Sources */,
 				B42079CB2A6A6F26008AA03F /* LoginViewController.swift in Sources */,
 				B483C5A42A57FD2A004DD3AA /* ViewController.swift in Sources */,
 				B42079D32A6A7F9A008AA03F /* ForgotPasswordViewController.swift in Sources */,
