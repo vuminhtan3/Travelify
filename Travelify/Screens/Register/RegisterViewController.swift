@@ -58,14 +58,14 @@ class RegisterViewController: UIViewController {
         if showPasswordClick {
             passwordTF.isSecureTextEntry = false
             confirmPasswordTF.isSecureTextEntry = false
-            showPasswordBtn.setImage(UIImage(systemName: "eye"), for: .normal)
-            showConfirmPasswordBtn.setImage(UIImage(systemName: "eye"), for: .normal)
+            showPasswordBtn.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+            showConfirmPasswordBtn.setImage(UIImage(systemName: "eye.slash"), for: .normal)
 
         } else {
             passwordTF.isSecureTextEntry = true
             confirmPasswordTF.isSecureTextEntry = true
-            showPasswordBtn.setImage(UIImage(systemName: "eye.slash"), for: .normal)
-            showConfirmPasswordBtn.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+            showPasswordBtn.setImage(UIImage(systemName: "eye"), for: .normal)
+            showConfirmPasswordBtn.setImage(UIImage(systemName: "eye"), for: .normal)
 
         }
         showPasswordClick = !showPasswordClick
@@ -78,7 +78,19 @@ class RegisterViewController: UIViewController {
         
         let isValid = validateForm(email: email, password: password, confirmPassword: confirmPassword)
         guard isValid else {return}
-        print("RegisterSuccess -> Route to Main")
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
+            guard let self = self else {return}
+            
+            if let error = error {
+                //Show alert to user when register has an error
+                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true)
+            } else {
+                //What is going to do when register successfull
+                print("Register successfull -> Route to main")
+            }
+        }
         
     }
     

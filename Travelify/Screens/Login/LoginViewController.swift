@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 enum LoginFormField {
     case email
@@ -52,10 +53,10 @@ class LoginViewController: UIViewController {
     @IBAction func showPasswordBtnHandle(_ sender: UIButton) {
         if showPasswordClick {
             passwordTF.isSecureTextEntry = false
-            showPasswordBtn.setImage(UIImage(systemName: "eye"), for: .normal)
+            showPasswordBtn.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         } else {
             passwordTF.isSecureTextEntry = true
-            showPasswordBtn.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+            showPasswordBtn.setImage(UIImage(systemName: "eye"), for: .normal)
         }
         showPasswordClick = !showPasswordClick
     }
@@ -65,7 +66,19 @@ class LoginViewController: UIViewController {
         let password = passwordTF.text ?? ""
         let isValid = validateForm(email: email, password: password)
         guard isValid else {return}
-        print("Login Success -> Route to main")
+        Auth.auth().signIn(withEmail: email, password: password) {[weak self] authResult, error in
+            guard let self = self else {return}
+            
+            if let error = error {
+                //Show login error alert to user
+                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true)
+            } else {
+                //Login successfull
+                print("Login Successfull -> Route to Main")
+            }
+        }
         
     }
     

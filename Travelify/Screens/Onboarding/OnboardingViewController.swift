@@ -43,6 +43,7 @@ class OnboardingViewController: UIViewController {
         //Đăng ký custom collection view cell
         collectionView.register(UINib(nibName: "OnboardingCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "OnboardingCollectionViewCell")
         collectionView.backgroundColor = .white
+        collectionView.contentInsetAdjustmentBehavior = .never //Sửa lỗi khoảng trắng phía trên màn hình
         
         if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.minimumLineSpacing = 0
