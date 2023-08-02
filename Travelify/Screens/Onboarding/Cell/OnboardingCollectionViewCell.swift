@@ -48,17 +48,3 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     }
     
 }
-
-class GradientView: UIView {
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
-        gradientLayer.colors = [UIColor.clear.cgColor,UIColor.black.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
-        layer.addSublayer(gradientLayer)
-    }
-}
