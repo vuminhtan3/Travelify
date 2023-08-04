@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -23,9 +25,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let isCompleteOnboarding = UserDefaultsService.shared.completedOnboarding
         if isCompleteOnboarding {
-            routeToRegister()
+            if Auth.auth().currentUser != nil {
+                routeToHome()
+            } else {
+                routeToLogin()
+            }
         } else {
             routeToOnboarding()
+        }
+        
+        func routeToLogin() {
+            let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
+            let nav = UINavigationController(rootViewController: loginVC)
+            window?.rootViewController = nav
+            window?.makeKeyAndVisible()
         }
         
         func routeToRegister() {
@@ -38,6 +51,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         func routeToOnboarding() {
             let onboardingVC = OnboardingViewController(nibName: "OnboardingViewController", bundle: nil)
             let nav = UINavigationController(rootViewController: onboardingVC)
+            window?.rootViewController = nav
+            window?.makeKeyAndVisible()
+        }
+        
+        func routeToHome() {
+            let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
+            let nav = UINavigationController(rootViewController: homeVC)
             window?.rootViewController = nav
             window?.makeKeyAndVisible()
         }

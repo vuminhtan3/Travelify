@@ -59,7 +59,7 @@
                                 <constraint firstAttribute="height" constant="40" id="sXz-u1-uC2"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                            <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
                             <connections>
                                 <action selector="tappingTFHandle:" destination="-1" eventType="editingChanged" id="Slu-XH-tml"/>
                             </connections>
@@ -82,7 +82,7 @@
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nhập vào mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eRu-Fh-dJD" customClass="CustomUITextField" customModule="Travelify" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="293" height="40"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="password"/>
                                     <connections>
                                         <action selector="tappingTFHandle:" destination="-1" eventType="editingDidEnd" id="Lms-nc-dkV"/>
                                     </connections>
@@ -127,7 +127,7 @@
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Xác nhận mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nzd-ku-1e3" customClass="CustomUITextField" customModule="Travelify" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="293" height="40"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="password"/>
                                     <connections>
                                         <action selector="tappingTFHandle:" destination="-1" eventType="editingDidEnd" id="kbh-7x-avl"/>
                                     </connections>

@@ -40,6 +40,7 @@ class RegisterViewController: UIViewController {
         confirmPasswordWarningLb.isHidden = true
         passwordTF.isSecureTextEntry = true
         confirmPasswordTF.isSecureTextEntry = true
+        confirmPasswordTF.delegate = self
         
         //Setup Button
         
@@ -49,6 +50,17 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func tappingTFHandle(_ sender: CustomUITextField) {
+        emailWarningLb.isHidden = true
+        passwordWarningLb.isHidden = true
+        confirmPasswordWarningLb.isHidden = true
+        
+        let email = emailTF.text ?? ""
+        let password = passwordTF.text ?? ""
+        let confirmPassword = confirmPasswordTF.text ?? ""
+        registerBtn.isEnabled = false
+        let isValid = validateForm(email: email, password: password, confirmPassword: confirmPassword)
+        guard isValid else {return}
+        registerBtn.isEnabled = true
         emailWarningLb.isHidden = true
         passwordWarningLb.isHidden = true
         confirmPasswordWarningLb.isHidden = true
@@ -81,14 +93,21 @@ class RegisterViewController: UIViewController {
         Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
             guard let self = self else {return}
             
-            if let error = error {
-                //Show alert to user when register has an error
-                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+            guard error == nil else {
+                var message = ""
+                
+                switch AuthErrorCode.Code(rawValue: error!._code) {
+                case .emailAlreadyInUse:
+                    message = "Email này đã được sử dụng cho tài khoản khác. Vui lòng thử lại bằng email khác"
+                default:
+                    message = error?.localizedDescription ?? "Lỗi không xác định"
+                }
+                
+                let alert = UIAlertController(title: "Ồ!!! Có lỗi", message: message, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(alert, animated: true)
-            } else {
-                //What is going to do when register successfull
-                print("Register successfull -> Route to main")
+                
+                return
             }
         }
         
@@ -106,8 +125,7 @@ class RegisterViewController: UIViewController {
     
     
     func routeToLogin() {
-        let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        navigationController?.pushViewController(loginVC, animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
 }
@@ -178,5 +196,11 @@ extension RegisterViewController {
         let alert = UIAlertController(title: "Login failure", message: errorMsg ?? "Something went wrong", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true)
+    }
+}
+
+extension RegisterViewController: UITextFieldDelegate {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
     }
 }

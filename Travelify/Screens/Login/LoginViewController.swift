@@ -34,6 +34,9 @@ class LoginViewController: UIViewController {
     }
     
     func setupView() {
+        emailTF.text = "123@gmail.com"
+        passwordTF.text = "Minhtan97@"
+        
         emailWarningLb.isHidden = true
         passwordWarningLb.isHidden = true
         passwordTF.isSecureTextEntry = true
@@ -46,6 +49,15 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func tappingTFHandle(_ sender: UITextField) {
+        emailWarningLb.isHidden = true
+        passwordWarningLb.isHidden = true
+        
+        let email = emailTF.text ?? ""
+        let password = passwordTF.text ?? ""
+        loginBtn.isEnabled = false
+        let isValid = validateForm(email: email, password: password)
+        guard isValid else {return}
+        loginBtn.isEnabled = true
         emailWarningLb.isHidden = true
         passwordWarningLb.isHidden = true
     }
@@ -66,18 +78,29 @@ class LoginViewController: UIViewController {
         let password = passwordTF.text ?? ""
         let isValid = validateForm(email: email, password: password)
         guard isValid else {return}
-        Auth.auth().signIn(withEmail: email, password: password) {[weak self] authResult, error in
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             guard let self = self else {return}
             
-            if let error = error {
-                //Show login error alert to user
-                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+            guard error == nil else {
+                var message = ""
+                
+                switch AuthErrorCode.Code(rawValue: error!._code) {
+                case .userDisabled:
+                    message = "Tài khoản đã bị vô hiệu hoá"
+                case .wrongPassword:
+                    message = "Sai mật khẩu! Vui lòng thử lại"
+                case .userNotFound:
+                    message = "Không tìm thấy tài khoản với email đã nhập"
+                default:
+                    message = error?.localizedDescription ?? "Lỗi không xác định"
+                }
+                
+                let alert = UIAlertController(title: "Ồ!!! Có lỗi", message: message, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(alert, animated: true)
-            } else {
-                //Login successfull
-                print("Login Successfull -> Route to Main")
+                return
             }
+            self.routeToHome()
         }
         
     }
@@ -89,7 +112,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func registerBtnTapped(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+        let registerVC = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
+        navigationController?.pushViewController(registerVC, animated: true)
     }
     
     @IBAction func forgotPasswordBtnTapped(_ sender: UIButton) {
@@ -98,6 +122,11 @@ class LoginViewController: UIViewController {
         navigationController?.pushViewController(forgotPasswordVC, animated: true)
     }
     
+    
+    func routeToHome() {
+        let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
+        navigationController?.pushViewController(homeVC, animated: true)
+    }
 }
 
 extension LoginViewController {

@@ -7,6 +7,7 @@
 
 import UIKit
 
+//Only bottom line UITextField
 class CustomUITextField: UITextField {
     func setup() {
 //        let width = CGFloat(1)
@@ -32,3 +33,26 @@ class CustomUITextField: UITextField {
         setup()
     }
 }
+
+//Custom border UITextField
+class CustomUITextField2: UITextField {
+    func setup() {
+        let width = CGFloat(1)
+        let cornerRadius = CGFloat(self.frame.height/4)
+        self.layer.borderWidth = width
+        self.layer.borderColor = UIColor.darkGray.cgColor
+        self.backgroundColor = .yellow.withAlphaComponent(0.05)
+        self.layer.cornerRadius = cornerRadius
+        self.clipsToBounds = true
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+}
+
