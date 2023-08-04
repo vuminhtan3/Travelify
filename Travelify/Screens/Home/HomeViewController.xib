@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Travelify" customModuleProvider="target">
             <connections>
-                <outlet property="avatarImgView" destination="YUV-GI-JUH" id="ydk-hm-Wz3"/>
+                <outlet property="avatarBtn" destination="9Kt-I1-Vex" id="gNU-gB-WU5"/>
                 <outlet property="greetingLb" destination="jHw-Tu-XaF" id="Kr3-Lu-5Ja"/>
                 <outlet property="highRatingTableView" destination="fdz-JW-pmW" id="3hy-HI-uXp"/>
                 <outlet property="searchBar" destination="Lqm-uS-yfk" id="QjV-Hg-ZOz"/>
@@ -29,13 +29,6 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TGinTW" translatesAutoresizingMaskIntoConstraints="NO" id="YUV-GI-JUH">
-                    <rect key="frame" x="323" y="59" width="50" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="YUV-GI-JUH" secondAttribute="height" multiplier="1:1" id="Eaz-iz-BXk"/>
-                        <constraint firstAttribute="width" constant="50" id="Xb8-FO-4LI"/>
-                    </constraints>
-                </imageView>
                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Lqm-uS-yfk">
                     <rect key="frame" x="20" y="119" width="353" height="56"/>
                     <textInputTraits key="textInputTraits"/>
@@ -86,6 +79,18 @@
                         <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
+                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Kt-I1-Vex">
+                    <rect key="frame" x="333" y="59" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="HCj-s4-Wf8"/>
+                        <constraint firstAttribute="width" secondItem="9Kt-I1-Vex" secondAttribute="height" id="ouY-7g-ab2"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title=""/>
+                    <connections>
+                        <action selector="avatarBtnTapped:" destination="-1" eventType="touchUpInside" id="iXt-kv-Ctz"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -94,12 +99,12 @@
                 <constraint firstItem="jHw-Tu-XaF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="61t-a4-ABj"/>
                 <constraint firstItem="Lqm-uS-yfk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jHw-Tu-XaF" secondAttribute="bottom" constant="20" id="66K-aE-Oq9"/>
                 <constraint firstItem="5jQ-wI-ayb" firstAttribute="centerY" secondItem="WPI-V4-l7r" secondAttribute="centerY" id="9ee-lu-GJB"/>
-                <constraint firstItem="YUV-GI-JUH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="E3m-O7-eOi"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2f9-oi-Lyw" secondAttribute="trailing" constant="20" id="FMs-8e-pin"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9Kt-I1-Vex" secondAttribute="trailing" constant="20" id="FNi-hp-rkI"/>
                 <constraint firstItem="Z7f-CP-1Gf" firstAttribute="top" secondItem="1Dp-GC-xTx" secondAttribute="bottom" constant="10" id="GcX-zb-7XC"/>
+                <constraint firstItem="9Kt-I1-Vex" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="HRf-Ly-lPt"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="fdz-JW-pmW" secondAttribute="bottom" id="WtO-ef-Wam"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fdz-JW-pmW" secondAttribute="trailing" constant="20" id="asu-sl-crM"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YUV-GI-JUH" secondAttribute="trailing" constant="20" id="awi-xg-qOv"/>
                 <constraint firstItem="1Dp-GC-xTx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="cNp-MV-PVp"/>
                 <constraint firstItem="fdz-JW-pmW" firstAttribute="top" secondItem="WPI-V4-l7r" secondAttribute="bottom" constant="10" id="eLE-hu-fdL"/>
                 <constraint firstItem="Z7f-CP-1Gf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="hRy-v3-JNT"/>
@@ -108,17 +113,16 @@
                 <constraint firstItem="jHw-Tu-XaF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="kTI-Eb-t8G"/>
                 <constraint firstItem="fdz-JW-pmW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="mTe-UF-Ns1"/>
                 <constraint firstAttribute="trailing" secondItem="Lqm-uS-yfk" secondAttribute="trailing" constant="20" id="oRp-kQ-jZf"/>
-                <constraint firstItem="Lqm-uS-yfk" firstAttribute="top" secondItem="YUV-GI-JUH" secondAttribute="bottom" constant="10" id="qNp-Ug-cZ7"/>
                 <constraint firstItem="1Dp-GC-xTx" firstAttribute="top" secondItem="Lqm-uS-yfk" secondAttribute="bottom" constant="20" id="qkQ-dJ-XEu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5jQ-wI-ayb" secondAttribute="trailing" constant="20" id="tde-Kg-Igc"/>
                 <constraint firstItem="WPI-V4-l7r" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="wDW-6I-HeC"/>
                 <constraint firstItem="2f9-oi-Lyw" firstAttribute="centerY" secondItem="1Dp-GC-xTx" secondAttribute="centerY" id="xWh-gz-RLt"/>
+                <constraint firstItem="Lqm-uS-yfk" firstAttribute="top" secondItem="9Kt-I1-Vex" secondAttribute="bottom" constant="20" id="z1T-ic-IoW"/>
             </constraints>
             <point key="canvasLocation" x="110.68702290076335" y="19.718309859154932"/>
         </view>
     </objects>
     <resources>
-        <image name="TGinTW" width="2048" height="1540"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

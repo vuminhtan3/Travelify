@@ -14,6 +14,10 @@
 		B42079CF2A6A7859008AA03F /* ExtensionShowloading.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42079CE2A6A7859008AA03F /* ExtensionShowloading.swift */; };
 		B42079D32A6A7F9A008AA03F /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42079D12A6A7F9A008AA03F /* ForgotPasswordViewController.swift */; };
 		B42079D42A6A7F9A008AA03F /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B42079D22A6A7F9A008AA03F /* ForgotPasswordViewController.xib */; };
+		B445E7B22A7A8C7E00766405 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B445E7B02A7A8C7E00766405 /* ProfileViewController.swift */; };
+		B445E7B32A7A8C7E00766405 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B445E7B12A7A8C7E00766405 /* ProfileViewController.xib */; };
+		B445E7B92A7B9D9200766405 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B445E7B72A7B9D9200766405 /* EditProfileViewController.swift */; };
+		B445E7BA2A7B9D9200766405 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B445E7B82A7B9D9200766405 /* EditProfileViewController.xib */; };
 		B449FE352A655886003960B1 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B449FE342A655886003960B1 /* OnboardingViewController.xib */; };
 		B449FE3E2A693CA6003960B1 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B449FE3D2A693CA6003960B1 /* UserDefaultsService.swift */; };
 		B449FE402A693E2F003960B1 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B449FE3F2A693E2F003960B1 /* RegisterViewController.xib */; };
@@ -50,6 +54,10 @@
 		B42079CE2A6A7859008AA03F /* ExtensionShowloading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionShowloading.swift; sourceTree = "<group>"; };
 		B42079D12A6A7F9A008AA03F /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		B42079D22A6A7F9A008AA03F /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
+		B445E7B02A7A8C7E00766405 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B445E7B12A7A8C7E00766405 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		B445E7B72A7B9D9200766405 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		B445E7B82A7B9D9200766405 /* EditProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
 		B449FE342A655886003960B1 /* OnboardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		B449FE3D2A693CA6003960B1 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		B449FE3F2A693E2F003960B1 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
@@ -134,6 +142,17 @@
 			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
+		B445E7AF2A7A8C6200766405 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B445E7B02A7A8C7E00766405 /* ProfileViewController.swift */,
+				B445E7B12A7A8C7E00766405 /* ProfileViewController.xib */,
+				B445E7B72A7B9D9200766405 /* EditProfileViewController.swift */,
+				B445E7B82A7B9D9200766405 /* EditProfileViewController.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		B483C5932A57FD2A004DD3AA = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +201,7 @@
 		B483C5B82A57FEC5004DD3AA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B445E7AF2A7A8C6200766405 /* Profile */,
 				B4B7DFB52A75905E00159B7B /* Home */,
 				B483C5B72A57FEBC004DD3AA /* Onboarding */,
 				B42079CD2A6A6F2B008AA03F /* Login */,
@@ -298,12 +318,14 @@
 				B4B7DFC42A759C4F00159B7B /* HighRatingTableViewCell.xib in Resources */,
 				B42079CC2A6A6F26008AA03F /* LoginViewController.xib in Resources */,
 				B483C5AC2A57FD2C004DD3AA /* LaunchScreen.storyboard in Resources */,
+				B445E7B32A7A8C7E00766405 /* ProfileViewController.xib in Resources */,
 				B483C5A92A57FD2C004DD3AA /* Assets.xcassets in Resources */,
 				B42079D42A6A7F9A008AA03F /* ForgotPasswordViewController.xib in Resources */,
 				B449FE402A693E2F003960B1 /* RegisterViewController.xib in Resources */,
 				B483C5C02A5834C6004DD3AA /* GoogleService-Info.plist in Resources */,
 				B483C5A72A57FD2A004DD3AA /* Main.storyboard in Resources */,
 				B4B7DFB92A75907B00159B7B /* HomeViewController.xib in Resources */,
+				B445E7BA2A7B9D9200766405 /* EditProfileViewController.xib in Resources */,
 				B483C5BD2A57FF66004DD3AA /* OnboardingCollectionViewCell.xib in Resources */,
 				B449FE352A655886003960B1 /* OnboardingViewController.xib in Resources */,
 				B4B7DFBE2A7592D000159B7B /* SuggestCollectionViewCell.xib in Resources */,
@@ -367,7 +389,9 @@
 				B483C5A42A57FD2A004DD3AA /* ViewController.swift in Sources */,
 				B42079D32A6A7F9A008AA03F /* ForgotPasswordViewController.swift in Sources */,
 				B4B7DFB82A75907B00159B7B /* HomeViewController.swift in Sources */,
+				B445E7B92A7B9D9200766405 /* EditProfileViewController.swift in Sources */,
 				B4EC4C292A76D581008A60D4 /* GradientView.swift in Sources */,
+				B445E7B22A7A8C7E00766405 /* ProfileViewController.swift in Sources */,
 				B449FE3E2A693CA6003960B1 /* UserDefaultsService.swift in Sources */,
 				B4BAAD432A6E618600599DB8 /* Validator.swift in Sources */,
 				B483C5A02A57FD2A004DD3AA /* AppDelegate.swift in Sources */,

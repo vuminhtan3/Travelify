@@ -23,7 +23,7 @@ struct HighRating {
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var greetingLb: UILabel!
-    @IBOutlet weak var avatarImgView: UIImageView!
+    @IBOutlet weak var avatarBtn: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var suggestCollectionView: UICollectionView!
     @IBOutlet weak var highRatingTableView: UITableView!
@@ -34,11 +34,17 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
-        avatarImgView.layer.cornerRadius = avatarImgView.frame.height/2
+        //Setup avatarButton
+        avatarBtn.layer.cornerRadius = avatarBtn.frame.height/2
+        avatarBtn.clipsToBounds = true
+        avatarBtn.setBackgroundImage(UIImage(named: "TGinTW"), for: .normal)
+        avatarBtn.layoutIfNeeded()
+        avatarBtn.subviews.first?.contentMode = .scaleAspectFill
 
         setupCollectionView()
         setupTableView()
         
+        //Create datasource
         suggestionDatasource = [
         Suggestion(backgroundImg: "SaPa", name: "SaPa", location: "Lào Cai"),
         Suggestion(backgroundImg: "HaGiang2", name: "Hà Giang", location: "Hà Giang"),
@@ -81,7 +87,12 @@ class HomeViewController: UIViewController {
         highRatingTableView.register(UINib(nibName: "HighRatingTableViewCell", bundle: nil), forCellReuseIdentifier: "HighRatingTableViewCell")
         self.highRatingTableView.reloadData()
     }
-
+    
+    @IBAction func avatarBtnTapped(_ sender: UIButton) {
+        let profileVC = ProfileViewController(nibName: "ProfileViewController", bundle: nil)
+        navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
 }
 
 
