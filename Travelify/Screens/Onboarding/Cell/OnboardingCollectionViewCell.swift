@@ -19,8 +19,8 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        nextBtn.layer.cornerRadius = nextBtn.bounds.height/4
-        nextBtn.clipsToBounds = true
+        nextBtn.layer.cornerRadius = nextBtn.frame.height/2
+        nextBtn.layer.masksToBounds = true
     }
     
     override func prepareForReuse() {

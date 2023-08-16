@@ -26,7 +26,7 @@ class ForgotPasswordViewController: UIViewController {
         emailWarningLb.isHidden = true
         
         //Setup Button
-        forgotPasswordBtn.layer.cornerRadius = forgotPasswordBtn.frame.height/4
+        forgotPasswordBtn.layer.cornerRadius = forgotPasswordBtn.frame.height/2
         forgotPasswordBtn.clipsToBounds = true
     }
     

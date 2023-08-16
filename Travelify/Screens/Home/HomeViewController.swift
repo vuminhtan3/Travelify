@@ -33,7 +33,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = true
         //Setup avatarButton
         avatarBtn.layer.cornerRadius = avatarBtn.frame.height/2
         avatarBtn.clipsToBounds = true
@@ -61,6 +60,10 @@ class HomeViewController: UIViewController {
         ]
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
     
     private func setupCollectionView() {
         suggestCollectionView.delegate = self

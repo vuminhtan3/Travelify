@@ -9,9 +9,8 @@ import UIKit
 
 class SuggestCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameLb: UILabel!
-    @IBOutlet weak var locationLb: UILabel!
     @IBOutlet weak var backgroundImgView: UIImageView!
-    @IBOutlet weak var gradientView: GradientView!
+    @IBOutlet weak var gradientView: GradientView3!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,13 +19,11 @@ class SuggestCollectionViewCell: UICollectionViewCell {
 
     override func prepareForReuse() {
         nameLb.text = nil
-        locationLb.text = nil
         backgroundImgView.image = nil
     }
     
     func bindData(name: String, location: String, backgroundImage: String) {
         nameLb.text = name
-        locationLb.text = location
         backgroundImgView.image = UIImage(named: backgroundImage)
     }
 }

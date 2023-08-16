@@ -10,6 +10,10 @@ target 'Travelify' do
   pod 'FirebaseAuth'
   pod 'FirebaseFirestore'
   pod 'FirebaseDatabase'
+  pod 'Firebase/Storage'
+  pod 'Kingfisher'
+  pod 'ActionSheetPicker-3.0'
+  pod 'DropDown'
   # Pods for Travelify
 
 end

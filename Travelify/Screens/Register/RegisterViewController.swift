@@ -44,7 +44,7 @@ class RegisterViewController: UIViewController {
         
         //Setup Button
         
-        registerBtn.layer.cornerRadius = registerBtn.frame.height/4
+        registerBtn.layer.cornerRadius = registerBtn.frame.height/2
         registerBtn.layer.masksToBounds = true
         
     }
@@ -109,6 +109,9 @@ class RegisterViewController: UIViewController {
                 
                 return
             }
+            UserDefaultsService.shared.isLoggedIn = true
+            UserDefaultsService.shared.isFirstTimeSetProfile = true
+            self.routeToEditProfile()
         }
         
     }
@@ -126,8 +129,14 @@ class RegisterViewController: UIViewController {
     
     func routeToLogin() {
         navigationController?.popViewController(animated: true)
+        navigationController?.isNavigationBarHidden = true
     }
     
+    func routeToEditProfile() {
+        let editProfile = EditProfileViewController(nibName: "EditProfileViewController", bundle: nil)
+        editProfile.isCanBack = false
+        navigationController?.pushViewController(editProfile, animated: true)
+    }
 }
 
 //MARK: - Validate Form

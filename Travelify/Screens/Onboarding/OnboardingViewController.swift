@@ -23,15 +23,14 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = false
         navigationController?.isNavigationBarHidden = true
         
         setupCollectionView()
         
         datasource = [
         Onboarding(image: "onboarding4", title: "Hãy khám phá thế giới", description: "Hãy cùng chúng tôi khám phá thế giới chỉ với một vài thao tác đơn giản"),
-        Onboarding(image: "onboarding3", title: "Tham quan các điểm du lịch", description: "Hàng ngàn điểm du lịch đã sẵn sàng cho bạn đặt chân tới và khám phá"),
-        Onboarding(image: "onboarding7", title: "Sẵn sàng cho chuyến đi sắp tới của bạn", description: "Hãy bắt đầu khám phá những vùng đất mới, tất cả đã sẵn sàng")
+        Onboarding(image: "onboarding7", title: "Tham quan các điểm du lịch", description: "Hàng ngàn điểm du lịch đã sẵn sàng cho bạn đặt chân tới và khám phá"),
+        Onboarding(image: "onboarding10", title: "Sẵn sàng cho chuyến đi sắp tới của bạn", description: "Hãy bắt đầu khám phá những vùng đất mới, tất cả đã sẵn sàng")
         ]
         collectionView.reloadData()
     }
@@ -57,9 +56,9 @@ class OnboardingViewController: UIViewController {
         collectionView.showsHorizontalScrollIndicator = false
     }
     
-    func routeToRegister() {
-        let registerVC = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
-        let nav = UINavigationController(rootViewController: registerVC)
+    func routeToChooseEntryPoint() {
+        let chooseEntryPointVC = ChooseEntryPointViewController(nibName: "ChooseEntryPointViewController", bundle: nil)
+        let nav = UINavigationController(rootViewController: chooseEntryPointVC)
         guard let window = (UIApplication.shared.delegate as? AppDelegate)?.window else {return}
         window.rootViewController = nav
         window.makeKeyAndVisible()
@@ -84,7 +83,7 @@ extension OnboardingViewController: UICollectionViewDataSource {
             
             if indexPath.row + 1 == self.datasource.count {
                 UserDefaultsService.shared.completedOnboarding = true
-                self.routeToRegister()
+                self.routeToChooseEntryPoint()
                 
 //                print("index: \(indexPath.row), currentPage: \(self.currentPage)")
             } else {

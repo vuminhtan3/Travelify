@@ -38,7 +38,7 @@ class CustomUITextField: UITextField {
 class CustomUITextField2: UITextField {
     func setup() {
         let width = CGFloat(1)
-        let cornerRadius = CGFloat(self.frame.height/4)
+        let cornerRadius = CGFloat(self.frame.height/2)
         self.layer.borderWidth = width
         self.layer.borderColor = UIColor.darkGray.cgColor
         self.backgroundColor = .yellow.withAlphaComponent(0.05)

@@ -32,6 +32,11 @@ class LoginViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
     
     func setupView() {
         emailTF.text = "123@gmail.com"
@@ -42,7 +47,7 @@ class LoginViewController: UIViewController {
         passwordTF.isSecureTextEntry = true
         
         //Setup Button
-        loginBtn.layer.cornerRadius = loginBtn.frame.height/4
+        loginBtn.layer.cornerRadius = loginBtn.frame.height/2
         loginBtn.clipsToBounds = true
         navigationController?.navigationBar.backItem?.title = ""
         
@@ -100,9 +105,9 @@ class LoginViewController: UIViewController {
                 self.present(alert, animated: true)
                 return
             }
-            self.routeToHome()
+            UserDefaultsService.shared.isLoggedIn = true
+            AppDelegate.scene?.routeToHome()
         }
-        
     }
     
     @IBAction func googleLoginBtnTapped(_ sender: UIButton) {
@@ -118,15 +123,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func forgotPasswordBtnTapped(_ sender: UIButton) {
         let forgotPasswordVC = ForgotPasswordViewController(nibName: "ForgotPasswordViewController", bundle: nil)
-        
         navigationController?.pushViewController(forgotPasswordVC, animated: true)
     }
     
-    
-    func routeToHome() {
-        let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
-        navigationController?.pushViewController(homeVC, animated: true)
-    }
 }
 
 extension LoginViewController {
@@ -161,10 +160,6 @@ extension LoginViewController {
         }
         return isValid
         
-    }
-    
-    func loginSuccess() {
-        print("Route to main")
     }
     
     func loginValidateFailure(field: LoginFormField, message: String?) {

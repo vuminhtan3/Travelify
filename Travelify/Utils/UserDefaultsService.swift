@@ -20,6 +20,8 @@ class UserDefaultsService {
     
     private enum Keys: String {
         case kCompletedOnboarding
+        case kLoggedIn
+        case kFirstTimeSetProfile
     }
     /**
      Prevent declare second instance of class from outside
@@ -49,8 +51,30 @@ class UserDefaultsService {
         }
     }
     
+    var isLoggedIn: Bool {
+        get {
+            return standard.bool(forKey: Keys.kLoggedIn.rawValue)
+        }
+        set {
+            standard.set(newValue, forKey: Keys.kLoggedIn.rawValue)
+            standard.synchronize()
+        }
+    }
+    
+    var isFirstTimeSetProfile: Bool {
+        get {
+            return standard.bool(forKey: Keys.kFirstTimeSetProfile.rawValue)
+        }
+        set {
+            standard.set(newValue, forKey: Keys.kFirstTimeSetProfile.rawValue)
+            standard.synchronize()
+        }
+    }
+    
     func clearAll() {
         standard.removeObject(forKey: Keys.kCompletedOnboarding.rawValue)
+        standard.removeObject(forKey: Keys.kLoggedIn.rawValue)
+        standard.removeObject(forKey: Keys.kFirstTimeSetProfile.rawValue)
     }
     
 }
