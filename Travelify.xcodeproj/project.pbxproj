@@ -21,6 +21,8 @@
 		B449FE352A655886003960B1 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B449FE342A655886003960B1 /* OnboardingViewController.xib */; };
 		B449FE3E2A693CA6003960B1 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B449FE3D2A693CA6003960B1 /* UserDefaultsService.swift */; };
 		B449FE402A693E2F003960B1 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B449FE3F2A693E2F003960B1 /* RegisterViewController.xib */; };
+		B44E7A932A8B8E6A005B851F /* ChooseEntryPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44E7A912A8B8E6A005B851F /* ChooseEntryPointViewController.swift */; };
+		B44E7A942A8B8E6A005B851F /* ChooseEntryPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B44E7A922A8B8E6A005B851F /* ChooseEntryPointViewController.xib */; };
 		B483C5A02A57FD2A004DD3AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483C59F2A57FD2A004DD3AA /* AppDelegate.swift */; };
 		B483C5A22A57FD2A004DD3AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483C5A12A57FD2A004DD3AA /* SceneDelegate.swift */; };
 		B483C5A42A57FD2A004DD3AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483C5A32A57FD2A004DD3AA /* ViewController.swift */; };
@@ -30,8 +32,9 @@
 		B483C5B52A57FEB7004DD3AA /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483C5B32A57FEB7004DD3AA /* OnboardingViewController.swift */; };
 		B483C5BC2A57FF66004DD3AA /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483C5BA2A57FF66004DD3AA /* OnboardingCollectionViewCell.swift */; };
 		B483C5BD2A57FF66004DD3AA /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B483C5BB2A57FF66004DD3AA /* OnboardingCollectionViewCell.xib */; };
-		B483C5C02A5834C6004DD3AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B483C5BF2A5834C6004DD3AA /* GoogleService-Info.plist */; };
 		B483C5C22A5836EB004DD3AA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483C5C12A5836EB004DD3AA /* RegisterViewController.swift */; };
+		B4854D972A84129500C9BB6F /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4854D962A84129500C9BB6F /* ProfileModel.swift */; };
+		B4854D9B2A8B47D300C9BB6F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B4854D9A2A8B47D200C9BB6F /* GoogleService-Info.plist */; };
 		B4B7DFAF2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B7DFAE2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift */; };
 		B4B7DFB82A75907B00159B7B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B7DFB62A75907B00159B7B /* HomeViewController.swift */; };
 		B4B7DFB92A75907B00159B7B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B7DFB72A75907B00159B7B /* HomeViewController.xib */; };
@@ -61,6 +64,8 @@
 		B449FE342A655886003960B1 /* OnboardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		B449FE3D2A693CA6003960B1 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		B449FE3F2A693E2F003960B1 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		B44E7A912A8B8E6A005B851F /* ChooseEntryPointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseEntryPointViewController.swift; sourceTree = "<group>"; };
+		B44E7A922A8B8E6A005B851F /* ChooseEntryPointViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseEntryPointViewController.xib; sourceTree = "<group>"; };
 		B483C59C2A57FD2A004DD3AA /* Travelify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travelify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B483C59F2A57FD2A004DD3AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B483C5A12A57FD2A004DD3AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,8 +77,9 @@
 		B483C5B32A57FEB7004DD3AA /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		B483C5BA2A57FF66004DD3AA /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		B483C5BB2A57FF66004DD3AA /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
-		B483C5BF2A5834C6004DD3AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B483C5C12A5836EB004DD3AA /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		B4854D962A84129500C9BB6F /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		B4854D9A2A8B47D200C9BB6F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B4B7DFAE2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleFirebaseErrorExtension.swift; sourceTree = "<group>"; };
 		B4B7DFB62A75907B00159B7B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B4B7DFB72A75907B00159B7B /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -149,6 +155,7 @@
 				B445E7B12A7A8C7E00766405 /* ProfileViewController.xib */,
 				B445E7B72A7B9D9200766405 /* EditProfileViewController.swift */,
 				B445E7B82A7B9D9200766405 /* EditProfileViewController.xib */,
+				B4854D962A84129500C9BB6F /* ProfileModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -182,8 +189,8 @@
 				B483C5B82A57FEC5004DD3AA /* Screens */,
 				B483C5A82A57FD2C004DD3AA /* Assets.xcassets */,
 				B483C5AA2A57FD2C004DD3AA /* LaunchScreen.storyboard */,
+				B4854D9A2A8B47D200C9BB6F /* GoogleService-Info.plist */,
 				B483C5AD2A57FD2C004DD3AA /* Info.plist */,
-				B483C5BF2A5834C6004DD3AA /* GoogleService-Info.plist */,
 			);
 			path = Travelify;
 			sourceTree = "<group>";
@@ -194,6 +201,8 @@
 				B483C5B32A57FEB7004DD3AA /* OnboardingViewController.swift */,
 				B449FE342A655886003960B1 /* OnboardingViewController.xib */,
 				B483C5B92A57FF4C004DD3AA /* Cell */,
+				B44E7A912A8B8E6A005B851F /* ChooseEntryPointViewController.swift */,
+				B44E7A922A8B8E6A005B851F /* ChooseEntryPointViewController.xib */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -322,13 +331,14 @@
 				B483C5A92A57FD2C004DD3AA /* Assets.xcassets in Resources */,
 				B42079D42A6A7F9A008AA03F /* ForgotPasswordViewController.xib in Resources */,
 				B449FE402A693E2F003960B1 /* RegisterViewController.xib in Resources */,
-				B483C5C02A5834C6004DD3AA /* GoogleService-Info.plist in Resources */,
 				B483C5A72A57FD2A004DD3AA /* Main.storyboard in Resources */,
 				B4B7DFB92A75907B00159B7B /* HomeViewController.xib in Resources */,
 				B445E7BA2A7B9D9200766405 /* EditProfileViewController.xib in Resources */,
 				B483C5BD2A57FF66004DD3AA /* OnboardingCollectionViewCell.xib in Resources */,
 				B449FE352A655886003960B1 /* OnboardingViewController.xib in Resources */,
+				B44E7A942A8B8E6A005B851F /* ChooseEntryPointViewController.xib in Resources */,
 				B4B7DFBE2A7592D000159B7B /* SuggestCollectionViewCell.xib in Resources */,
+				B4854D9B2A8B47D300C9BB6F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,8 +404,10 @@
 				B445E7B22A7A8C7E00766405 /* ProfileViewController.swift in Sources */,
 				B449FE3E2A693CA6003960B1 /* UserDefaultsService.swift in Sources */,
 				B4BAAD432A6E618600599DB8 /* Validator.swift in Sources */,
+				B44E7A932A8B8E6A005B851F /* ChooseEntryPointViewController.swift in Sources */,
 				B483C5A02A57FD2A004DD3AA /* AppDelegate.swift in Sources */,
 				B42079C72A6A69D4008AA03F /* ExtensionHexColor.swift in Sources */,
+				B4854D972A84129500C9BB6F /* ProfileModel.swift in Sources */,
 				B483C5BC2A57FF66004DD3AA /* OnboardingCollectionViewCell.swift in Sources */,
 				B483C5C22A5836EB004DD3AA /* RegisterViewController.swift in Sources */,
 				B42079CF2A6A7859008AA03F /* ExtensionShowloading.swift in Sources */,
@@ -476,7 +488,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -530,7 +542,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -551,6 +563,10 @@
 				DEVELOPMENT_TEAM = 42823CRJW7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Travelify/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Cho phép mở thư viện";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Cho phép mở camera";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Cho phép sử dụng micro";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Cho phép truy cập vào Album Ảnh";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -580,6 +596,10 @@
 				DEVELOPMENT_TEAM = 42823CRJW7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Travelify/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Cho phép mở thư viện";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Cho phép mở camera";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Cho phép sử dụng micro";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Cho phép truy cập vào Album Ảnh";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

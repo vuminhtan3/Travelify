@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    static let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -23,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.keyboardDistanceFromTextField = 100
         IQKeyboardManager.shared.keyboardAppearance = .default
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
-        
         
         return true
     }

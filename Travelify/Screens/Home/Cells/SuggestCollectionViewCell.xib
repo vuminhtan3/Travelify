@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,11 +20,11 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding8" translatesAutoresizingMaskIntoConstraints="NO" id="wEi-KD-kV0">
                         <rect key="frame" x="0.0" y="0.0" width="130" height="180"/>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R3P-zM-xch" customClass="GradientView" customModule="Travelify" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="130" height="180"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R3P-zM-xch" customClass="GradientView3" customModule="Travelify" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="90" width="130" height="90"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="as9-bC-T6X">
-                        <rect key="frame" x="6" y="115" width="118" height="60"/>
+                        <rect key="frame" x="6" y="135" width="118" height="40"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tam đảo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uu1-5N-Uyz">
                                 <rect key="frame" x="0.0" y="0.0" width="67.666666666666671" height="20.333333333333332"/>
@@ -31,22 +32,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vĩnh Phúc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ErF-It-fgw">
-                                <rect key="frame" x="15" y="23.666666666666657" width="61" height="15.666666666666664"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mappin.and.ellipse" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kFb-ED-4QM">
-                                <rect key="frame" x="0.0" y="25.333333333333343" width="12" height="12"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="12" id="9SK-cd-gRu"/>
-                                    <constraint firstAttribute="width" secondItem="kFb-ED-4QM" secondAttribute="height" id="tMg-IF-hCM"/>
-                                </constraints>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="axw-ir-Nnc">
-                                <rect key="frame" x="0.0" y="42.333333333333343" width="68" height="12"/>
+                                <rect key="frame" x="0.0" y="25.333333333333343" width="68" height="12"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="PYY-On-A7c">
                                         <rect key="frame" x="0.0" y="-0.33333333333333215" width="12" height="11.666666666666666"/>
@@ -86,14 +73,10 @@
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="ErF-It-fgw" firstAttribute="leading" secondItem="kFb-ED-4QM" secondAttribute="trailing" constant="3" id="AcP-Ou-wza"/>
+                            <constraint firstItem="axw-ir-Nnc" firstAttribute="top" secondItem="uu1-5N-Uyz" secondAttribute="bottom" constant="5" id="E6D-dv-Faj"/>
                             <constraint firstItem="uu1-5N-Uyz" firstAttribute="top" secondItem="as9-bC-T6X" secondAttribute="top" id="GSP-d9-LaE"/>
                             <constraint firstItem="uu1-5N-Uyz" firstAttribute="leading" secondItem="as9-bC-T6X" secondAttribute="leading" id="Vz3-Rk-W9j"/>
                             <constraint firstItem="axw-ir-Nnc" firstAttribute="leading" secondItem="as9-bC-T6X" secondAttribute="leading" id="ZY7-2y-3ak"/>
-                            <constraint firstItem="axw-ir-Nnc" firstAttribute="top" secondItem="ErF-It-fgw" secondAttribute="bottom" constant="3" id="Zba-Av-qzc"/>
-                            <constraint firstItem="kFb-ED-4QM" firstAttribute="leading" secondItem="as9-bC-T6X" secondAttribute="leading" id="jUh-qF-IHK"/>
-                            <constraint firstItem="ErF-It-fgw" firstAttribute="centerY" secondItem="kFb-ED-4QM" secondAttribute="centerY" id="n8b-pi-Q6o"/>
-                            <constraint firstItem="kFb-ED-4QM" firstAttribute="top" secondItem="uu1-5N-Uyz" secondAttribute="bottom" constant="5" id="v9X-rN-Wec"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -105,26 +88,24 @@
                 <constraint firstItem="as9-bC-T6X" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="Ss5-mE-cqX"/>
                 <constraint firstItem="R3P-zM-xch" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Wr7-XD-0Nk"/>
                 <constraint firstAttribute="trailing" secondItem="R3P-zM-xch" secondAttribute="trailing" id="YYT-Rd-7Ef"/>
-                <constraint firstItem="R3P-zM-xch" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bNb-Yp-Cc0"/>
+                <constraint firstItem="R3P-zM-xch" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="bNb-Yp-Cc0"/>
                 <constraint firstAttribute="trailing" secondItem="as9-bC-T6X" secondAttribute="trailing" constant="6" id="cnJ-ke-SVA"/>
                 <constraint firstItem="wEi-KD-kV0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="et6-mV-SAe"/>
                 <constraint firstItem="wEi-KD-kV0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fYo-ex-MAw"/>
                 <constraint firstAttribute="bottom" secondItem="R3P-zM-xch" secondAttribute="bottom" id="jUu-hg-rtb"/>
-                <constraint firstItem="as9-bC-T6X" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="55" id="rkb-LQ-mg3"/>
+                <constraint firstItem="as9-bC-T6X" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="65" id="rkb-LQ-mg3"/>
                 <constraint firstAttribute="trailing" secondItem="wEi-KD-kV0" secondAttribute="trailing" id="xDu-Ng-0Zv"/>
             </constraints>
             <size key="customSize" width="130" height="180"/>
             <connections>
                 <outlet property="backgroundImgView" destination="wEi-KD-kV0" id="QXa-ph-BRQ"/>
                 <outlet property="gradientView" destination="R3P-zM-xch" id="s4A-oR-MGO"/>
-                <outlet property="locationLb" destination="ErF-It-fgw" id="zWC-9L-SCy"/>
                 <outlet property="nameLb" destination="uu1-5N-Uyz" id="YUn-C4-feQ"/>
             </connections>
             <point key="canvasLocation" x="170.99236641221373" y="65.492957746478879"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="mappin.and.ellipse" catalog="system" width="117" height="128"/>
         <image name="onboarding8" width="564" height="846"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
     </resources>

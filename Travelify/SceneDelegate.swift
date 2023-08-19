@@ -24,43 +24,66 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         (UIApplication.shared.delegate as? AppDelegate)?.window = window
         
         let isCompleteOnboarding = UserDefaultsService.shared.completedOnboarding
+        let isLoggedIn = UserDefaultsService.shared.isLoggedIn
+        let isFirstTimeSetProfile = UserDefaultsService.shared.isFirstTimeSetProfile
+        
+        //Kiểm tra xem người dùng đã hoàn thành Onboarding Screen và check đăng nhập
         if isCompleteOnboarding {
-            if Auth.auth().currentUser != nil {
+            if isLoggedIn && isFirstTimeSetProfile {
+                routeToSetProfile()
+            } else if isLoggedIn {
                 routeToHome()
             } else {
-                routeToLogin()
+                routeToChooseEntryPoint()
             }
         } else {
             routeToOnboarding()
         }
         
-        func routeToLogin() {
-            let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
-            let nav = UINavigationController(rootViewController: loginVC)
-            window?.rootViewController = nav
-            window?.makeKeyAndVisible()
-        }
-        
-        func routeToRegister() {
-            let registerVC = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
-            let nav = UINavigationController(rootViewController: registerVC)
-            window?.rootViewController = nav
-            window?.makeKeyAndVisible()
-        }
-        
-        func routeToOnboarding() {
-            let onboardingVC = OnboardingViewController(nibName: "OnboardingViewController", bundle: nil)
-            let nav = UINavigationController(rootViewController: onboardingVC)
-            window?.rootViewController = nav
-            window?.makeKeyAndVisible()
-        }
-        
-        func routeToHome() {
-            let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
-            let nav = UINavigationController(rootViewController: homeVC)
-            window?.rootViewController = nav
-            window?.makeKeyAndVisible()
-        }
+    }
+    
+    
+    func routeToLogin() {
+        let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        let nav = UINavigationController(rootViewController: loginVC)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
+    }
+    
+    func routeToRegister() {
+        let registerVC = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
+        let nav = UINavigationController(rootViewController: registerVC)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
+    }
+    
+    func routeToOnboarding() {
+        let onboardingVC = OnboardingViewController(nibName: "OnboardingViewController", bundle: nil)
+        let nav = UINavigationController(rootViewController: onboardingVC)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
+    }
+    
+    func routeToChooseEntryPoint() {
+        let chooseEntryPointVC = ChooseEntryPointViewController(nibName: "ChooseEntryPointViewController", bundle: nil)
+        let nav = UINavigationController(rootViewController: chooseEntryPointVC)
+        guard let window = (UIApplication.shared.delegate as? AppDelegate)?.window else {return}
+        window.rootViewController = nav
+        window.makeKeyAndVisible()
+    }
+    
+    func routeToHome() {
+        let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
+        let nav = UINavigationController(rootViewController: homeVC)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
+    }
+    
+    func routeToSetProfile() {
+        let setProfile = EditProfileViewController(nibName: "EditProfileViewController", bundle: nil)
+        let nav = UINavigationController(rootViewController: setProfile)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
