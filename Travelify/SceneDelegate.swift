@@ -30,8 +30,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //Kiểm tra xem người dùng đã hoàn thành Onboarding Screen và check đăng nhập
         if isCompleteOnboarding {
             if isLoggedIn && isFirstTimeSetProfile {
-                
-                //App bị crash ko rõ nguyên nhân khi chưa setup profile mà thoát app
                 routeToSetProfile()
             } else if isLoggedIn {
                 routeToHome()

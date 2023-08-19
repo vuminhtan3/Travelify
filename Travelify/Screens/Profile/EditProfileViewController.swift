@@ -12,6 +12,7 @@ import FirebaseStorage
 import Kingfisher
 import ActionSheetPicker_3_0
 import DropDown
+import Photos
 
 class EditProfileViewController: UIViewController {
 
@@ -35,7 +36,7 @@ class EditProfileViewController: UIViewController {
     let genderDropdown = DropDown()
     let gender: [String] = ["Khác", "Nam", "Nữ"]
     var currentUser: UserProfile?
-    private var imageTemp = UIImage(systemName: "person.circle")
+    private var imageTemp: UIImage?
     private var databaseRef: DatabaseReference!
     private let storage = Storage.storage().reference()
     
@@ -64,21 +65,21 @@ class EditProfileViewController: UIViewController {
         showGenderBtn.layer.borderColor = UIColor.darkGray.cgColor
         showGenderBtn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
         showGenderBtn.layer.masksToBounds = true
+        emailTF.text = Auth.auth().currentUser?.email!
         
         setupUITextView()
         emailTF.isEnabled = false
         
         //Check Name đã được điền hay chưa để bật nút save
-        nameTF.delegate = self
-        saveBtn.isEnabled = false
+//        nameTF.delegate = self
+//        saveBtn.isEnabled = false
         
         databaseRef = Database.database().reference()
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         guard let currentUser = Auth.auth().currentUser?.uid else { return }
         let userRef = databaseRef.child("users").child(currentUser)
         userRef.observeSingleEvent(of: .value) { snapshot in
@@ -87,13 +88,13 @@ class EditProfileViewController: UIViewController {
                 let name = userData["name"] as? String ?? ""
                 let gender = userData["gender"] as? String ?? ""
                 let age = userData["age"] as? Int ?? 0
-                let email = Auth.auth().currentUser?.email as! String
+                let email = Auth.auth().currentUser?.email!
                 let address = userData["address"] as? String ?? ""
                 let phoneNumber = userData["phoneNumber"] as? String ?? ""
                 let bio = userData["bio"] as? String ?? ""
                 let image = userData["image"] as? String ?? ""
                 
-//                self.currentUser = UserProfile(id: id, name: name, gender: gender, age: age, email: email, address: address, phoneNumber: phoneNumber, bio: bio, image: image)
+                self.currentUser = UserProfile(id: id, name: name, gender: gender, age: age, email: email!, address: address, phoneNumber: phoneNumber, bio: bio, image: image)
                 
                 //Download ảnh từ url trong firebase database
                 if let imageURL = URL(string: image) {
@@ -108,7 +109,8 @@ class EditProfileViewController: UIViewController {
                 self.emailTF.text = email
                 self.addressTF.text = address
                 self.phoneNumberTF.text = phoneNumber
-                
+             
+                print("Image URL: \(image)")
             }
         }
     }
@@ -153,6 +155,17 @@ class EditProfileViewController: UIViewController {
            let newAddress = addressTF.text,
            let newPhoneNumber = phoneNumberTF.text,
            let newBio = bioTextView.text == "Giới thiệu bản thân" ? "N/A" : bioTextView.text {
+            
+            let user = UserProfile(id: currentUser.uid, name: newName, gender: newGender, age: newAge, email: currentUser.email!, address: newAddress, phoneNumber: newPhoneNumber, bio: newBio)
+            
+            //Có bug khi thay đổi thông tin mà KHÔNG thay đổi ảnh -> ấn lưu sẽ bị đẩy về ảnh mặc định
+            if let imageTemp = imageTemp {
+                DispatchQueue.main.async {
+                    self.uploadImage(imageTemp)
+                }
+            }
+            
+            print("😂 \(self.currentUser?.image)")
             databaseRef.child("users").child(currentUser.uid).setValue([
                 "id": currentUser.uid,
                 "name": newName,
@@ -161,18 +174,20 @@ class EditProfileViewController: UIViewController {
                 "email": currentUser.email,
                 "address": newAddress,
                 "phoneNumber": newPhoneNumber,
-                "bio": newBio
+                "bio": newBio,
+                "image": self.currentUser?.image
             ])
-            
-            //Có bug khi thay đổi thông tin mà KHÔNG thay đổi ảnh -> ấn lưu sẽ bị đẩy về ảnh mặc định
-            uploadImage(imageTemp!)
         }
         
         let alert = UIAlertController(title: "Thành công", message: "Cập nhật thông tin thành công", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            
-            UserDefaultsService.shared.isFirstTimeSetProfile = false
-            self.routeToProfile()
+            let isFirstTimeSetProfile = UserDefaultsService.shared.isFirstTimeSetProfile
+            if isFirstTimeSetProfile {
+                AppDelegate.scene?.routeToHome()
+                UserDefaultsService.shared.isFirstTimeSetProfile = false
+            } else {
+                self.routeToProfile()
+            }
         }))
         present(alert, animated: true)
     }
@@ -208,7 +223,7 @@ class EditProfileViewController: UIViewController {
                 let userRef = self.databaseRef.child("users").child(currentUser).child("image")
                 userRef.setValue(downloadURL.absoluteString)
                 
-                print("Image URL: \(downloadURL)")
+//                print("Image URL: \(downloadURL)")
                 
                 
             }
@@ -237,10 +252,10 @@ class EditProfileViewController: UIViewController {
     func handleChooseAvatar() {
         let alertViewController = UIAlertController(title: "Chọn Ảnh", message: "", preferredStyle: .actionSheet)
         let camera = UIAlertAction(title: "Camera", style: .default) { (_) in
-            self.openCamera()
+            self.openFromCamera()
         }
         let gallery = UIAlertAction(title: "Bộ sưu tập", style: .default) { (_) in
-            self.openGallery()
+            self.openFromLibrary()
         }
         let cancel = UIAlertAction(title: "Huỷ bỏ", style: .cancel) { (_) in
             //cancel
@@ -251,6 +266,29 @@ class EditProfileViewController: UIViewController {
         self.present(alertViewController, animated: true)
     }
     
+    //MARK: - Resize Image before Upload to Firebase
+    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+            let size = image.size
+
+            let widthRatio  = targetSize.width  / image.size.width
+            let heightRatio = targetSize.height / image.size.height
+
+            var newSize: CGSize
+            if(widthRatio > heightRatio) {
+                newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+            } else {
+                newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
+            }
+
+            let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+
+            UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+            image.draw(in: rect)
+            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+
+            return newImage!
+        }
 }
 
 
@@ -274,44 +312,88 @@ extension EditProfileViewController: UITextViewDelegate {
 //MARK: - UIImagePicker
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
-    fileprivate func openCamera() {
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+    func openSettingCamera() {
+        guard let settingURL = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+        DispatchQueue.main.async {
+            UIApplication.shared.open(settingURL)
+        }
+    }
+    
+    func openFromLibrary() {
+        PHPhotoLibrary.requestAuthorization(for: .addOnly) { status in
             
-            /// Cho phép edit ảnh hay không
-            imagePicker.allowsEditing = true
-            present(imagePicker, animated: true)
-        } else {
-            let alertWarning = UIAlertController(title: "Lỗi", message: "Camera không có sẵn", preferredStyle: .alert)
-            let cancel = UIAlertAction(title: "OK", style: .cancel)
-            alertWarning.addAction(cancel)
-            self.present(alertWarning, animated: true)
+            if status == .authorized {
+                //Quyền truy cập thư viện đã được cấp
+                DispatchQueue.main.async {
+                    self.imagePicker.allowsEditing = false
+                    self.imagePicker.sourceType = .photoLibrary
+                    self.imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+                    self.imagePicker.modalPresentationStyle = .popover
+                    self.present(self.imagePicker, animated: true)
+                }
+                
+            } else if status == .notDetermined {
+                //Quyền truy cập chưa được xác nhậnVxin
+                self.openSettingCamera()
+            } else if status == .denied {
+                //Quyền truy cập bị từ chối
+                self.openSettingCamera()
+            } else if status == .limited {
+                //Quyền truy cập bị hạn chế
+                self.openSettingCamera()
+            } else if status == .restricted {
+                //Quyền truy cập bị hạn chế
+                self.openSettingCamera()
+            }
         }
     }
     
-    fileprivate func openGallery() {
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            imagePicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
-            imagePicker.sourceType = .photoLibrary
-            /// Cho phép edit ảnh hay không
-            imagePicker.allowsEditing = true
-            present(imagePicker, animated: true)
+    func openFromCamera() {
+        AVCaptureDevice.requestAccess(for: .video) { response in
+            if response {
+                if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                    DispatchQueue.main.async {
+                        self.imagePicker.allowsEditing = true
+                        self.imagePicker.sourceType = UIImagePickerController.SourceType.camera
+                        self.imagePicker.modalPresentationStyle = .fullScreen
+                        self.present(self.imagePicker, animated: true)
+                    }
+                } else {
+                    self.showAlert(title: "Lỗi", message: "Camera không có sẵn")
+                }
+            } else {
+                print("Camera is denied")
+                self.openSettingCamera()
+            }
         }
     }
-    
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let image = info[.originalImage] as? UIImage {
             //handle image
-            self.avatarImgView.image = image
-            imageTemp = image
+            let resizedImage = resizeImage(image: image, targetSize: CGSize(width: 300, height: 300))
+            DispatchQueue.main.async {
+                self.avatarImgView.image = resizedImage
+            }
+            imageTemp = resizedImage
             
         } else if let image = info[.editedImage] as? UIImage {
             //handle image
-            self.avatarImgView.image = image
-            imageTemp = image
+            let resizedImage = resizeImage(image: image, targetSize: CGSize(width: 300, height: 300))
+            DispatchQueue.main.async {
+                self.avatarImgView.image = resizedImage
+            }
+            imageTemp = resizedImage
+        } else if let image = info[.cropRect] as? UIImage {
+            //handle image
+            let resizedImage = resizeImage(image: image, targetSize: CGSize(width: 300, height: 300))
+            self.avatarImgView.image = resizedImage
+            imageTemp = resizedImage
         }
+        
         imagePicker.dismiss(animated: true)
     }
     
@@ -320,6 +402,7 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
     }
 }
 
+/*
 //MARK: - TextField Delegate methods
 extension EditProfileViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
@@ -331,3 +414,4 @@ extension EditProfileViewController: UITextFieldDelegate {
         }
     }
 }
+*/

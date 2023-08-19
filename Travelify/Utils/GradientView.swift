@@ -10,8 +10,7 @@ import UIKit
 
 class GradientView: UIView {
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    func setup() {
         
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
@@ -20,12 +19,19 @@ class GradientView: UIView {
         gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
         layer.addSublayer(gradientLayer)
     }
-}
-
-class GradientView2: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setup()
+    }
+    
+    override func layoutSubviews() {
+        setup()
+    }
+}
+
+class GradientView2: UIView {
+    func setup() {
         let startColor = UIColor(red: 0.99, green: 0.84, blue: 0.47, alpha: 1.00)
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
@@ -34,12 +40,19 @@ class GradientView2: UIView {
         gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
         layer.addSublayer(gradientLayer)
     }
-}
-
-class GradientView3: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setup()
+    }
+    
+    override func layoutSubviews() {
+        setup()
+    }
+}
+
+class GradientView3: UIView {
+    func setup() {
         
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
@@ -47,6 +60,15 @@ class GradientView3: UIView {
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
         layer.addSublayer(gradientLayer)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setup()
+    }
+    
+    override func layoutSubviews() {
+        setup()
     }
 }
 

@@ -40,7 +40,7 @@ class LoginViewController: UIViewController {
     
     func setupView() {
         emailTF.text = "123@gmail.com"
-        passwordTF.text = "Minhtan97@"
+        passwordTF.text = "Minhtan97"
         
         emailWarningLb.isHidden = true
         passwordWarningLb.isHidden = true

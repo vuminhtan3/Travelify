@@ -20,6 +20,7 @@ class CustomUITextField: UITextField {
         let bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0, y: Double(self.frame.height) - 1, width: Double(self.frame.width), height: 1)
         bottomLine.backgroundColor = UIColor.lightGray.cgColor
+//        self.layer.masksToBounds = true
         self.borderStyle = BorderStyle.none
         self.layer.addSublayer(bottomLine)
     }
@@ -30,6 +31,10 @@ class CustomUITextField: UITextField {
     }
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        setup()
+    }
+    
+    override func layoutSubviews() {
         setup()
     }
 }

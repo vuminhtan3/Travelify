@@ -7,13 +7,21 @@
 
 import Foundation
 
-enum Gender {
-    case male
-    case female
-    case other
+struct JSON {
+    static let encoder = JSONEncoder()
 }
 
-struct UserProfile {
+extension Encodable {
+    // Convert dữ liệu từ object thành dictionary
+    var dictionary: [String: Any] {
+        return (try? JSONSerialization.jsonObject(with: JSON.encoder.encode(self))) as? [String: Any] ?? [:]
+    }
+    subscript(key: String) -> Any? {
+        return dictionary[key]
+    }
+}
+
+struct UserProfile: Codable {
     var id: String
     var name: String
     var gender: String?
@@ -24,3 +32,4 @@ struct UserProfile {
     var bio: String?
     var image: String?
 }
+

@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="130" height="180"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R3P-zM-xch" customClass="GradientView3" customModule="Travelify" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="130" height="180"/>
+                        <rect key="frame" x="0.0" y="90" width="130" height="90"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="as9-bC-T6X">
                         <rect key="frame" x="6" y="135" width="118" height="40"/>
@@ -88,7 +88,7 @@
                 <constraint firstItem="as9-bC-T6X" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="Ss5-mE-cqX"/>
                 <constraint firstItem="R3P-zM-xch" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Wr7-XD-0Nk"/>
                 <constraint firstAttribute="trailing" secondItem="R3P-zM-xch" secondAttribute="trailing" id="YYT-Rd-7Ef"/>
-                <constraint firstItem="R3P-zM-xch" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bNb-Yp-Cc0"/>
+                <constraint firstItem="R3P-zM-xch" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="bNb-Yp-Cc0"/>
                 <constraint firstAttribute="trailing" secondItem="as9-bC-T6X" secondAttribute="trailing" constant="6" id="cnJ-ke-SVA"/>
                 <constraint firstItem="wEi-KD-kV0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="et6-mV-SAe"/>
                 <constraint firstItem="wEi-KD-kV0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fYo-ex-MAw"/>

@@ -563,6 +563,10 @@
 				DEVELOPMENT_TEAM = 42823CRJW7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Travelify/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Cho phép mở thư viện";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Cho phép mở camera";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Cho phép sử dụng micro";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Cho phép truy cập vào Album Ảnh";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -592,6 +596,10 @@
 				DEVELOPMENT_TEAM = 42823CRJW7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Travelify/Info.plist;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Cho phép mở thư viện";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Cho phép mở camera";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Cho phép sử dụng micro";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Cho phép truy cập vào Album Ảnh";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -20,7 +20,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var emailLb: UILabel!
     @IBOutlet weak var logoutBtn: UIButton!
     @IBOutlet weak var addressLb: UILabel!
-    @IBOutlet weak var changeImageBtn: UIButton!
     
     var databaseRef = Database.database().reference()
     var currentUser: UserProfile?
@@ -42,12 +41,6 @@ class ProfileViewController: UIViewController {
         avatarImgView.layer.borderColor = UIColor.white.cgColor
         avatarImgView.layer.borderWidth = 5
         avatarImgView.layer.masksToBounds = true
-        changeImageBtn.layer.cornerRadius = changeImageBtn.frame.height/2
-        changeImageBtn.layer.borderColor = UIColor.lightGray.cgColor
-        changeImageBtn.layer.borderWidth = 1
-        changeImageBtn.layer.masksToBounds = true
-        changeImageBtn.backgroundColor = .white
-        changeImageBtn.isHidden = true
         
         infoStackView.layer.cornerRadius = 20
         infoStackView.layer.masksToBounds = true
@@ -63,10 +56,11 @@ class ProfileViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         guard let currentUser = Auth.auth().currentUser?.uid else { return }
+        print(currentUser)
         let userRef = databaseRef.child("users").child(currentUser)
         userRef.observeSingleEvent(of: .value) { snapshot in
             if let userData = snapshot.value as? [String: Any] {
@@ -96,18 +90,13 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    func bindData() {
-        
-    }
 
-    @IBAction func changeImageBtnTapped(_ sender: UIButton) {
-    }
-    
     @IBAction func logoutBtnTapped(_ sender: UIButton) {
         do {
             try Auth.auth().signOut()
             UserDefaultsService.shared.isLoggedIn = false
             routeToLogin()
+            print(Auth.auth().currentUser?.uid)
         } catch let signOutError as NSError {
             let alert = UIAlertController(title: "Lỗi", message: signOutError.localizedDescription, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))

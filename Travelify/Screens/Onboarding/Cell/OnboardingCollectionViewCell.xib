@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="589" height="1121"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPF-jl-mH2" customClass="GradientView" customModule="Travelify" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="589" height="1121"/>
+                        <rect key="frame" x="0.0" y="560.66666666666652" width="589" height="560.33333333333348"/>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAG-16-LWY">
                         <rect key="frame" x="50" y="1031" width="489" height="40"/>
@@ -86,7 +86,7 @@
                 <constraint firstAttribute="bottom" secondItem="uAG-16-LWY" secondAttribute="bottom" constant="50" id="Hio-3O-Lpt"/>
                 <constraint firstAttribute="trailing" secondItem="RG6-wj-0Np" secondAttribute="trailing" constant="20" id="HtK-fV-7ca"/>
                 <constraint firstItem="a4Z-pV-Boe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="InD-JU-yun"/>
-                <constraint firstItem="oPF-jl-mH2" firstAttribute="top" secondItem="a4Z-pV-Boe" secondAttribute="top" id="SVQ-8t-Hau"/>
+                <constraint firstItem="oPF-jl-mH2" firstAttribute="top" secondItem="a4Z-pV-Boe" secondAttribute="centerY" id="SVQ-8t-Hau"/>
                 <constraint firstItem="RG6-wj-0Np" firstAttribute="top" secondItem="zDu-Lp-1Lv" secondAttribute="bottom" constant="15" id="TZa-5f-iYh"/>
                 <constraint firstAttribute="bottom" secondItem="a4Z-pV-Boe" secondAttribute="bottom" id="XiS-tw-lkd"/>
                 <constraint firstItem="a4Z-pV-Boe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="aTc-ua-tbK"/>
