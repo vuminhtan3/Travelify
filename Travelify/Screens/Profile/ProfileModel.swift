@@ -30,6 +30,6 @@ struct UserProfile: Codable {
     var address: String?
     var phoneNumber: String?
     var bio: String?
-    var image: String?
+    var avatar: String?
 }
 

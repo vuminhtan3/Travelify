@@ -64,6 +64,7 @@ class EditProfileViewController: UIViewController {
         showGenderBtn.layer.borderWidth = 1
         showGenderBtn.layer.borderColor = UIColor.darkGray.cgColor
         showGenderBtn.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+        showGenderBtn.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8)
         showGenderBtn.layer.masksToBounds = true
         emailTF.text = Auth.auth().currentUser?.email!
         
@@ -92,12 +93,12 @@ class EditProfileViewController: UIViewController {
                 let address = userData["address"] as? String ?? ""
                 let phoneNumber = userData["phoneNumber"] as? String ?? ""
                 let bio = userData["bio"] as? String ?? ""
-                let image = userData["image"] as? String ?? ""
+                let avatar = userData["avatar"] as? String ?? ""
                 
-                self.currentUser = UserProfile(id: id, name: name, gender: gender, age: age, email: email!, address: address, phoneNumber: phoneNumber, bio: bio, image: image)
+                self.currentUser = UserProfile(id: id, name: name, gender: gender, age: age, email: email!, address: address, phoneNumber: phoneNumber, bio: bio, avatar: avatar)
                 
                 //Download ảnh từ url trong firebase database
-                if let imageURL = URL(string: image) {
+                if let imageURL = URL(string: avatar) {
                     self.avatarImgView.kf.setImage(with: imageURL)
                 }
                 
@@ -110,7 +111,7 @@ class EditProfileViewController: UIViewController {
                 self.addressTF.text = address
                 self.phoneNumberTF.text = phoneNumber
              
-                print("Image URL: \(image)")
+                print("Image URL: \(avatar)")
             }
         }
     }
@@ -165,17 +166,17 @@ class EditProfileViewController: UIViewController {
                 }
             }
             
-            print("😂 \(self.currentUser?.image)")
+            print("😂 \(self.currentUser?.avatar)")
             databaseRef.child("users").child(currentUser.uid).setValue([
                 "id": currentUser.uid,
                 "name": newName,
                 "gender": newGender,
                 "age": newAge,
-                "email": currentUser.email,
+                "email": currentUser.email!,
                 "address": newAddress,
                 "phoneNumber": newPhoneNumber,
                 "bio": newBio,
-                "image": self.currentUser?.image
+                "avatar": self.currentUser?.avatar
             ])
         }
         
@@ -220,7 +221,7 @@ class EditProfileViewController: UIViewController {
                 
                 //Lưu URL ảnh vào dữ liệu user
                 guard let currentUser = Auth.auth().currentUser?.uid else {return}
-                let userRef = self.databaseRef.child("users").child(currentUser).child("image")
+                let userRef = self.databaseRef.child("users").child(currentUser).child("avatar")
                 userRef.setValue(downloadURL.absoluteString)
                 
 //                print("Image URL: \(downloadURL)")
@@ -327,7 +328,7 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
             if status == .authorized {
                 //Quyền truy cập thư viện đã được cấp
                 DispatchQueue.main.async {
-                    self.imagePicker.allowsEditing = false
+                    self.imagePicker.allowsEditing = true
                     self.imagePicker.sourceType = .photoLibrary
                     self.imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
                     self.imagePicker.modalPresentationStyle = .popover
