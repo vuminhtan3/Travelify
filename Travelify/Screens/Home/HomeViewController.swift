@@ -120,7 +120,9 @@ extension HomeViewController: UICollectionViewDataSource {
 
 //MARK: - CollectionView Delegate Methods
 extension HomeViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.routeToDetail()
+    }
 }
 
 //MARK: - TableView HighRating Datasource Methods
@@ -147,5 +149,16 @@ extension HomeViewController: UITableViewDataSource {
 
 //MARK: - TableView HighRating Delegate Methods
 extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.routeToDetail()
+    }
     
+    
+}
+//MARK: - Navigate Screen
+extension HomeViewController {
+    func routeToDetail() {
+        let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }

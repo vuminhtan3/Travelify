@@ -21,7 +21,7 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding4" translatesAutoresizingMaskIntoConstraints="NO" id="a4Z-pV-Boe">
                         <rect key="frame" x="0.0" y="0.0" width="589" height="1121"/>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPF-jl-mH2" customClass="GradientView" customModule="Travelify" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPF-jl-mH2" customClass="GradientView3" customModule="Travelify" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="560.66666666666652" width="589" height="560.33333333333348"/>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAG-16-LWY">
