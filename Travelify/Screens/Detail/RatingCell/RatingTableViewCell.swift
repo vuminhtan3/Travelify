@@ -19,7 +19,6 @@ class RatingTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     override func prepareForReuse() {
@@ -38,10 +37,10 @@ class RatingTableViewCell: UITableViewCell {
     }
     
     func bindData(userName: String, rating: Double, reviewDescription: String, ratingAction: (() -> Void)? = nil) {
-//        self.ratingAction = ratingAction
-//        self.userNameLb.text = userName
-//        self.userRatingView.rating = rating
-//        self.userReviewLb.text = reviewDescription
+        self.ratingAction = ratingAction
+        self.userNameLb.text = userName
+        self.userRatingView.rating = rating
+        self.userReviewLb.text = reviewDescription
     }
     
 }

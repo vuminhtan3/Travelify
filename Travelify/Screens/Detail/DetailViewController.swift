@@ -11,7 +11,7 @@ import MapKit
 
 class DetailViewController: UIViewController {
     
-    var data: [String] = []
+    var data: [String] = ["akjkbdhjb", "avdbahsbhjdhbshjbssv", "asjkdbsjkbjcbkjdasjkdbsjkbjcbkjdasjkdbsjkbjcbkjdasjkdbsjkbjcbkjdasjkdbsjkbjcbkjdasjkdbsjkbjcbkjdasjkdbsjkbjcbkjdasjkdbsjkbjcbkjd"]
     @IBOutlet weak var largeImgView: UIImageView!
     @IBOutlet weak var nameLb: UILabel!
     @IBOutlet weak var locationLb: UILabel!
@@ -32,10 +32,14 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupRatingTableView()
-//        self.setupData()
+        self.setupData()
         // Do any additional setup after loading the view.
         
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
     }
     
     func setupRatingTableView() {
@@ -44,18 +48,18 @@ class DetailViewController: UIViewController {
         
         //        ratingTableView.register(RatingTableViewCell.self, forCellReuseIdentifier: "RatingTableViewCell")
         ratingTableView.register(UINib(nibName: "RatingTableViewCell", bundle: nil), forCellReuseIdentifier: "RatingTableViewCell")
-        
-        self.ratingTableView.reloadData()
+    
     }
     
     override func viewWillLayoutSubviews() {
-//        self.ratingTableViewHeight.constant = self.ratingTableView.contentSize.height
+        self.ratingTableViewHeight.constant = self.ratingTableView.contentSize.height
     }
     
     private func setupData() {
-//        for i in 0..<10 {
-//            self.data.append("Row \(i+1)")
-//        }
+        for i in 0..<10 {
+            self.data.append("Row \(i+1)")
+        }
+        self.ratingTableView.reloadData()
     }
     
     
@@ -82,11 +86,14 @@ extension DetailViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ratingTableView.dequeueReusableCell(withIdentifier: "RatingTableViewCell", for: indexPath) as! RatingTableViewCell
-//        let cell = UITableViewCell()
 //        cell.backgroundColor = .blue
-//        let model = data[indexPath.row]
-//        cell.bindData(userName: model, rating: 4, reviewDescription: model)
+        let model = data[indexPath.row]
+        cell.bindData(userName: model, rating: Double(Int.random(in: 1...5)), reviewDescription: model)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }
 
