@@ -172,10 +172,4 @@ extension LoginViewController {
             passwordWarningLb.text = message
         }
     }
-    
-    func loginFailure(errorMsg: String?) {
-        let alert = UIAlertController(title: "Login failure", message: errorMsg ?? "Something went wrong", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        self.present(alert, animated: true)
-    }
 }

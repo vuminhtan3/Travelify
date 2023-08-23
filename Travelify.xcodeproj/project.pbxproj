@@ -25,6 +25,9 @@
 		B449FE402A693E2F003960B1 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B449FE3F2A693E2F003960B1 /* RegisterViewController.xib */; };
 		B44E7A932A8B8E6A005B851F /* ChooseEntryPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44E7A912A8B8E6A005B851F /* ChooseEntryPointViewController.swift */; };
 		B44E7A942A8B8E6A005B851F /* ChooseEntryPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B44E7A922A8B8E6A005B851F /* ChooseEntryPointViewController.xib */; };
+		B45B79BC2A95ACBC0072AB19 /* NoInternetAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45B79BA2A95ACBC0072AB19 /* NoInternetAccessViewController.swift */; };
+		B45B79BD2A95ACBC0072AB19 /* NoInternetAccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B45B79BB2A95ACBC0072AB19 /* NoInternetAccessViewController.xib */; };
+		B45B79BF2A95ACDA0072AB19 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45B79BE2A95ACDA0072AB19 /* NetworkMonitor.swift */; };
 		B483C5A02A57FD2A004DD3AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483C59F2A57FD2A004DD3AA /* AppDelegate.swift */; };
 		B483C5A22A57FD2A004DD3AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483C5A12A57FD2A004DD3AA /* SceneDelegate.swift */; };
 		B483C5A42A57FD2A004DD3AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B483C5A32A57FD2A004DD3AA /* ViewController.swift */; };
@@ -74,6 +77,9 @@
 		B449FE3F2A693E2F003960B1 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		B44E7A912A8B8E6A005B851F /* ChooseEntryPointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseEntryPointViewController.swift; sourceTree = "<group>"; };
 		B44E7A922A8B8E6A005B851F /* ChooseEntryPointViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseEntryPointViewController.xib; sourceTree = "<group>"; };
+		B45B79BA2A95ACBC0072AB19 /* NoInternetAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetAccessViewController.swift; sourceTree = "<group>"; };
+		B45B79BB2A95ACBC0072AB19 /* NoInternetAccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoInternetAccessViewController.xib; sourceTree = "<group>"; };
+		B45B79BE2A95ACDA0072AB19 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		B483C59C2A57FD2A004DD3AA /* Travelify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travelify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B483C59F2A57FD2A004DD3AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B483C5A12A57FD2A004DD3AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +188,16 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		B45B79B92A95AC740072AB19 /* NoInternetAccess */ = {
+			isa = PBXGroup;
+			children = (
+				B45B79BE2A95ACDA0072AB19 /* NetworkMonitor.swift */,
+				B45B79BA2A95ACBC0072AB19 /* NoInternetAccessViewController.swift */,
+				B45B79BB2A95ACBC0072AB19 /* NoInternetAccessViewController.xib */,
+			);
+			path = NoInternetAccess;
+			sourceTree = "<group>";
+		};
 		B483C5932A57FD2A004DD3AA = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +248,7 @@
 		B483C5B82A57FEC5004DD3AA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B45B79B92A95AC740072AB19 /* NoInternetAccess */,
 				B41547B82A91052800CD3AA8 /* Detail */,
 				B445E7AF2A7A8C6200766405 /* Profile */,
 				B4B7DFB52A75905E00159B7B /* Home */,
@@ -370,6 +387,7 @@
 				B445E7BA2A7B9D9200766405 /* EditProfileViewController.xib in Resources */,
 				B483C5BD2A57FF66004DD3AA /* OnboardingCollectionViewCell.xib in Resources */,
 				B41547BC2A91054300CD3AA8 /* DetailViewController.xib in Resources */,
+				B45B79BD2A95ACBC0072AB19 /* NoInternetAccessViewController.xib in Resources */,
 				B449FE352A655886003960B1 /* OnboardingViewController.xib in Resources */,
 				B44E7A942A8B8E6A005B851F /* ChooseEntryPointViewController.xib in Resources */,
 				B4B7DFBE2A7592D000159B7B /* SuggestCollectionViewCell.xib in Resources */,
@@ -440,9 +458,11 @@
 				B445E7B92A7B9D9200766405 /* EditProfileViewController.swift in Sources */,
 				B4EC4C292A76D581008A60D4 /* GradientView.swift in Sources */,
 				B445E7B22A7A8C7E00766405 /* ProfileViewController.swift in Sources */,
+				B45B79BF2A95ACDA0072AB19 /* NetworkMonitor.swift in Sources */,
 				B449FE3E2A693CA6003960B1 /* UserDefaultsService.swift in Sources */,
 				B4BAAD432A6E618600599DB8 /* Validator.swift in Sources */,
 				B44E7A932A8B8E6A005B851F /* ChooseEntryPointViewController.swift in Sources */,
+				B45B79BC2A95ACBC0072AB19 /* NoInternetAccessViewController.swift in Sources */,
 				B483C5A02A57FD2A004DD3AA /* AppDelegate.swift in Sources */,
 				B42079C72A6A69D4008AA03F /* ExtensionHexColor.swift in Sources */,
 				B4CBAE322A91EA0B00301587 /* CosmosView.swift in Sources */,
