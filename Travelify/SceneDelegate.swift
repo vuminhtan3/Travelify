@@ -27,6 +27,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let isLoggedIn = UserDefaultsService.shared.isLoggedIn
         let isFirstTimeSetProfile = UserDefaultsService.shared.isFirstTimeSetProfile
         
+        let isReachableConnection = NetworkMonitor.shared.isReachable
+        
+        guard isReachableConnection else {
+            routeToNoInternetAccess()
+            return
+        }
+        
         //Kiểm tra xem người dùng đã hoàn thành Onboarding Screen và check đăng nhập
         if isCompleteOnboarding {
             if isLoggedIn && isFirstTimeSetProfile {
@@ -82,6 +89,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func routeToSetProfile() {
         let setProfile = EditProfileViewController(nibName: "EditProfileViewController", bundle: nil)
         let nav = UINavigationController(rootViewController: setProfile)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
+    }
+    
+    func routeToNoInternetAccess() {
+        let noInternetAccessVC = NoInternetAccessViewController(nibName: "NoInternetAccessViewController", bundle: nil)
+        let nav = UINavigationController(rootViewController: noInternetAccessVC)
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
     }

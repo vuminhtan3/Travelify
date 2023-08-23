@@ -35,6 +35,7 @@ class CustomUITextField: UITextField {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         setup()
     }
 }
@@ -57,6 +58,11 @@ class CustomUITextField2: UITextField {
     }
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        setup()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
         setup()
     }
 }
