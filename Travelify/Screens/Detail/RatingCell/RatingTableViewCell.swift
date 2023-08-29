@@ -13,6 +13,7 @@ class RatingTableViewCell: UITableViewCell {
     @IBOutlet weak var viewCell: UIView!
     @IBOutlet weak var userNameLb: UILabel!
     @IBOutlet weak var userRatingView: CosmosView!
+    @IBOutlet weak var titleLb: UILabel!
     @IBOutlet weak var userReviewLb: UILabel!
     
     var ratingAction: (() -> Void)?
@@ -36,10 +37,11 @@ class RatingTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func bindData(userName: String, rating: Double, reviewDescription: String, ratingAction: (() -> Void)? = nil) {
+    func bindData(userName: String, rating: Double, title: String, reviewDescription: String, ratingAction: (() -> Void)? = nil) {
         self.ratingAction = ratingAction
         self.userNameLb.text = userName
         self.userRatingView.rating = rating
+        self.titleLb.text = title
         self.userReviewLb.text = reviewDescription
     }
     

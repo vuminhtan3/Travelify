@@ -39,7 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if isLoggedIn && isFirstTimeSetProfile {
                 routeToSetProfile()
             } else if isLoggedIn {
-                routeToHome()
+                routeToMainTabbar()
             } else {
                 routeToChooseEntryPoint()
             }
@@ -49,6 +49,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
     }
     
+    func routeToMainTabbar() {
+        let mainTabBarVC = MainTabbarViewController(nibName: "MainTabbarViewController", bundle: nil)
+        window?.rootViewController = mainTabBarVC
+        window?.makeKeyAndVisible()
+    }
     
     func routeToLogin() {
         let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)

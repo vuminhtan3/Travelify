@@ -49,6 +49,7 @@ class ProfileViewController: UIViewController {
         logoutBtn.layer.masksToBounds = true
     }
     
+    
     @objc func routeToEdit() {
         let editProfileVC = EditProfileViewController(nibName: "EditProfileViewController", bundle: nil)
         editProfileVC.isCanBack = true
@@ -58,6 +59,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        navigationController?.isNavigationBarHidden = false
         
         guard let currentUser = Auth.auth().currentUser?.uid else { return }
         print(currentUser)

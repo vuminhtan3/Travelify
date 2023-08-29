@@ -28,7 +28,7 @@ class NoInternetAccessViewController: UIViewController {
                 if isLoggedIn && isFirstTimeSetProfile {
                     AppDelegate.scene?.routeToSetProfile()
                 } else if isLoggedIn {
-                    AppDelegate.scene?.routeToHome()
+                    AppDelegate.scene?.routeToMainTabbar()
                 } else {
                     AppDelegate.scene?.routeToChooseEntryPoint()
                 }

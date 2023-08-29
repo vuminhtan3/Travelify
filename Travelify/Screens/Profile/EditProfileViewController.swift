@@ -37,7 +37,7 @@ class EditProfileViewController: UIViewController {
     let gender: [String] = ["Khác", "Nam", "Nữ"]
     var currentUser: UserProfile?
     private var imageTemp: UIImage?
-    private var databaseRef: DatabaseReference!
+    private var databaseRef = Database.database().reference()
     private let storage = Storage.storage().reference()
     
     override func viewDidLoad() {
@@ -75,7 +75,6 @@ class EditProfileViewController: UIViewController {
 //        nameTF.delegate = self
 //        saveBtn.isEnabled = false
         
-        databaseRef = Database.database().reference()
         
     }
     
@@ -184,7 +183,7 @@ class EditProfileViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             let isFirstTimeSetProfile = UserDefaultsService.shared.isFirstTimeSetProfile
             if isFirstTimeSetProfile {
-                AppDelegate.scene?.routeToHome()
+                AppDelegate.scene?.routeToMainTabbar()
                 UserDefaultsService.shared.isFirstTimeSetProfile = false
             } else {
                 self.routeToProfile()

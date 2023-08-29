@@ -8,13 +8,13 @@
 import UIKit
 
 
-class GradientView: UIView {
+class GradientViewWhite: UIView {
     
     func setup() {
         
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
-        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor, UIColor.black.cgColor]
+        gradientLayer.colors = [UIColor.white.withAlphaComponent(0).cgColor, UIColor.white.withAlphaComponent(0.8).cgColor]
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
         layer.addSublayer(gradientLayer)
@@ -26,6 +26,7 @@ class GradientView: UIView {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         setup()
     }
 }
@@ -47,6 +48,7 @@ class GradientView2: UIView {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         setup()
     }
 }
@@ -68,6 +70,7 @@ class GradientView3: UIView {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         setup()
     }
 }

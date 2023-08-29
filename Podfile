@@ -15,6 +15,8 @@ target 'Travelify' do
   pod 'ActionSheetPicker-3.0'
   pod 'DropDown'
   pod 'Cosmos', '~> 23.0'
+  pod "ESTabBarController-swift"
+
   # Pods for Travelify
 
 end

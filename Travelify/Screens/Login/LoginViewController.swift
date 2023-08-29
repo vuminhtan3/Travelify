@@ -106,7 +106,7 @@ class LoginViewController: UIViewController {
                 return
             }
             UserDefaultsService.shared.isLoggedIn = true
-            AppDelegate.scene?.routeToHome()
+            AppDelegate.scene?.routeToMainTabbar()
         }
     }
     

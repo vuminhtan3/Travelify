@@ -25,7 +25,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbp-JT-2WN">
-                    <rect key="frame" x="50" y="702" width="293" height="40"/>
+                    <rect key="frame" x="50" y="668" width="293" height="40"/>
                     <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Ezg-nU-rKg"/>
@@ -41,7 +41,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DV5-dd-7FO">
-                    <rect key="frame" x="50" y="762" width="293" height="40"/>
+                    <rect key="frame" x="50" y="728" width="293" height="40"/>
                     <color key="backgroundColor" red="0.99215686270000003" green="0.84313725490000002" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="P6d-VL-Ajp"/>
@@ -65,7 +65,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XRa-nP-mr1" secondAttribute="trailing" id="LFs-u8-B5t"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DV5-dd-7FO" secondAttribute="trailing" constant="50" id="LTh-uu-9kZ"/>
                 <constraint firstItem="nbp-JT-2WN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="PnR-2Q-ZGl"/>
-                <constraint firstAttribute="bottom" secondItem="DV5-dd-7FO" secondAttribute="bottom" constant="50" id="RjF-fK-fGe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="DV5-dd-7FO" secondAttribute="bottom" constant="50" id="RjF-fK-fGe"/>
                 <constraint firstItem="DV5-dd-7FO" firstAttribute="top" secondItem="nbp-JT-2WN" secondAttribute="bottom" constant="20" id="TGb-Rb-jcs"/>
                 <constraint firstItem="XRa-nP-mr1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bk1-qg-FNK"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nbp-JT-2WN" secondAttribute="trailing" constant="50" id="grg-DV-dCD"/>

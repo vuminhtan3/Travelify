@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 enum ForgotPasswordFormField {
     case email
@@ -39,8 +41,15 @@ class ForgotPasswordViewController: UIViewController {
         let isValid = validateForm(email: email)
         guard isValid else {return}
         
-        print("Submit forgot password require successfull -> ")
-        
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if let error = error {
+                self.showAlert(title: "Lỗi", message: "Không thể đặt lại mật khẩu cho tài khoản vào lúc này. Xin hãy thử lại sau")
+            } else {
+                self.showAlert(title: "Thành công", message: "Mật khẩu mới đã được gửi tới email của bạn. Vui lòng kiểm tra email và đăng nhập lại với mật khẩu mới") {
+                    AppDelegate.scene?.routeToLogin()
+                }
+            }
+        }
     }
     
     @IBAction func googleLoginBtnTapped(_ sender: UIButton) {
@@ -75,18 +84,8 @@ extension ForgotPasswordViewController {
         
     }
     
-    func submitSuccess() {
-        print("Route to main")
-    }
-    
     func forgotPasswordValidateFailure(message: String?) {
         emailWarningLb.isHidden = false
         emailWarningLb.text = message
-    }
-    
-    func submitFailure(errorMsg: String?) {
-        let alert = UIAlertController(title: "Login failure", message: errorMsg ?? "Something went wrong", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        self.present(alert, animated: true)
     }
 }

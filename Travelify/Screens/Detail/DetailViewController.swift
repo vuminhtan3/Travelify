@@ -12,6 +12,9 @@ import MapKit
 class DetailViewController: UIViewController {
     
     var data: [String] = ["akjkbdhjb", "avdbahsbhjdhbshjbssv", "asjkdbsjkbjcbkjdasjkdbsjkbjcbkjdasjkdbsjkbjcbkjdasjkdbsjkbjcbkjdasjkdbsjkbjcbkjdasjkdbsjkbjcbkjdasjkdbsjkbjcbkjdasjkdbsjkbjcbkjd"]
+    
+    var place: Place?
+    
     @IBOutlet weak var largeImgView: UIImageView!
     @IBOutlet weak var nameLb: UILabel!
     @IBOutlet weak var locationLb: UILabel!
@@ -22,6 +25,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var imgView3: UIImageView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var ratingTableView: UITableView!
+    @IBOutlet weak var myRatingTilte: UITextField!
     @IBOutlet weak var myRatingTextView: UITextView!
     @IBOutlet weak var myRatingView: CosmosView!
     @IBOutlet weak var addPhotoBtn: UIButton!
@@ -39,6 +43,7 @@ class DetailViewController: UIViewController {
         
     }
     
+    //Config Observer Value for tableView to setup tableViewHeight
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if let obj = object as? UITableView {
             if obj == self.ratingTableView && keyPath == "contentSize" {
@@ -79,6 +84,15 @@ class DetailViewController: UIViewController {
     }
     
     
+    @IBAction func showAllInforBtnTapped(_ sender: UIButton) {
+        
+        let showAllInforVC = AllInformationViewController(nibName: "AllInformationViewController", bundle: nil) as! AllInformationViewController
+        showAllInforVC.contentURL = place?.description
+        
+        navigationController?.pushViewController(showAllInforVC, animated: true)
+    }
+    
+    
     @IBAction func sendBtnTapped(_ sender: UIButton) {
         
     }
@@ -102,14 +116,14 @@ class DetailViewController: UIViewController {
 // Rating TableView Datasource methods
 extension DetailViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ratingTableView.dequeueReusableCell(withIdentifier: "RatingTableViewCell", for: indexPath) as! RatingTableViewCell
 //        cell.backgroundColor = .blue
         let model = data[indexPath.row]
-        cell.bindData(userName: model, rating: Double(Int.random(in: 1...5)), reviewDescription: model)
+        cell.bindData(userName: model, rating: Double(Int.random(in: 1...5)), title: "Something", reviewDescription: model)
         return cell
     }
     

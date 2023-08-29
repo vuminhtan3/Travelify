@@ -183,10 +183,6 @@ extension RegisterViewController {
         
     }
     
-    func registerSuccess() {
-        print("Route to main")
-    }
-    
     func registerValidateFailure(field: RegisterFormField, message: String?) {
         switch field {
         case .email:
@@ -199,12 +195,6 @@ extension RegisterViewController {
             confirmPasswordWarningLb.isHidden = false
             confirmPasswordWarningLb.text = message
         }
-    }
-    
-    func registerFailure(errorMsg: String?) {
-        let alert = UIAlertController(title: "Login failure", message: errorMsg ?? "Something went wrong", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        self.present(alert, animated: true)
     }
 }
 
