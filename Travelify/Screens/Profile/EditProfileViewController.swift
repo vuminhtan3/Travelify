@@ -158,7 +158,6 @@ class EditProfileViewController: UIViewController {
             
             let user = UserProfile(id: currentUser.uid, name: newName, gender: newGender, age: newAge, email: currentUser.email!, address: newAddress, phoneNumber: newPhoneNumber, bio: newBio)
             
-            //Có bug khi thay đổi thông tin mà KHÔNG thay đổi ảnh -> ấn lưu sẽ bị đẩy về ảnh mặc định
             if let imageTemp = imageTemp {
                 DispatchQueue.main.async {
                     self.uploadImage(imageTemp)

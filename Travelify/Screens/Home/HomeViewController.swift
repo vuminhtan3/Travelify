@@ -54,39 +54,40 @@ class HomeViewController: UIViewController {
         //Setup avatarButton
         avatarBtn.layer.cornerRadius = avatarBtn.frame.height/2
         avatarBtn.clipsToBounds = true
-        avatarBtn.setBackgroundImage(UIImage(named: "TGinTW"), for: .normal)
         avatarBtn.layoutIfNeeded()
         avatarBtn.subviews.first?.contentMode = .scaleAspectFill
-        
-        //Create datasource
-//        suggestionDatasource = [
-//        Suggestion(backgroundImg: "SaPa", name: "SaPa", location: "Lào Cai"),
-//        Suggestion(backgroundImg: "HaGiang2", name: "Hà Giang", location: "Hà Giang"),
-//        Suggestion(backgroundImg: "BaNaHills", name: "Bà Nà Hills", location: "Đà Nẵng"),
-//        Suggestion(backgroundImg: "CauVang2", name: "Cầu Vàng", location: "Đà Nẵng")
-//        ]
-//
-//        highRatingDatasource = [
-//            HighRating(image: "HaGiang", name: "Hà Giang", location: "Hà Giang", description: "Hà Giang là tỉnh toạ lạc tại cực Bắc Việt Nam với phía Đông giáp Cao Bằng, phía Tây giáp Yên Bái - Lào Cao. phía Nam giáp Tuyên Quang và phía Bắc giáp Trung Quốc. Trung tâm của tỉnh là thành phố Hà Giang nằm cách Hà Nội khoảng 320km. Điểm thu hút của Hà Giang đến từ cảnh quan thiên nhiên tuyệt đẹp với nhiều thắng cảnh như đỉnh Mã Pí Lèng, hẻm vực Tu Sản, núi đôi Quản Bạ,... Chính vì thế mà dù sở hữu địa hình hiểm trở, nhưng Hà Giang vẫn thu hút được rất nhiều du khách ghé thăm."),
-//            HighRating(image: "SaPa", name: "SaPa", location: "Lào Cai", description: "Sapa là một địa điểm du lịch nổi tiếng thuộc tỉnh Lào Cai, nằm tại phía Bắc của nước ta. Nhờ được tạo hóa ưu ái mà thiên nhiên Sapa hiện lên như một bức tranh tiên cảnh đầy tráng lệ nhưng cũng không kém phần thơ mộng.\nTừ nơi đây nhìn ra bốn bể xung quanh đều là mây trắng xóa, núi non trùng điệp vờn mây ghẹo gió, hàng thông già vững chãi như đã quá quen với cảnh tượng trước mắt, phía xa hơn lại là những ruộng lúa bậc thang vàng ươm báo hiệu một vụ mùa “no đủ”."),
-//            HighRating(image: "Fansipan", name: "Đỉnh Fansipan", location: "Lào Cai", description: """
-//                Fansipan là ngọn núi cao nhất Việt Nam, đồng thời cũng là ngọn núi cao nhất trong ba nước Đông Dương luôn, nên được mệnh danh là ""Nóc nhà Đông Dương"". Ngọn núi Fansipan cao 3.143 m so với mặt nước biển, nằm ở trung tâm dãy Hoàng Liên Sơn, ở vị trí giáp giữa tỉnh Lai Châu và Lào Cai. Cuồng biết là nhiều bạn đi du lịch Sapa thường thuê khách sạn nghỉ ngơi tại trung tâm thị trấn, nên Cuồng tìm hiểu khoảng cách đường đi giúp bạn luôn: núi Fansipan cách thị trấn Sapa 9 km về phía Tây Nam.\nVới chiều dài 280 km từ Phong Thổ đến Hòa Bình, chiều ngang chân núi Hoàng Liên Sơn rộng nhất khoảng 75km, hẹp nhất là 45km, gồm ba khối, khối Bạch Mộc Lương Tử, khối Fansipan và khối Pú Luông. Cả mái nhà đồ sộ này ẩn chứa bao điều kỳ lạ, nhưng kỳ lạ và bí ẩn nhất, đồng thời thu hút khát khao chinh phục của nhiều nhà leo núi nhất chính là đỉnh Fansipan.\nDưới chân núi là những cây gạo, cây mít, cây cơi với mật độ khá dầy tạo nên những địa danh Cốc Lếu (Cốc Gạo), Cốc San (Cốc Mít)… Vì núi Fansipan có độ cao tới hơn 3.000 m nên khi leo núi, bạn sẽ được trải qua nhiều vành đai thời tiết rất khác nhau luôn.
-//                """)
-//        ]
+        downloadAvatar()
         
         print("🤣",listPlaces)
         
-        setupCollectionView()
-        setupTableView()
-        self.suggestCollectionView.reloadData()
-        self.highRatingTableView.reloadData()
-        
     }
-    
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+    }
+    
+    private func downloadAvatar() {
+        guard let currentUserID = currentUserID else {return}
+        databaseRef.child("users").child(currentUserID).observeSingleEvent(of: .value) { snapshot in
+            if let userData = snapshot.value as? [String: Any] {
+//                let id = userData["id"] as! String
+                let name = userData["name"] as? String ?? ""
+                let gender = userData["gender"] as? String ?? ""
+                let age = userData["age"] as? Int ?? 0
+                let email = userData["email"] as! String
+                let address = userData["address"] as? String ?? ""
+//                let phoneNumber = userData["phoneNumber"] as? String ?? ""
+                let bio = userData["bio"] as? String ?? ""
+                let avatar = userData["avatar"] as? String ?? ""
+                
+                //Download ảnh từ url trong firebase database
+                if let imageURL = URL(string: avatar) {
+                    self.avatarBtn.kf.setBackgroundImage(with: imageURL, for: .normal)
+                }
+                
+                self.greetingLb.text = "Xin chào, \(name)"
+            }
+        }
     }
     
     private func setupCollectionView() {
@@ -96,7 +97,7 @@ class HomeViewController: UIViewController {
         
         if let flowLayout = suggestCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             
-            flowLayout.minimumLineSpacing = 10
+            flowLayout.minimumLineSpacing = 20
             flowLayout.minimumInteritemSpacing = 0
             
             flowLayout.estimatedItemSize = .zero
