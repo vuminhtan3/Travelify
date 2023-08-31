@@ -122,8 +122,6 @@ class HomeViewController: UIViewController {
             guard let placesData = snapshot.value as? [String : [String: Any]] else {
                 return
             }
-//            print(placesData)
-
             var fetchedData: [Place] = []
             for (placeID, placeDict) in placesData {
                 if let placeID = placeDict["id"] as? String,
@@ -155,12 +153,13 @@ class HomeViewController: UIViewController {
 
                     let place = Place(id: placeID, name: placeName, location: location, lat: lat, long: long, avatar: avatar, rating: rating, description: description, photos: photoArray, reviews: reviewArray)
 
+                    print("😗", place.reviews)
                     fetchedData.append(place)
 //                    print(fetchedData)
                 }
             }
             self.listPlaces = fetchedData
-            print(self.listPlaces)
+//            print(self.listPlaces)
             
             self.setupCollectionView()
             self.setupTableView()
@@ -201,9 +200,8 @@ extension HomeViewController: UICollectionViewDataSource {
 //MARK: - CollectionView Delegate Methods
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil) as! DetailViewController
-        detailVC.place = listPlaces[indexPath.item]
-        navigationController?.pushViewController(detailVC, animated: true)
+        routeToDetail(dataSource: listPlaces, with: indexPath)
+        suggestCollectionView.deselectItem(at: indexPath, animated: true)
     }
 }
 
@@ -229,15 +227,17 @@ extension HomeViewController: UITableViewDataSource {
 //MARK: - TableView HighRating Delegate Methods
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.routeToDetail()
+        routeToDetail(dataSource: listPlaces, with: indexPath)
+        highRatingTableView.deselectRow(at: indexPath, animated: true)
     }
     
     
 }
 //MARK: - Navigate Screen
 extension HomeViewController {
-    func routeToDetail() {
-        let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil) as! DetailViewController
+    func routeToDetail(dataSource: [Place], with indexPath: IndexPath) {
+        let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
+        detailVC.place = dataSource[indexPath.item]
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }

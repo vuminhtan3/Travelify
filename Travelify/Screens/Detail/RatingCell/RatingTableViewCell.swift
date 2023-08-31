@@ -12,6 +12,7 @@ class RatingTableViewCell: UITableViewCell {
 
     @IBOutlet weak var viewCell: UIView!
     @IBOutlet weak var userNameLb: UILabel!
+    @IBOutlet weak var createdAtLb: UILabel!
     @IBOutlet weak var userRatingView: CosmosView!
     @IBOutlet weak var titleLb: UILabel!
     @IBOutlet weak var userReviewLb: UILabel!
@@ -20,14 +21,13 @@ class RatingTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        userRatingView.settings.updateOnTouch = false
     }
     
     override func prepareForReuse() {
         userNameLb.text = nil
         userReviewLb.text = nil
         userRatingView.prepareForReuse()
-        userRatingView.rating = 0
-        userRatingView.settings.updateOnTouch = false
         
     }
 
@@ -37,9 +37,10 @@ class RatingTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func bindData(userName: String, rating: Double, title: String, reviewDescription: String, ratingAction: (() -> Void)? = nil) {
+    func bindData(userName: String, createdAt: String, rating: Double, title: String, reviewDescription: String, ratingAction: (() -> Void)? = nil) {
         self.ratingAction = ratingAction
         self.userNameLb.text = userName
+        self.createdAtLb.text = createdAt
         self.userRatingView.rating = rating
         self.titleLb.text = title
         self.userReviewLb.text = reviewDescription

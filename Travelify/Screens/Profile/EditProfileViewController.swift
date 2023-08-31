@@ -20,6 +20,7 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var avatarImgView: UIImageView!
     @IBOutlet weak var changeImgBtn: UIButton!
     
+    @IBOutlet weak var textViewPlaceholderLb: UILabel!
     @IBOutlet weak var ageTF: CustomUITextField2!
     @IBOutlet weak var bioTextView: UITextView!
     @IBOutlet weak var nameTF: CustomUITextField2!
@@ -42,7 +43,7 @@ class EditProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         avatarImgView.layer.cornerRadius = avatarImgView.frame.height/2
         avatarImgView.layer.borderColor = UIColor.white.cgColor
         avatarImgView.layer.borderWidth = 5
@@ -77,6 +78,8 @@ class EditProfileViewController: UIViewController {
         
         
     }
+    
+//    override func viewWillAppear(_ animated: Bool)
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -123,8 +126,12 @@ class EditProfileViewController: UIViewController {
         bioTextView.layer.masksToBounds = true
         bioTextView.isEditable = true
         
-        bioTextView.text = "Giới thiệu bản thân"
-        bioTextView.textColor = .lightGray
+        if bioTextView.text.isEmpty {
+            textViewPlaceholderLb.isHidden = true
+        } else {
+            textViewPlaceholderLb.isHidden = false
+        }
+        
         bioTextView.delegate = self
     }
     
@@ -293,17 +300,15 @@ class EditProfileViewController: UIViewController {
 
 //MARK: - TextView Delegate methods
 extension EditProfileViewController: UITextViewDelegate {
+
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if bioTextView.textColor == .lightGray || bioTextView.text != "Giới thiệu bản thân" {
-            bioTextView.text = nil
-            bioTextView.textColor = .black
-        }
+        textViewPlaceholderLb.isHidden = true
+        bioTextView.selectAll(bioTextView)
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            bioTextView.text = "Giới thiệu bản thân"
-            bioTextView.textColor = .lightGray
+        if bioTextView.text.isEmpty {
+            textViewPlaceholderLb.isHidden = false
         }
     }
 }

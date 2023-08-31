@@ -23,6 +23,7 @@
                 <outlet property="phoneNumberTF" destination="vhj-Mx-633" id="OGW-sP-HxO"/>
                 <outlet property="saveBtn" destination="Phd-1P-Hmx" id="B06-Dy-oY0"/>
                 <outlet property="showGenderBtn" destination="rbG-Ze-WY4" id="JHx-3d-j0F"/>
+                <outlet property="textViewPlaceholderLb" destination="M82-Ny-F8W" id="LZz-2B-o15"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -137,12 +138,20 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giới thiệu bản thân" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M82-Ny-F8W">
+                                                    <rect key="frame" x="15" y="47" width="142.66666666666666" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="hdS-xP-COl" secondAttribute="trailing" constant="10" id="GRI-00-bd5"/>
                                                 <constraint firstItem="hdS-xP-COl" firstAttribute="top" secondItem="EJU-xZ-Akk" secondAttribute="bottom" constant="5" id="Lw8-mP-fpv"/>
                                                 <constraint firstItem="EJU-xZ-Akk" firstAttribute="leading" secondItem="ElU-LH-4ic" secondAttribute="leading" constant="10" id="Nkw-YB-3jO"/>
+                                                <constraint firstItem="M82-Ny-F8W" firstAttribute="leading" secondItem="hdS-xP-COl" secondAttribute="leading" constant="5" id="YAt-E7-uEp"/>
                                                 <constraint firstItem="hdS-xP-COl" firstAttribute="leading" secondItem="ElU-LH-4ic" secondAttribute="leading" constant="10" id="mYF-nC-B66"/>
+                                                <constraint firstItem="M82-Ny-F8W" firstAttribute="top" secondItem="hdS-xP-COl" secondAttribute="top" constant="10" id="qXC-KG-Ui2"/>
                                                 <constraint firstItem="EJU-xZ-Akk" firstAttribute="top" secondItem="ElU-LH-4ic" secondAttribute="top" constant="15" id="wN3-8s-EXU"/>
                                                 <constraint firstAttribute="trailing" secondItem="EJU-xZ-Akk" secondAttribute="trailing" constant="10" id="wqt-2w-viT"/>
                                                 <constraint firstAttribute="bottom" secondItem="hdS-xP-COl" secondAttribute="bottom" id="xue-Nb-J2J"/>
