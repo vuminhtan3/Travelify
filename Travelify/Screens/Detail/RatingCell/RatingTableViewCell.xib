@@ -99,6 +99,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="createdAtLb" destination="80j-Ln-NPq" id="oly-gy-1n1"/>
                 <outlet property="titleLb" destination="PaP-ke-Tu9" id="Gnz-lB-bVb"/>
                 <outlet property="userNameLb" destination="2bg-4K-jwu" id="gPJ-kx-8Od"/>
                 <outlet property="userRatingView" destination="mkY-A5-v9r" id="MdK-ae-M6b"/>

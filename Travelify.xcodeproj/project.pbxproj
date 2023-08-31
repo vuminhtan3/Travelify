@@ -48,7 +48,6 @@
 		B488ED362A9BC0C800690E96 /* AllInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B488ED342A9BC0C800690E96 /* AllInformationViewController.swift */; };
 		B488ED372A9BC0C800690E96 /* AllInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B488ED352A9BC0C800690E96 /* AllInformationViewController.xib */; };
 		B488ED392A9DE10B00690E96 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B488ED382A9DE10B00690E96 /* FirebaseManager.swift */; };
-		B488ED3B2A9E407200690E96 /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B488ED3A2A9E407200690E96 /* AppNavigationController.swift */; };
 		B4B7DFAF2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B7DFAE2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift */; };
 		B4B7DFB82A75907B00159B7B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B7DFB62A75907B00159B7B /* HomeViewController.swift */; };
 		B4B7DFB92A75907B00159B7B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B7DFB72A75907B00159B7B /* HomeViewController.xib */; };
@@ -111,7 +110,6 @@
 		B488ED342A9BC0C800690E96 /* AllInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllInformationViewController.swift; sourceTree = "<group>"; };
 		B488ED352A9BC0C800690E96 /* AllInformationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllInformationViewController.xib; sourceTree = "<group>"; };
 		B488ED382A9DE10B00690E96 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
-		B488ED3A2A9E407200690E96 /* AppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
 		B4B7DFAE2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleFirebaseErrorExtension.swift; sourceTree = "<group>"; };
 		B4B7DFB62A75907B00159B7B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B4B7DFB72A75907B00159B7B /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -125,6 +123,8 @@
 		B4CBAE292A91DB9500301587 /* RatingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingTableViewCell.xib; sourceTree = "<group>"; };
 		B4CBAE2F2A91E39E00301587 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		B4CBAE312A91EA0B00301587 /* CosmosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CosmosView.swift; sourceTree = "<group>"; };
+		B4E354C52AA0A2070032EC7F /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Main.strings; sourceTree = "<group>"; };
+		B4E354C62AA0A2080032EC7F /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B4EC4C282A76D581008A60D4 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,8 +162,8 @@
 			children = (
 				B41547B92A91054300CD3AA8 /* DetailViewController.swift */,
 				B41547BA2A91054300CD3AA8 /* DetailViewController.xib */,
-				B488ED342A9BC0C800690E96 /* AllInformationViewController.swift */,
-				B488ED352A9BC0C800690E96 /* AllInformationViewController.xib */,
+				B488ED3D2A9FD52A00690E96 /* AllReviews */,
+				B488ED3C2A9FD50900690E96 /* AllInformation */,
 				B4CBAE2C2A91DB9B00301587 /* RatingCell */,
 			);
 			path = Detail;
@@ -314,7 +314,6 @@
 			isa = PBXGroup;
 			children = (
 				B449FE3D2A693CA6003960B1 /* UserDefaultsService.swift */,
-				B488ED3A2A9E407200690E96 /* AppNavigationController.swift */,
 				B488ED382A9DE10B00690E96 /* FirebaseManager.swift */,
 				B4CBAE312A91EA0B00301587 /* CosmosView.swift */,
 				B4CBAE2F2A91E39E00301587 /* CornerRadius.swift */,
@@ -326,6 +325,22 @@
 				B4EC4C282A76D581008A60D4 /* GradientView.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		B488ED3C2A9FD50900690E96 /* AllInformation */ = {
+			isa = PBXGroup;
+			children = (
+				B488ED342A9BC0C800690E96 /* AllInformationViewController.swift */,
+				B488ED352A9BC0C800690E96 /* AllInformationViewController.xib */,
+			);
+			path = AllInformation;
+			sourceTree = "<group>";
+		};
+		B488ED3D2A9FD52A00690E96 /* AllReviews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AllReviews;
 			sourceTree = "<group>";
 		};
 		B4B7DFB52A75905E00159B7B /* Home */ = {
@@ -402,6 +417,7 @@
 			knownRegions = (
 				en,
 				Base,
+				vi,
 			);
 			mainGroup = B483C5932A57FD2A004DD3AA;
 			productRefGroup = B483C59D2A57FD2A004DD3AA /* Products */;
@@ -504,7 +520,6 @@
 				B42079D32A6A7F9A008AA03F /* ForgotPasswordViewController.swift in Sources */,
 				B4B7DFB82A75907B00159B7B /* HomeViewController.swift in Sources */,
 				B445E7B92A7B9D9200766405 /* EditProfileViewController.swift in Sources */,
-				B488ED3B2A9E407200690E96 /* AppNavigationController.swift in Sources */,
 				B4EC4C292A76D581008A60D4 /* GradientView.swift in Sources */,
 				B445E7B22A7A8C7E00766405 /* ProfileViewController.swift in Sources */,
 				B488ED392A9DE10B00690E96 /* FirebaseManager.swift in Sources */,
@@ -535,6 +550,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				B483C5A62A57FD2A004DD3AA /* Base */,
+				B4E354C52AA0A2070032EC7F /* vi */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -543,6 +559,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				B483C5AB2A57FD2C004DD3AA /* Base */,
+				B4E354C62AA0A2080032EC7F /* vi */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -554,6 +571,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -614,6 +632,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
