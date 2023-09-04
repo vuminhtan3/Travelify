@@ -25,6 +25,8 @@
 		B449FE402A693E2F003960B1 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B449FE3F2A693E2F003960B1 /* RegisterViewController.xib */; };
 		B44E7A932A8B8E6A005B851F /* ChooseEntryPointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44E7A912A8B8E6A005B851F /* ChooseEntryPointViewController.swift */; };
 		B44E7A942A8B8E6A005B851F /* ChooseEntryPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B44E7A922A8B8E6A005B851F /* ChooseEntryPointViewController.xib */; };
+		B44F54162AA3C40E005844EE /* AllReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44F54142AA3C40E005844EE /* AllReviewsViewController.swift */; };
+		B44F54172AA3C40E005844EE /* AllReviewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B44F54152AA3C40E005844EE /* AllReviewsViewController.xib */; };
 		B45B79BC2A95ACBC0072AB19 /* NoInternetAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45B79BA2A95ACBC0072AB19 /* NoInternetAccessViewController.swift */; };
 		B45B79BD2A95ACBC0072AB19 /* NoInternetAccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B45B79BB2A95ACBC0072AB19 /* NoInternetAccessViewController.xib */; };
 		B45B79BF2A95ACDA0072AB19 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45B79BE2A95ACDA0072AB19 /* NetworkMonitor.swift */; };
@@ -85,6 +87,8 @@
 		B449FE3F2A693E2F003960B1 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		B44E7A912A8B8E6A005B851F /* ChooseEntryPointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseEntryPointViewController.swift; sourceTree = "<group>"; };
 		B44E7A922A8B8E6A005B851F /* ChooseEntryPointViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseEntryPointViewController.xib; sourceTree = "<group>"; };
+		B44F54142AA3C40E005844EE /* AllReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllReviewsViewController.swift; sourceTree = "<group>"; };
+		B44F54152AA3C40E005844EE /* AllReviewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllReviewsViewController.xib; sourceTree = "<group>"; };
 		B45B79BA2A95ACBC0072AB19 /* NoInternetAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetAccessViewController.swift; sourceTree = "<group>"; };
 		B45B79BB2A95ACBC0072AB19 /* NoInternetAccessViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoInternetAccessViewController.xib; sourceTree = "<group>"; };
 		B45B79BE2A95ACDA0072AB19 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
@@ -339,6 +343,8 @@
 		B488ED3D2A9FD52A00690E96 /* AllReviews */ = {
 			isa = PBXGroup;
 			children = (
+				B44F54142AA3C40E005844EE /* AllReviewsViewController.swift */,
+				B44F54152AA3C40E005844EE /* AllReviewsViewController.xib */,
 			);
 			path = AllReviews;
 			sourceTree = "<group>";
@@ -436,6 +442,7 @@
 			files = (
 				B4B7DFC42A759C4F00159B7B /* HighRatingTableViewCell.xib in Resources */,
 				B42079CC2A6A6F26008AA03F /* LoginViewController.xib in Resources */,
+				B44F54172AA3C40E005844EE /* AllReviewsViewController.xib in Resources */,
 				B483C5AC2A57FD2C004DD3AA /* LaunchScreen.storyboard in Resources */,
 				B445E7B32A7A8C7E00766405 /* ProfileViewController.xib in Resources */,
 				B483C5A92A57FD2C004DD3AA /* Assets.xcassets in Resources */,
@@ -509,6 +516,7 @@
 				B4BAAD452A70426500599DB8 /* CustomUITextField.swift in Sources */,
 				B45B79CD2A9A1B210072AB19 /* PlaceModel.swift in Sources */,
 				B4B7DFAF2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift in Sources */,
+				B44F54162AA3C40E005844EE /* AllReviewsViewController.swift in Sources */,
 				B4CBAE302A91E39E00301587 /* CornerRadius.swift in Sources */,
 				B41547BB2A91054300CD3AA8 /* DetailViewController.swift in Sources */,
 				B42079CB2A6A6F26008AA03F /* LoginViewController.swift in Sources */,

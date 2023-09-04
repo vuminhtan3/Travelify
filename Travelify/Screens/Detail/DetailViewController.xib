@@ -159,14 +159,16 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rxz-Fd-7me">
                                             <rect key="frame" x="0.0" y="34" width="353" height="111"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CauVang" translatesAutoresizingMaskIntoConstraints="NO" id="5Pt-gC-Rhb">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="5Pt-gC-Rhb">
                                                     <rect key="frame" x="0.0" y="0.0" width="111" height="111"/>
+                                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="5Pt-gC-Rhb" secondAttribute="height" multiplier="1:1" id="5M2-3Z-zN7"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding6" translatesAutoresizingMaskIntoConstraints="NO" id="9CP-R1-ZcW">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="9CP-R1-ZcW">
                                                     <rect key="frame" x="121" y="0.0" width="111" height="111"/>
+                                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="9CP-R1-ZcW" secondAttribute="height" multiplier="1:1" id="Q3I-BB-Xw1"/>
                                                     </constraints>
@@ -174,8 +176,9 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B2j-yd-51a">
                                                     <rect key="frame" x="242" y="0.0" width="111" height="111"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HaGiang2" translatesAutoresizingMaskIntoConstraints="NO" id="4Xh-M0-T00">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-removebg-preview" translatesAutoresizingMaskIntoConstraints="NO" id="4Xh-M0-T00">
                                                             <rect key="frame" x="0.0" y="0.0" width="111" height="111"/>
+                                                            <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </imageView>
                                                         <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RhH-FK-kep" customClass="GradientView3" customModule="Travelify" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="111" height="111"/>
@@ -238,7 +241,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S6c-yx-t7E">
                                             <rect key="frame" x="0.0" y="34" width="353" height="176.66666666666666"/>
                                             <subviews>
-                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGc-Dw-EJp">
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGc-Dw-EJp">
                                                     <rect key="frame" x="0.0" y="0.0" width="353" height="176.66666666666666"/>
                                                     <standardMapConfiguration key="preferredConfiguration"/>
                                                 </mapView>
@@ -298,7 +301,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u91-BU-N03" userLabel="MyRatingView">
                                             <rect key="frame" x="0.0" y="144.00000000000011" width="353" height="164"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2s5-vf-14c" customClass="CosmosView" customModule="Travelify" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2s5-vf-14c" customClass="CosmosView" customModule="Cosmos">
                                                     <rect key="frame" x="5" y="129" width="213" height="30"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
@@ -360,7 +363,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Viết bình luận..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6L-QU-YPJ">
                                                     <rect key="frame" x="10" y="52" width="112" height="19.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -457,18 +460,19 @@
         </view>
     </objects>
     <designables>
+        <designable name="2s5-vf-14c">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
         <designable name="Vqt-5N-8ub">
             <size key="intrinsicContentSize" width="120" height="20"/>
         </designable>
     </designables>
     <resources>
-        <image name="CauVang" width="800" height="443"/>
-        <image name="HaGiang2" width="4000" height="3000"/>
         <image name="MocChau" width="900" height="600"/>
         <image name="add_photo" width="96" height="96"/>
         <image name="add_video" width="96" height="96"/>
+        <image name="logo-removebg-preview" width="500" height="500"/>
         <image name="mappin.and.ellipse" catalog="system" width="117" height="128"/>
-        <image name="onboarding6" width="564" height="705"/>
         <image name="send" width="96" height="96"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

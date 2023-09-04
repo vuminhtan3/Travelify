@@ -22,7 +22,7 @@ struct Place: Codable {
 }
 
 struct Review: Codable {
-    var id: String?
+    var id: Int
     var ownerName: String?
     var rating: Double?
     var title: String?

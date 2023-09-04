@@ -11,7 +11,10 @@ import MBProgressHUD
 extension UIViewController {
     func showLoading(isShow: Bool) {
         if isShow {
-            MBProgressHUD.showAdded(to: self.view, animated: true)
+            let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            hud.mode = .annularDeterminate
+            hud.progress = Float.random(in: 0...1)
+            hud.label.text = "Chờ tí..."
         } else {
             MBProgressHUD.hide(for: self.view, animated: true)
         }

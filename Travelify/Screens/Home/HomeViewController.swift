@@ -32,6 +32,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var greetingLb: UILabel!
     @IBOutlet weak var avatarBtn: UIButton!
+    @IBOutlet weak var avatarImgView: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var suggestCollectionView: UICollectionView!
     @IBOutlet weak var highRatingTableView: UITableView!
@@ -52,10 +53,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //Setup avatarButton
-        avatarBtn.layer.cornerRadius = avatarBtn.frame.height/2
-        avatarBtn.clipsToBounds = true
-        avatarBtn.layoutIfNeeded()
-        avatarBtn.subviews.first?.contentMode = .scaleAspectFill
+        
+        avatarImgView.layer.cornerRadius = avatarImgView.frame.height/2
+        avatarImgView.clipsToBounds = true
         downloadAvatar()
         
         print("🤣",listPlaces)
@@ -63,6 +63,10 @@ class HomeViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        downloadAvatar()
+//        DispatchQueue.main.async {
+//            self.fetchPlacesData()
+//        }
         navigationController?.isNavigationBarHidden = true
     }
     
@@ -82,7 +86,7 @@ class HomeViewController: UIViewController {
                 
                 //Download ảnh từ url trong firebase database
                 if let imageURL = URL(string: avatar) {
-                    self.avatarBtn.kf.setBackgroundImage(with: imageURL, for: .normal)
+                    self.avatarImgView.kf.setImage(with: imageURL)
                 }
                 
                 self.greetingLb.text = "Xin chào, \(name)"
@@ -137,12 +141,12 @@ class HomeViewController: UIViewController {
 
                     var reviewArray: [Review] = []
                     for reviewDict in reviewsDict {
-                        if let reviewID = reviewDict["id"] as? String,
+                        if let reviewID = reviewDict["id"] as? Int,
                            let ownerName = reviewDict["ownerName"] as? String,
                            let rating = reviewDict["rating"] as? Double,
                            let title = reviewDict["title"] as? String,
                            let content = reviewDict["content"] as? String,
-                           let createdAt = reviewDict["createAt"] as? String,
+                           let createdAt = reviewDict["createdAt"] as? String,
                            let like = reviewDict["like"] as? Int,
                            let dislike = reviewDict["dislike"] as? Int {
 
@@ -150,6 +154,11 @@ class HomeViewController: UIViewController {
                             reviewArray.append(review)
                         }
                     }
+                    
+                    //Tính toán rating của địa điểm dựa trên các review
+//                    let totalRating = reviewArray.reduce(0.0) { $0 + $1.rating! }
+//                    let averageRating = totalRating / Double(reviewArray.count)
+                    
 
                     let place = Place(id: placeID, name: placeName, location: location, lat: lat, long: long, avatar: avatar, rating: rating, description: description, photos: photoArray, reviews: reviewArray)
 

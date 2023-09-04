@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Travelify" customModuleProvider="target">
             <connections>
                 <outlet property="avatarBtn" destination="9Kt-I1-Vex" id="gNU-gB-WU5"/>
+                <outlet property="avatarImgView" destination="NVI-mh-fle" id="MFc-9p-Iq4"/>
                 <outlet property="greetingLb" destination="jHw-Tu-XaF" id="Kr3-Lu-5Ja"/>
                 <outlet property="highRatingTableView" destination="fdz-JW-pmW" id="3hy-HI-uXp"/>
                 <outlet property="searchBar" destination="Lqm-uS-yfk" id="QjV-Hg-ZOz"/>
@@ -92,14 +93,20 @@
                         <action selector="avatarBtnTapped:" destination="-1" eventType="touchUpInside" id="iXt-kv-Ctz"/>
                     </connections>
                 </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NVI-mh-fle">
+                    <rect key="frame" x="333" y="59" width="40" height="40"/>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="NVI-mh-fle" firstAttribute="bottom" secondItem="9Kt-I1-Vex" secondAttribute="bottom" id="0e4-Ew-1eX"/>
                 <constraint firstItem="Lqm-uS-yfk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="3qN-Z9-tjr"/>
                 <constraint firstItem="jHw-Tu-XaF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="61t-a4-ABj"/>
                 <constraint firstItem="Lqm-uS-yfk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jHw-Tu-XaF" secondAttribute="bottom" constant="20" id="66K-aE-Oq9"/>
                 <constraint firstItem="5jQ-wI-ayb" firstAttribute="centerY" secondItem="WPI-V4-l7r" secondAttribute="centerY" id="9ee-lu-GJB"/>
+                <constraint firstItem="NVI-mh-fle" firstAttribute="top" secondItem="9Kt-I1-Vex" secondAttribute="top" id="ApD-bK-coW"/>
+                <constraint firstItem="NVI-mh-fle" firstAttribute="trailing" secondItem="9Kt-I1-Vex" secondAttribute="trailing" id="CdU-0X-cDw"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2f9-oi-Lyw" secondAttribute="trailing" constant="20" id="FMs-8e-pin"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9Kt-I1-Vex" secondAttribute="trailing" constant="20" id="FNi-hp-rkI"/>
                 <constraint firstItem="Z7f-CP-1Gf" firstAttribute="top" secondItem="1Dp-GC-xTx" secondAttribute="bottom" constant="10" id="GcX-zb-7XC"/>
@@ -109,6 +116,7 @@
                 <constraint firstItem="1Dp-GC-xTx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="cNp-MV-PVp"/>
                 <constraint firstItem="fdz-JW-pmW" firstAttribute="top" secondItem="WPI-V4-l7r" secondAttribute="bottom" constant="10" id="eLE-hu-fdL"/>
                 <constraint firstItem="Z7f-CP-1Gf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="hRy-v3-JNT"/>
+                <constraint firstItem="NVI-mh-fle" firstAttribute="leading" secondItem="9Kt-I1-Vex" secondAttribute="leading" id="hfc-ii-SZn"/>
                 <constraint firstItem="WPI-V4-l7r" firstAttribute="top" secondItem="Z7f-CP-1Gf" secondAttribute="bottom" constant="20" id="iQj-Ne-qW9"/>
                 <constraint firstItem="Z7f-CP-1Gf" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="k6e-oR-6AB"/>
                 <constraint firstItem="jHw-Tu-XaF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="kTI-Eb-t8G"/>
