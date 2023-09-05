@@ -20,6 +20,7 @@ class DetailViewController: UIViewController {
     var storage = Storage.storage().reference()
     var place: Place?
     var reviews: [Review]?
+    var photos: [String]?
     
     @IBOutlet weak var largeImgView: UIImageView!
     @IBOutlet weak var nameLb: UILabel!
@@ -56,7 +57,9 @@ class DetailViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .label
         navigationController?.navigationBar.backItem?.backButtonTitle = ""
         
+        showLoading(isShow: true)
         fetchInformationData()
+        fetchPhotosURL()
         setupMapView()
         setupTextView()
         
@@ -98,6 +101,7 @@ class DetailViewController: UIViewController {
         imgView2.kf.setImage(with: URL(string: place.photos![1]))
         imgView3.kf.setImage(with: URL(string: place.photos![2]))
        
+        showLoading(isShow: false)
     }
     
     func setupRatingTableView() {
@@ -119,15 +123,18 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func showAllInforBtnTapped(_ sender: UIButton) {
-        
+        guard let place = place else {return}
         let showAllInforVC = AllInformationViewController(nibName: "AllInformationViewController", bundle: nil)
-        showAllInforVC.contentURL = place?.url
+        showAllInforVC.contentURL = place.url
         
         navigationController?.pushViewController(showAllInforVC, animated: true)
     }
     
     
     @IBAction func showPhotoGallery(_ sender: UIButton) {
+        let photosVC = AllPhotosViewController(nibName: "AllPhotosViewController", bundle: nil)
+        photosVC.imageURLs = self.photos ?? []
+        navigationController?.pushViewController(photosVC, animated: true)
     }
     
     
@@ -147,6 +154,7 @@ class DetailViewController: UIViewController {
         guard let place = place else {return}
         
         if validateForm(title: title ?? "", content: content ?? "", rating: rating) {
+            showLoading(isShow: true)
             addReviewToFirebase(placeID: place.id!, review: newReview)
         }
     }
@@ -170,13 +178,13 @@ class DetailViewController: UIViewController {
 //MARK: - Rating TableView Datasource methods
 extension DetailViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ratingTableView.dequeueReusableCell(withIdentifier: "RatingTableViewCell", for: indexPath) as! RatingTableViewCell
         if let reviews = place?.reviews {
-            let model = reviews[indexPath.item]
+            let model = reviews[Int.random(in: 0..<reviews.count)]
             cell.bindData(userName: model.ownerName!, createdAt: model.createdAt!, rating: model.rating!, title: model.title!, reviewDescription: model.content!)
         }
         return cell
@@ -291,6 +299,7 @@ extension DetailViewController {
                 self.myRatingView.rating = 0
                 self.reviews!.append(review)
                 self.place?.reviews = self.reviews
+                self.showLoading(isShow: false)
                 self.showAlert(title: "Thành công", message: "Đã gửi đánh giá thành công")
 //                self.fetchPlacesData()
             }
@@ -367,5 +376,28 @@ extension DetailViewController {
     
     func sendReviewValidateFailure(message: String?) {
         self.showAlert(title: "Thông báo", message: message!)
+    }
+}
+
+//MARK: - Show All Photos
+extension DetailViewController {
+    func fetchPhotosURL() {
+        showLoading(isShow: true)
+        guard let place = place else {return}
+        databaseRef.child("places").child(place.id!).child("photos").observeSingleEvent(of: .value) { [weak self] snapshot in
+            guard let self = self else {return}
+            guard let photos = snapshot.value as? [String] else {
+                print("Không thể phân tích dữ liệu ảnh")
+                return
+            }
+            self.showLoading(isShow: false)
+            
+            var fetchedImageURLs: [String] = []
+            for photo in photos {
+                fetchedImageURLs.append(photo)
+            }
+            self.photos = fetchedImageURLs
+            print(photos)
+        }
     }
 }

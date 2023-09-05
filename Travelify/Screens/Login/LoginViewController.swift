@@ -83,9 +83,10 @@ class LoginViewController: UIViewController {
         let password = passwordTF.text ?? ""
         let isValid = validateForm(email: email, password: password)
         guard isValid else {return}
+        showLoading(isShow: true)
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             guard let self = self else {return}
-            
+            self.showLoading(isShow: false)
             guard error == nil else {
                 var message = ""
                 

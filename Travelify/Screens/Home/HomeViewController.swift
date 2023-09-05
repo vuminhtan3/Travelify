@@ -64,9 +64,10 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         downloadAvatar()
-//        DispatchQueue.main.async {
-//            self.fetchPlacesData()
-//        }
+        DispatchQueue.main.async {
+            self.fetchPlacesData()
+        }
+        
         navigationController?.isNavigationBarHidden = true
     }
     
@@ -121,11 +122,13 @@ class HomeViewController: UIViewController {
     }
     
     func fetchPlacesData() {
+        showLoading(isShow: true)
         databaseRef.child("places").observeSingleEvent(of: .value) {[weak self] snapshot in
             guard let self = self else {return}
             guard let placesData = snapshot.value as? [String : [String: Any]] else {
                 return
             }
+            self.showLoading(isShow: false)
             var fetchedData: [Place] = []
             for (placeID, placeDict) in placesData {
                 if let placeID = placeDict["id"] as? String,
@@ -136,6 +139,7 @@ class HomeViewController: UIViewController {
                    let avatar = placeDict["avatar"] as? String,
                    let rating = placeDict["rating"] as? Double,
                    let description = placeDict["description"] as? String,
+                   let url = placeDict["url"] as? String,
                    let photoArray = placeDict["photos"] as? [String],
                    let reviewsDict = placeDict["reviews"] as? [[String: Any]] {
 
@@ -160,7 +164,7 @@ class HomeViewController: UIViewController {
 //                    let averageRating = totalRating / Double(reviewArray.count)
                     
 
-                    let place = Place(id: placeID, name: placeName, location: location, lat: lat, long: long, avatar: avatar, rating: rating, description: description, photos: photoArray, reviews: reviewArray)
+                    let place = Place(id: placeID, name: placeName, location: location, lat: lat, long: long, avatar: avatar, rating: rating, description: description, url: url, photos: photoArray, reviews: reviewArray)
 
                     print("😗", place.reviews)
                     fetchedData.append(place)

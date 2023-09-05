@@ -758,6 +758,10 @@ PODS:
     - gRPC-Core/Interface (= 1.50.1)
   - gRPC-Core/Interface (1.50.1)
   - GTMSessionFetcher/Core (3.1.1)
+  - ImageSlideshow/Core (1.9.2)
+  - ImageSlideshow/Kingfisher (1.9.2):
+    - ImageSlideshow/Core
+    - Kingfisher (> 3.0)
   - IQKeyboardManagerSwift (6.5.12)
   - Kingfisher (7.9.0)
   - leveldb-library (1.22.2)
@@ -778,6 +782,7 @@ DEPENDENCIES:
   - FirebaseAuth
   - FirebaseDatabase
   - FirebaseFirestore
+  - ImageSlideshow/Kingfisher
   - IQKeyboardManagerSwift
   - Kingfisher
   - MBProgressHUD
@@ -804,6 +809,7 @@ SPEC REPOS:
     - "gRPC-C++"
     - gRPC-Core
     - GTMSessionFetcher
+    - ImageSlideshow
     - IQKeyboardManagerSwift
     - Kingfisher
     - leveldb-library
@@ -832,6 +838,7 @@ SPEC CHECKSUMS:
   "gRPC-C++": 0968bace703459fd3e5dcb0b2bed4c573dbff046
   gRPC-Core: 17108291d84332196d3c8466b48f016fc17d816d
   GTMSessionFetcher: e8647203b65cee28c5f73d0f473d096653945e72
+  ImageSlideshow: be305b54eaf2b2cfc7a7141c7c734605d44dc07d
   IQKeyboardManagerSwift: 371b08cb39664fb56030f5345c815a4ffc74bbc0
   Kingfisher: 59f908b6d2f403b0a3e539debb0eec05cb27002c
   leveldb-library: f03246171cce0484482ec291f88b6d563699ee06
@@ -839,6 +846,6 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
 
-PODFILE CHECKSUM: ee092e7652329e1c1ee4aaad1af27bf3cdd9e4b6
+PODFILE CHECKSUM: eb1783d0b66179da41f57bbf239199c34d5e2cb7
 
 COCOAPODS: 1.11.3

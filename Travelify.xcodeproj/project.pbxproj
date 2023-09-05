@@ -50,6 +50,8 @@
 		B488ED362A9BC0C800690E96 /* AllInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B488ED342A9BC0C800690E96 /* AllInformationViewController.swift */; };
 		B488ED372A9BC0C800690E96 /* AllInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B488ED352A9BC0C800690E96 /* AllInformationViewController.xib */; };
 		B488ED392A9DE10B00690E96 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B488ED382A9DE10B00690E96 /* FirebaseManager.swift */; };
+		B4B045A12AA7C3AF00460752 /* AllPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B0459F2AA7C3AF00460752 /* AllPhotosViewController.swift */; };
+		B4B045A22AA7C3AF00460752 /* AllPhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B045A02AA7C3AF00460752 /* AllPhotosViewController.xib */; };
 		B4B7DFAF2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B7DFAE2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift */; };
 		B4B7DFB82A75907B00159B7B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B7DFB62A75907B00159B7B /* HomeViewController.swift */; };
 		B4B7DFB92A75907B00159B7B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B7DFB72A75907B00159B7B /* HomeViewController.xib */; };
@@ -114,6 +116,8 @@
 		B488ED342A9BC0C800690E96 /* AllInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllInformationViewController.swift; sourceTree = "<group>"; };
 		B488ED352A9BC0C800690E96 /* AllInformationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllInformationViewController.xib; sourceTree = "<group>"; };
 		B488ED382A9DE10B00690E96 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		B4B0459F2AA7C3AF00460752 /* AllPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPhotosViewController.swift; sourceTree = "<group>"; };
+		B4B045A02AA7C3AF00460752 /* AllPhotosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllPhotosViewController.xib; sourceTree = "<group>"; };
 		B4B7DFAE2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleFirebaseErrorExtension.swift; sourceTree = "<group>"; };
 		B4B7DFB62A75907B00159B7B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B4B7DFB72A75907B00159B7B /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 			children = (
 				B41547B92A91054300CD3AA8 /* DetailViewController.swift */,
 				B41547BA2A91054300CD3AA8 /* DetailViewController.xib */,
+				B4B0459E2AA7BF9F00460752 /* Photos */,
 				B488ED3D2A9FD52A00690E96 /* AllReviews */,
 				B488ED3C2A9FD50900690E96 /* AllInformation */,
 				B4CBAE2C2A91DB9B00301587 /* RatingCell */,
@@ -349,6 +354,15 @@
 			path = AllReviews;
 			sourceTree = "<group>";
 		};
+		B4B0459E2AA7BF9F00460752 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				B4B0459F2AA7C3AF00460752 /* AllPhotosViewController.swift */,
+				B4B045A02AA7C3AF00460752 /* AllPhotosViewController.xib */,
+			);
+			path = Photos;
+			sourceTree = "<group>";
+		};
 		B4B7DFB52A75905E00159B7B /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4B7DFC42A759C4F00159B7B /* HighRatingTableViewCell.xib in Resources */,
+				B4B045A22AA7C3AF00460752 /* AllPhotosViewController.xib in Resources */,
 				B42079CC2A6A6F26008AA03F /* LoginViewController.xib in Resources */,
 				B44F54172AA3C40E005844EE /* AllReviewsViewController.xib in Resources */,
 				B483C5AC2A57FD2C004DD3AA /* LaunchScreen.storyboard in Resources */,
@@ -522,6 +537,7 @@
 				B42079CB2A6A6F26008AA03F /* LoginViewController.swift in Sources */,
 				B4B7DFC32A759C4F00159B7B /* HighRatingTableViewCell.swift in Sources */,
 				B488ED362A9BC0C800690E96 /* AllInformationViewController.swift in Sources */,
+				B4B045A12AA7C3AF00460752 /* AllPhotosViewController.swift in Sources */,
 				B4B7DFBD2A7592D000159B7B /* SuggestCollectionViewCell.swift in Sources */,
 				B483C5A42A57FD2A004DD3AA /* ViewController.swift in Sources */,
 				B45B79C52A9637E60072AB19 /* MainTabbarViewController.swift in Sources */,
