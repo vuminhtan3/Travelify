@@ -72,12 +72,14 @@ class EditProfileViewController: UIViewController {
         setupUITextView()
         emailTF.isEnabled = false
         
-        //Check Name đã được điền hay chưa để bật nút save
-//        nameTF.delegate = self
-//        saveBtn.isEnabled = false
-        
+        let rightBarBtnItem = UIBarButtonItem(title: "Lưu", style: .plain, target: self, action: #selector(saveInfo))
+        navigationItem.rightBarButtonItem = rightBarBtnItem
         
     }
+    
+    @objc func saveInfo() {
+            saveInfoHandle()
+        }
     
 //    override func viewWillAppear(_ animated: Bool)
     
@@ -152,7 +154,11 @@ class EditProfileViewController: UIViewController {
     
     
     @IBAction func saveBtnHandle(_ sender: UIButton) {
+        saveInfoHandle()
+    }
     
+    func saveInfoHandle() {
+        
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
@@ -165,13 +171,18 @@ class EditProfileViewController: UIViewController {
             
             let user = UserProfile(id: currentUser.uid, name: newName, gender: newGender, age: newAge, email: currentUser.email!, address: newAddress, phoneNumber: newPhoneNumber, bio: newBio)
             
+            //Update displayName to currentUser
+            let changeRequest = currentUser.createProfileChangeRequest()
+            changeRequest.displayName = newName
+            changeRequest.commitChanges()
+            
             if let imageTemp = imageTemp {
                 DispatchQueue.main.async {
                     self.uploadImage(imageTemp)
                 }
             }
             
-            print("😂 \(self.currentUser?.avatar)")
+            //            print("😂 \(self.currentUser?.avatar)")
             databaseRef.child("users").child(currentUser.uid).setValue([
                 "id": currentUser.uid,
                 "name": newName,
@@ -197,7 +208,6 @@ class EditProfileViewController: UIViewController {
         }))
         present(alert, animated: true)
     }
-    
     
     @IBAction func changeImageHandle(_ sender: UIButton) {
         imagePicker.delegate = self
@@ -228,10 +238,7 @@ class EditProfileViewController: UIViewController {
                 guard let currentUser = Auth.auth().currentUser?.uid else {return}
                 let userRef = self.databaseRef.child("users").child(currentUser).child("avatar")
                 userRef.setValue(downloadURL.absoluteString)
-                
 //                print("Image URL: \(downloadURL)")
-                
-                
             }
         }
         
@@ -405,17 +412,3 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
         imagePicker.dismiss(animated: true)
     }
 }
-
-/*
-//MARK: - TextField Delegate methods
-extension EditProfileViewController: UITextFieldDelegate {
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        // Kiểm tra nội dung của UITextField để quyết định kích hoạt/ngưng hoạt động nút
-        if let text = textField.text, !text.isEmpty {
-            saveBtn.isEnabled = true
-        } else {
-            saveBtn.isEnabled = false
-        }
-    }
-}
-*/

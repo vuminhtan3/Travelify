@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AllInformationViewController" customModule="Travelify" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AllReviewsViewController" customModule="Travelify" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="ejQ-4p-Cw5" id="Kjp-3S-llx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="webView" destination="zIE-PN-ftI" id="LjO-oX-pl4"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -20,23 +20,20 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIE-PN-ftI">
-                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
-                    <wkWebViewConfiguration key="configuration">
-                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                        <wkPreferences key="preferences"/>
-                    </wkWebViewConfiguration>
-                </wkWebView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ejQ-4p-Cw5">
+                    <rect key="frame" x="20" y="59" width="353" height="759"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="zIE-PN-ftI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="4Ub-MO-0UA"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zIE-PN-ftI" secondAttribute="trailing" id="N10-N4-oTq"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zIE-PN-ftI" secondAttribute="bottom" id="gEU-Ab-dvw"/>
-                <constraint firstItem="zIE-PN-ftI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gdd-gm-qaC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ejQ-4p-Cw5" secondAttribute="bottom" id="1eg-2J-nLV"/>
+                <constraint firstItem="ejQ-4p-Cw5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="31s-p0-EXm"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ejQ-4p-Cw5" secondAttribute="trailing" constant="20" id="4gs-Tw-6cP"/>
+                <constraint firstItem="ejQ-4p-Cw5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="IVl-Dx-CNW"/>
             </constraints>
-            <point key="canvasLocation" x="130.53435114503816" y="-12.67605633802817"/>
+            <point key="canvasLocation" x="132" y="-12"/>
         </view>
     </objects>
     <resources>

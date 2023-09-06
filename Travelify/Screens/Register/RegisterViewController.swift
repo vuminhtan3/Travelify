@@ -90,9 +90,10 @@ class RegisterViewController: UIViewController {
         
         let isValid = validateForm(email: email, password: password, confirmPassword: confirmPassword)
         guard isValid else {return}
+        showLoading(isShow: true)
         Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
             guard let self = self else {return}
-            
+            self.showLoading(isShow: false)
             guard error == nil else {
                 var message = ""
                 
