@@ -15,7 +15,6 @@ class AllReviewsViewController: UIViewController, UITableViewDataSource, UITable
     var place: Place?
     var reviews: [Review] = []
     var placeID: String?
-    var isLoadingData = false
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -40,7 +39,6 @@ class AllReviewsViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func fetchReviewsData() {
-        isLoadingData = true
         showLoading(isShow: true)
         guard let place = place else {return}
         placeID = place.id
@@ -51,10 +49,8 @@ class AllReviewsViewController: UIViewController, UITableViewDataSource, UITable
             guard let reviewsData = snapshot.value as? [[String: Any]] else {
                 print("Không thể phân tích dữ liệu đánh giá.")
                 self.showLoading(isShow: false)
-                self.isLoadingData = false
                 return
             }
-            self.showLoading(isShow: false)
             var fetchedReviews: [Review] = []
             
             for reviewInfo in reviewsData {
@@ -72,17 +68,18 @@ class AllReviewsViewController: UIViewController, UITableViewDataSource, UITable
                 }
             }
             
+            self.showLoading(isShow: false)
+            
             self.reviews = fetchedReviews
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-                self.isLoadingData = false
             }
             
-            // Bây giờ mảng "reviews" chứa danh sách các đánh giá từ Firebase
-            print("Danh sách đánh giá:")
-            for review in self.reviews {
-                print("ID: \(review.id), Owner: \(review.ownerName ?? ""), Rating: \(review.rating), Title: \(review.title), Content: \(review.content)")
-            }
+            // Mảng "reviews" chứa danh sách các đánh giá từ Firebase
+//            print("Danh sách đánh giá:")
+//            for review in self.reviews {
+//                print("ID: \(review.id), Owner: \(review.ownerName ?? ""), Rating: \(review.rating), Title: \(review.title), Content: \(review.content)")
+//            }
         }
     }
     

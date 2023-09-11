@@ -52,6 +52,10 @@
 		B488ED392A9DE10B00690E96 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B488ED382A9DE10B00690E96 /* FirebaseManager.swift */; };
 		B4B045A12AA7C3AF00460752 /* AllPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B0459F2AA7C3AF00460752 /* AllPhotosViewController.swift */; };
 		B4B045A22AA7C3AF00460752 /* AllPhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B045A02AA7C3AF00460752 /* AllPhotosViewController.xib */; };
+		B4B045A62AACDCA200460752 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B045A42AACDCA200460752 /* LoadingTableViewCell.swift */; };
+		B4B045A72AACDCA200460752 /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B045A52AACDCA200460752 /* LoadingTableViewCell.xib */; };
+		B4B045AE2AACF9F100460752 /* LoadingCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B045AC2AACF9F100460752 /* LoadingCollectionReusableView.swift */; };
+		B4B045AF2AACF9F100460752 /* LoadingCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B045AD2AACF9F100460752 /* LoadingCollectionReusableView.xib */; };
 		B4B7DFAF2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B7DFAE2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift */; };
 		B4B7DFB82A75907B00159B7B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B7DFB62A75907B00159B7B /* HomeViewController.swift */; };
 		B4B7DFB92A75907B00159B7B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B7DFB72A75907B00159B7B /* HomeViewController.xib */; };
@@ -118,6 +122,10 @@
 		B488ED382A9DE10B00690E96 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		B4B0459F2AA7C3AF00460752 /* AllPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPhotosViewController.swift; sourceTree = "<group>"; };
 		B4B045A02AA7C3AF00460752 /* AllPhotosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllPhotosViewController.xib; sourceTree = "<group>"; };
+		B4B045A42AACDCA200460752 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
+		B4B045A52AACDCA200460752 /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
+		B4B045AC2AACF9F100460752 /* LoadingCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCollectionReusableView.swift; sourceTree = "<group>"; };
+		B4B045AD2AACF9F100460752 /* LoadingCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCollectionReusableView.xib; sourceTree = "<group>"; };
 		B4B7DFAE2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleFirebaseErrorExtension.swift; sourceTree = "<group>"; };
 		B4B7DFB62A75907B00159B7B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B4B7DFB72A75907B00159B7B /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -271,6 +279,7 @@
 				B483C5A12A57FD2A004DD3AA /* SceneDelegate.swift */,
 				B483C5A32A57FD2A004DD3AA /* ViewController.swift */,
 				B483C5A52A57FD2A004DD3AA /* Main.storyboard */,
+				B4B045A32AACDC7800460752 /* LoadingCells */,
 				B483C5BE2A582DAE004DD3AA /* Utils */,
 				B45B79C92A9A04570072AB19 /* Models */,
 				B483C5B82A57FEC5004DD3AA /* Screens */,
@@ -361,6 +370,17 @@
 				B4B045A02AA7C3AF00460752 /* AllPhotosViewController.xib */,
 			);
 			path = Photos;
+			sourceTree = "<group>";
+		};
+		B4B045A32AACDC7800460752 /* LoadingCells */ = {
+			isa = PBXGroup;
+			children = (
+				B4B045A42AACDCA200460752 /* LoadingTableViewCell.swift */,
+				B4B045A52AACDCA200460752 /* LoadingTableViewCell.xib */,
+				B4B045AC2AACF9F100460752 /* LoadingCollectionReusableView.swift */,
+				B4B045AD2AACF9F100460752 /* LoadingCollectionReusableView.xib */,
+			);
+			path = LoadingCells;
 			sourceTree = "<group>";
 		};
 		B4B7DFB52A75905E00159B7B /* Home */ = {
@@ -456,6 +476,7 @@
 			files = (
 				B4B7DFC42A759C4F00159B7B /* HighRatingTableViewCell.xib in Resources */,
 				B4B045A22AA7C3AF00460752 /* AllPhotosViewController.xib in Resources */,
+				B4B045AF2AACF9F100460752 /* LoadingCollectionReusableView.xib in Resources */,
 				B42079CC2A6A6F26008AA03F /* LoginViewController.xib in Resources */,
 				B44F54172AA3C40E005844EE /* AllReviewsViewController.xib in Resources */,
 				B483C5AC2A57FD2C004DD3AA /* LaunchScreen.storyboard in Resources */,
@@ -471,6 +492,7 @@
 				B41547BC2A91054300CD3AA8 /* DetailViewController.xib in Resources */,
 				B45B79BD2A95ACBC0072AB19 /* NoInternetAccessViewController.xib in Resources */,
 				B449FE352A655886003960B1 /* OnboardingViewController.xib in Resources */,
+				B4B045A72AACDCA200460752 /* LoadingTableViewCell.xib in Resources */,
 				B44E7A942A8B8E6A005B851F /* ChooseEntryPointViewController.xib in Resources */,
 				B4B7DFBE2A7592D000159B7B /* SuggestCollectionViewCell.xib in Resources */,
 				B4CBAE2B2A91DB9600301587 /* RatingTableViewCell.xib in Resources */,
@@ -531,6 +553,7 @@
 				B4BAAD452A70426500599DB8 /* CustomUITextField.swift in Sources */,
 				B45B79CD2A9A1B210072AB19 /* PlaceModel.swift in Sources */,
 				B4B7DFAF2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift in Sources */,
+				B4B045A62AACDCA200460752 /* LoadingTableViewCell.swift in Sources */,
 				B44F54162AA3C40E005844EE /* AllReviewsViewController.swift in Sources */,
 				B4CBAE302A91E39E00301587 /* CornerRadius.swift in Sources */,
 				B41547BB2A91054300CD3AA8 /* DetailViewController.swift in Sources */,
@@ -551,6 +574,7 @@
 				B449FE3E2A693CA6003960B1 /* UserDefaultsService.swift in Sources */,
 				B4BAAD432A6E618600599DB8 /* Validator.swift in Sources */,
 				B44E7A932A8B8E6A005B851F /* ChooseEntryPointViewController.swift in Sources */,
+				B4B045AE2AACF9F100460752 /* LoadingCollectionReusableView.swift in Sources */,
 				B45B79BC2A95ACBC0072AB19 /* NoInternetAccessViewController.swift in Sources */,
 				B483C5A02A57FD2A004DD3AA /* AppDelegate.swift in Sources */,
 				B42079C72A6A69D4008AA03F /* ExtensionHexColor.swift in Sources */,

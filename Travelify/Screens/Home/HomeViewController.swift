@@ -27,8 +27,6 @@ struct HighRating {
 class HomeViewController: UIViewController {
 
     var listPlaces: [Place] = []
-    var suggestionPlaces: [Place] = []
-    var highRatingPlaces: [Place] = []
     
     @IBOutlet weak var greetingLb: UILabel!
     @IBOutlet weak var avatarBtn: UIButton!
@@ -42,6 +40,7 @@ class HomeViewController: UIViewController {
     var databaseRef = Database.database().reference()
     var storage = Storage.storage().reference()
     var currentUserID = Auth.auth().currentUser?.uid
+    var isLoading = false
     
     override func loadView() {
         super.loadView()
@@ -58,14 +57,15 @@ class HomeViewController: UIViewController {
         avatarImgView.clipsToBounds = true
         downloadAvatar()
         
-        print("🤣",listPlaces)
+//        print("🤣",listPlaces)
         
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        downloadAvatar()
+
         DispatchQueue.main.async {
-            self.fetchPlacesData()
+            self.downloadAvatar()
+//            self.fetchPlacesData()
         }
         
         navigationController?.isNavigationBarHidden = true
@@ -77,12 +77,12 @@ class HomeViewController: UIViewController {
             if let userData = snapshot.value as? [String: Any] {
 //                let id = userData["id"] as! String
                 let name = userData["name"] as? String ?? ""
-                let gender = userData["gender"] as? String ?? ""
-                let age = userData["age"] as? Int ?? 0
-                let email = userData["email"] as! String
-                let address = userData["address"] as? String ?? ""
+//                let gender = userData["gender"] as? String ?? ""
+//                let age = userData["age"] as? Int ?? 0
+//                let email = userData["email"] as! String
+//                let address = userData["address"] as? String ?? ""
 //                let phoneNumber = userData["phoneNumber"] as? String ?? ""
-                let bio = userData["bio"] as? String ?? ""
+//                let bio = userData["bio"] as? String ?? ""
                 let avatar = userData["avatar"] as? String ?? ""
                 
                 //Download ảnh từ url trong firebase database
@@ -123,14 +123,22 @@ class HomeViewController: UIViewController {
     
     func fetchPlacesData() {
         showLoading(isShow: true)
-        databaseRef.child("places").observeSingleEvent(of: .value) {[weak self] snapshot in
+        databaseRef.child("places").observeSingleEvent(of: .value) {[weak self] snapshot, error in
             guard let self = self else {return}
-            guard let placesData = snapshot.value as? [String : [String: Any]] else {
+            
+            if let error = error {
+                print("😒Error fetching places data: \(error)")
+                self.showLoading(isShow: false)
                 return
             }
-            self.showLoading(isShow: false)
+            
+            guard let placesData = snapshot.value as? [String : [String: Any]] else {
+                self.showLoading(isShow: false)
+                print("Error when map data")
+                return
+            }
             var fetchedData: [Place] = []
-            for (placeID, placeDict) in placesData {
+            for (_, placeDict) in placesData {
                 if let placeID = placeDict["id"] as? String,
                    let placeName = placeDict["name"] as? String,
                    let location = placeDict["location"] as? String,
@@ -166,18 +174,18 @@ class HomeViewController: UIViewController {
 
                     let place = Place(id: placeID, name: placeName, location: location, lat: lat, long: long, avatar: avatar, rating: rating, description: description, url: url, photos: photoArray, reviews: reviewArray)
 
-                    print("😗", place.reviews)
+//                    print("😗", place.reviews)
                     fetchedData.append(place)
 //                    print(fetchedData)
                 }
             }
+            
+            self.showLoading(isShow: false)
             self.listPlaces = fetchedData
 //            print(self.listPlaces)
             
             self.setupCollectionView()
             self.setupTableView()
-            self.suggestCollectionView.reloadData()
-            self.highRatingTableView.reloadData()
         }
     }
     
@@ -233,8 +241,6 @@ extension HomeViewController: UITableViewDataSource {
         return cell
         
     }
-    
-    
 }
 
 //MARK: - TableView HighRating Delegate Methods

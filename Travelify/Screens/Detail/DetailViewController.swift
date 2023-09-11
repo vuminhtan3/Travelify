@@ -299,6 +299,7 @@ extension DetailViewController {
                 self.myRatingView.rating = 0
                 self.reviews!.append(review)
                 self.place?.reviews = self.reviews
+                
                 self.showLoading(isShow: false)
                 self.showAlert(title: "Thành công", message: "Đã gửi đánh giá thành công")
 //                self.fetchPlacesData()
@@ -388,6 +389,7 @@ extension DetailViewController {
             guard let self = self else {return}
             guard let photos = snapshot.value as? [String] else {
                 print("Không thể phân tích dữ liệu ảnh")
+                self.showLoading(isShow: false)
                 return
             }
             self.showLoading(isShow: false)
@@ -397,7 +399,7 @@ extension DetailViewController {
                 fetchedImageURLs.append(photo)
             }
             self.photos = fetchedImageURLs
-            print(photos)
+//            print(photos)
         }
     }
 }
