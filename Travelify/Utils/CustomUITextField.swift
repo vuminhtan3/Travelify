@@ -66,4 +66,27 @@ class CustomUITextField2: UITextField {
         setup()
     }
 }
+//Custom Searchbar UITextField
+class CustomSearchBarUITextField2: UITextField {
+    func setup() {
+        let cornerRadius = CGFloat(self.frame.height/2)
+        self.backgroundColor = UIColor(hexString: "#919191")
+        self.layer.cornerRadius = cornerRadius
+        self.clipsToBounds = true
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setup()
+    }
+}
 
