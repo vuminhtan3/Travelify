@@ -11,19 +11,6 @@ import FirebaseDatabase
 import FirebaseStorage
 import Kingfisher
 
-struct Suggestion {
-    let backgroundImg: String
-    let name: String
-    let location: String
-}
-
-struct HighRating {
-    let image: String
-    let name: String
-    let location: String
-    let description: String
-}
-
 class HomeViewController: UIViewController {
 
     var listPlaces: [Place] = []
@@ -31,33 +18,36 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var greetingLb: UILabel!
     @IBOutlet weak var avatarBtn: UIButton!
     @IBOutlet weak var avatarImgView: UIImageView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBarTF: CustomSearchBarUITextField2!
     @IBOutlet weak var suggestCollectionView: UICollectionView!
     @IBOutlet weak var highRatingTableView: UITableView!
     
-    private var suggestionDatasource = [Suggestion]()
-    private var highRatingDatasource = [HighRating]()
     var databaseRef = Database.database().reference()
     var storage = Storage.storage().reference()
     var currentUserID = Auth.auth().currentUser?.uid
-    var isLoading = false
-    
-    override func loadView() {
-        super.loadView()
-        DispatchQueue.main.async {
-            self.fetchPlacesData()
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //Setup avatarButton
+        searchBarTF.delegate = self
         
         avatarImgView.layer.cornerRadius = avatarImgView.frame.height/2
         avatarImgView.clipsToBounds = true
         downloadAvatar()
         
-//        print("🤣",listPlaces)
+        showLoading(isShow: true)
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            appDelegate.fetchPlacesData { [weak self] places in
+                guard let self = self else { return }
+                self.showLoading(isShow: false)
+                
+                self.listPlaces = places
+                self.setupCollectionView()
+                self.setupTableView()
+            }
+        }
+        
+        print("🤣",listPlaces)
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -95,6 +85,26 @@ class HomeViewController: UIViewController {
         }
     }
     
+    func fetchPlacesData() {
+        FirebaseManager.shared.loadingHandler = { [weak self] isLoading in
+            DispatchQueue.main.async {
+                if isLoading {
+                    self?.showLoading(isShow: true)
+                } else {
+                    self?.showLoading(isShow: false)
+                }
+            }
+        }
+        
+        FirebaseManager.shared.fetchPlacesData { [weak self] places in
+            guard let self = self else { return }
+
+            self.listPlaces = places
+            self.setupCollectionView()
+            self.setupTableView()
+        }
+    }
+    
     private func setupCollectionView() {
         suggestCollectionView.delegate = self
         suggestCollectionView.dataSource = self
@@ -120,75 +130,6 @@ class HomeViewController: UIViewController {
         highRatingTableView.register(UINib(nibName: "HighRatingTableViewCell", bundle: nil), forCellReuseIdentifier: "HighRatingTableViewCell")
         self.highRatingTableView.reloadData()
     }
-    
-    func fetchPlacesData() {
-        showLoading(isShow: true)
-        databaseRef.child("places").observeSingleEvent(of: .value) {[weak self] snapshot, error in
-            guard let self = self else {return}
-            
-            if let error = error {
-                print("😒Error fetching places data: \(error)")
-                self.showLoading(isShow: false)
-                return
-            }
-            
-            guard let placesData = snapshot.value as? [String : [String: Any]] else {
-                self.showLoading(isShow: false)
-                print("Error when map data")
-                return
-            }
-            var fetchedData: [Place] = []
-            for (_, placeDict) in placesData {
-                if let placeID = placeDict["id"] as? String,
-                   let placeName = placeDict["name"] as? String,
-                   let location = placeDict["location"] as? String,
-                   let lat = placeDict["lat"] as? Double,
-                   let long = placeDict["long"] as? Double,
-                   let avatar = placeDict["avatar"] as? String,
-                   let rating = placeDict["rating"] as? Double,
-                   let description = placeDict["description"] as? String,
-                   let url = placeDict["url"] as? String,
-                   let photoArray = placeDict["photos"] as? [String],
-                   let reviewsDict = placeDict["reviews"] as? [[String: Any]] {
-
-                    var reviewArray: [Review] = []
-                    for reviewDict in reviewsDict {
-                        if let reviewID = reviewDict["id"] as? Int,
-                           let ownerName = reviewDict["ownerName"] as? String,
-                           let rating = reviewDict["rating"] as? Double,
-                           let title = reviewDict["title"] as? String,
-                           let content = reviewDict["content"] as? String,
-                           let createdAt = reviewDict["createdAt"] as? String,
-                           let like = reviewDict["like"] as? Int,
-                           let dislike = reviewDict["dislike"] as? Int {
-
-                            let review = Review(id: reviewID, ownerName: ownerName, rating: rating, title: title, content: content, createdAt: createdAt, like: like, dislike: dislike)
-                            reviewArray.append(review)
-                        }
-                    }
-                    
-                    //Tính toán rating của địa điểm dựa trên các review
-//                    let totalRating = reviewArray.reduce(0.0) { $0 + $1.rating! }
-//                    let averageRating = totalRating / Double(reviewArray.count)
-                    
-
-                    let place = Place(id: placeID, name: placeName, location: location, lat: lat, long: long, avatar: avatar, rating: rating, description: description, url: url, photos: photoArray, reviews: reviewArray)
-
-//                    print("😗", place.reviews)
-                    fetchedData.append(place)
-//                    print(fetchedData)
-                }
-            }
-            
-            self.showLoading(isShow: false)
-            self.listPlaces = fetchedData
-//            print(self.listPlaces)
-            
-            self.setupCollectionView()
-            self.setupTableView()
-        }
-    }
-    
    
     
     @IBAction func avatarBtnTapped(_ sender: UIButton) {
@@ -258,5 +199,17 @@ extension HomeViewController {
         let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
         detailVC.place = dataSource[indexPath.item]
         navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
+//MARK: - SearchBar Delegate
+extension HomeViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        // Tạo và chuyển hướng sang UIViewController mới khi UITextField được nhấp vào
+        let searchVC = SearchViewController(nibName: "SearchViewController", bundle: nil)
+        navigationController?.pushViewController(searchVC, animated: true)
+        searchVC.isFromHome = true
+        // Trả về false để không hiển thị bàn phím khi tap vào UITextField
+        return false
     }
 }

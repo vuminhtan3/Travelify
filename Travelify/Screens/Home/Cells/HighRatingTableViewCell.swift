@@ -34,10 +34,6 @@ class HighRatingTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @IBAction func favoriteBtnTapped(_ sender: UIButton) {
-        favoriteBtnAction?()
-    }
-    
     func binData(image: String, name: String, location: String, description: String) {
         nameLb.text = name
         locationLb.text = location

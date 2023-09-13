@@ -50,6 +50,12 @@
 		B488ED362A9BC0C800690E96 /* AllInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B488ED342A9BC0C800690E96 /* AllInformationViewController.swift */; };
 		B488ED372A9BC0C800690E96 /* AllInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B488ED352A9BC0C800690E96 /* AllInformationViewController.xib */; };
 		B488ED392A9DE10B00690E96 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B488ED382A9DE10B00690E96 /* FirebaseManager.swift */; };
+		B48C57382AB054E60039D99B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48C57362AB054E60039D99B /* SearchViewController.swift */; };
+		B48C57392AB054E60039D99B /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B48C57372AB054E60039D99B /* SearchViewController.xib */; };
+		B48C573C2AB05B650039D99B /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48C573A2AB05B650039D99B /* HistoryTableViewCell.swift */; };
+		B48C573D2AB05B650039D99B /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B48C573B2AB05B650039D99B /* HistoryTableViewCell.xib */; };
+		B48C57412AB1099C0039D99B /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48C573F2AB1099C0039D99B /* ResultTableViewCell.swift */; };
+		B48C57422AB1099C0039D99B /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B48C57402AB1099C0039D99B /* ResultTableViewCell.xib */; };
 		B4B045A12AA7C3AF00460752 /* AllPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B0459F2AA7C3AF00460752 /* AllPhotosViewController.swift */; };
 		B4B045A22AA7C3AF00460752 /* AllPhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B045A02AA7C3AF00460752 /* AllPhotosViewController.xib */; };
 		B4B045A62AACDCA200460752 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B045A42AACDCA200460752 /* LoadingTableViewCell.swift */; };
@@ -120,6 +126,12 @@
 		B488ED342A9BC0C800690E96 /* AllInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllInformationViewController.swift; sourceTree = "<group>"; };
 		B488ED352A9BC0C800690E96 /* AllInformationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllInformationViewController.xib; sourceTree = "<group>"; };
 		B488ED382A9DE10B00690E96 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		B48C57362AB054E60039D99B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		B48C57372AB054E60039D99B /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		B48C573A2AB05B650039D99B /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		B48C573B2AB05B650039D99B /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
+		B48C573F2AB1099C0039D99B /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
+		B48C57402AB1099C0039D99B /* ResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
 		B4B0459F2AA7C3AF00460752 /* AllPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPhotosViewController.swift; sourceTree = "<group>"; };
 		B4B045A02AA7C3AF00460752 /* AllPhotosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllPhotosViewController.xib; sourceTree = "<group>"; };
 		B4B045A42AACDCA200460752 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
@@ -306,6 +318,7 @@
 		B483C5B82A57FEC5004DD3AA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B48C57352AB054C60039D99B /* Search */,
 				B45B79C02A962C620072AB19 /* MainTabbarController */,
 				B45B79B92A95AC740072AB19 /* NoInternetAccess */,
 				B41547B82A91052800CD3AA8 /* Detail */,
@@ -361,6 +374,35 @@
 				B44F54152AA3C40E005844EE /* AllReviewsViewController.xib */,
 			);
 			path = AllReviews;
+			sourceTree = "<group>";
+		};
+		B48C57352AB054C60039D99B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B48C57362AB054E60039D99B /* SearchViewController.swift */,
+				B48C57372AB054E60039D99B /* SearchViewController.xib */,
+				B48C57432AB109A00039D99B /* ResultCell */,
+				B48C573E2AB109830039D99B /* HistoryCell */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		B48C573E2AB109830039D99B /* HistoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				B48C573A2AB05B650039D99B /* HistoryTableViewCell.swift */,
+				B48C573B2AB05B650039D99B /* HistoryTableViewCell.xib */,
+			);
+			path = HistoryCell;
+			sourceTree = "<group>";
+		};
+		B48C57432AB109A00039D99B /* ResultCell */ = {
+			isa = PBXGroup;
+			children = (
+				B48C573F2AB1099C0039D99B /* ResultTableViewCell.swift */,
+				B48C57402AB1099C0039D99B /* ResultTableViewCell.xib */,
+			);
+			path = ResultCell;
 			sourceTree = "<group>";
 		};
 		B4B0459E2AA7BF9F00460752 /* Photos */ = {
@@ -482,11 +524,13 @@
 				B483C5AC2A57FD2C004DD3AA /* LaunchScreen.storyboard in Resources */,
 				B445E7B32A7A8C7E00766405 /* ProfileViewController.xib in Resources */,
 				B483C5A92A57FD2C004DD3AA /* Assets.xcassets in Resources */,
+				B48C573D2AB05B650039D99B /* HistoryTableViewCell.xib in Resources */,
 				B42079D42A6A7F9A008AA03F /* ForgotPasswordViewController.xib in Resources */,
 				B45B79C62A9637E60072AB19 /* MainTabbarViewController.xib in Resources */,
 				B449FE402A693E2F003960B1 /* RegisterViewController.xib in Resources */,
 				B483C5A72A57FD2A004DD3AA /* Main.storyboard in Resources */,
 				B4B7DFB92A75907B00159B7B /* HomeViewController.xib in Resources */,
+				B48C57392AB054E60039D99B /* SearchViewController.xib in Resources */,
 				B445E7BA2A7B9D9200766405 /* EditProfileViewController.xib in Resources */,
 				B483C5BD2A57FF66004DD3AA /* OnboardingCollectionViewCell.xib in Resources */,
 				B41547BC2A91054300CD3AA8 /* DetailViewController.xib in Resources */,
@@ -498,6 +542,7 @@
 				B4CBAE2B2A91DB9600301587 /* RatingTableViewCell.xib in Resources */,
 				B488ED372A9BC0C800690E96 /* AllInformationViewController.xib in Resources */,
 				B4854D9B2A8B47D300C9BB6F /* GoogleService-Info.plist in Resources */,
+				B48C57422AB1099C0039D99B /* ResultTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +609,7 @@
 				B4B7DFBD2A7592D000159B7B /* SuggestCollectionViewCell.swift in Sources */,
 				B483C5A42A57FD2A004DD3AA /* ViewController.swift in Sources */,
 				B45B79C52A9637E60072AB19 /* MainTabbarViewController.swift in Sources */,
+				B48C57412AB1099C0039D99B /* ResultTableViewCell.swift in Sources */,
 				B42079D32A6A7F9A008AA03F /* ForgotPasswordViewController.swift in Sources */,
 				B4B7DFB82A75907B00159B7B /* HomeViewController.swift in Sources */,
 				B445E7B92A7B9D9200766405 /* EditProfileViewController.swift in Sources */,
@@ -571,6 +617,7 @@
 				B445E7B22A7A8C7E00766405 /* ProfileViewController.swift in Sources */,
 				B488ED392A9DE10B00690E96 /* FirebaseManager.swift in Sources */,
 				B45B79BF2A95ACDA0072AB19 /* NetworkMonitor.swift in Sources */,
+				B48C57382AB054E60039D99B /* SearchViewController.swift in Sources */,
 				B449FE3E2A693CA6003960B1 /* UserDefaultsService.swift in Sources */,
 				B4BAAD432A6E618600599DB8 /* Validator.swift in Sources */,
 				B44E7A932A8B8E6A005B851F /* ChooseEntryPointViewController.swift in Sources */,
@@ -583,6 +630,7 @@
 				B4854D972A84129500C9BB6F /* ProfileModel.swift in Sources */,
 				B483C5BC2A57FF66004DD3AA /* OnboardingCollectionViewCell.swift in Sources */,
 				B483C5C22A5836EB004DD3AA /* RegisterViewController.swift in Sources */,
+				B48C573C2AB05B650039D99B /* HistoryTableViewCell.swift in Sources */,
 				B4CBAE2A2A91DB9500301587 /* RatingTableViewCell.swift in Sources */,
 				B42079CF2A6A7859008AA03F /* ExtensionShowloading.swift in Sources */,
 				B45B79CB2A9A04910072AB19 /* ObjectToDictionary.swift in Sources */,
