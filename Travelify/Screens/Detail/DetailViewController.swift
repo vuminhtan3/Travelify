@@ -62,6 +62,7 @@ class DetailViewController: UIViewController {
         fetchPhotosURL()
         setupMapView()
         setupTextView()
+//        calculateAllRating()
         
         self.reviews = place?.reviews
         
@@ -184,7 +185,7 @@ extension DetailViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ratingTableView.dequeueReusableCell(withIdentifier: "RatingTableViewCell", for: indexPath) as! RatingTableViewCell
         if let reviews = place?.reviews {
-            let model = reviews[Int.random(in: 0..<reviews.count)]
+            let model = reviews.shuffled()[indexPath.row]
             cell.bindData(userName: model.ownerName!, createdAt: model.createdAt!, rating: model.rating!, title: model.title!, reviewDescription: model.content!)
         }
         return cell
@@ -301,13 +302,17 @@ extension DetailViewController {
                 self.place?.reviews = self.reviews
                 
                 self.showLoading(isShow: false)
-                self.showAlert(title: "Thành công", message: "Đã gửi đánh giá thành công")
-//                self.fetchPlacesData()
+                self.reCalculateRating(placeID: placeID, review: review) {
+                    
+                    self.showLoading(isShow: false)
+                }
+                self.showAlert(title: "Thành công", message: "Đã thêm đánh giá thành công")
             }
         }
         
-        // Tính toán lại totalRating
-        reCalculateRating(placeID: placeID, review: review)
+        // Update UI
+        
+       
     }
 
     // Hàm để lấy thời gian hiện tại dưới dạng timestamp
@@ -317,25 +322,21 @@ extension DetailViewController {
         return dateFormatter.string(from: Date())
     }
     
-    func fetchPlacesData() {
-        let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
-        DispatchQueue.main.async {
-            homeVC.fetchPlacesData()
-        }
-    }
-    
-    func reCalculateRating(placeID: String, review: Review) {
+    func reCalculateRating(placeID: String, review: Review, completion: @escaping () -> Void) {
         
         let newRating = review.rating
         let totalRating = place?.reviews?.reduce(0.0, { $0 + $1.rating! }) ?? 0.0
-        let newAverageRating = (totalRating + newRating!) / Double(place?.reviews?.count ?? 1 + 1)
+        let totalCount = place?.reviews?.count ?? 0
+        print(totalRating)
+        print(totalCount)
+        let newAverageRating = (totalRating + newRating!) / Double(totalCount + 1)
         
         self.place?.rating = newAverageRating
         
-        DispatchQueue.main.async {
-            self.totalRatingView.rating = newAverageRating
-            self.totalRatingLb.text = String(format: "%.1f", newAverageRating)
-        }
+//        DispatchQueue.main.async {
+//            self.totalRatingView.rating = newAverageRating
+//            self.totalRatingLb.text = String(format: "%.1f", newAverageRating)
+//        }
         
         let updatedRatingData: [String: Any] = [
             "rating": place?.rating
@@ -348,8 +349,40 @@ extension DetailViewController {
                 print("Rating updated on Firebase successfully")
             }
         }
+        
+        AppDelegate.shared?.fetchPlacesData(completion: { places in
+            AppDelegate.shared?.listPlaces = places
+            print("OK")
+        })
+        completion()
+        
     }
     
+    func calculateAllRating() {
+        let totalRating = place?.reviews?.reduce(0.0, { $0 + $1.rating! }) ?? 0.0
+        let totalCount = place?.reviews?.count ?? 1
+        let averageRating = totalRating/Double(totalCount)
+        
+        let updatedRatingData: [String: Any] = [
+            "rating": place?.rating
+        ]
+        
+        guard let place = place else { return }
+        
+        databaseRef.child("places").child(place.id!).updateChildValues(updatedRatingData) { error, _ in
+            if let error = error {
+                print("Error updating rating on Firebase: \(error)")
+            } else {
+                print("Rating updated on Firebase successfully")
+            }
+        }
+        
+        AppDelegate.shared?.fetchPlacesData(completion: { places in
+            AppDelegate.shared?.listPlaces = places
+            print("OK")
+        })
+        
+    }
 }
 
 //MARK: - Validate Form

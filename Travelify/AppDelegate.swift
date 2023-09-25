@@ -9,11 +9,14 @@ import UIKit
 import FirebaseCore
 import FirebaseAuth
 import IQKeyboardManagerSwift
+import MBProgressHUD
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    static var shared: AppDelegate?
 
     var window: UIWindow?
+    var listPlaces: [Place] = []
 
     static let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
 
@@ -26,6 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
         NetworkMonitor.shared.startMonitoring()
+        
+        fetchPlacesData { places in
+            self.listPlaces = places
+        }
         
         return true
     }
@@ -44,6 +51,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    func fetchPlacesData(completion: @escaping ([Place]) -> Void) {
+        
+        FirebaseManager.shared.fetchPlacesData { [weak self] places in
+            guard let self = self else { return }
+            
+            self.listPlaces = places
+            completion(places)
+//            print(self.listPlaces)
+        }
+    }
 }
 

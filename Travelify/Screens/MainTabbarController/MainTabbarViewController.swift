@@ -26,15 +26,15 @@ class MainTabbarViewController: ESTabBarController {
     private func loadTabBarView() {
         let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
         let favoriteVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
-        let exploreVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
+        let searchVC = SearchViewController(nibName: "SearchViewController", bundle: nil)
         let profileVC = ProfileViewController(nibName: "ProfileViewController", bundle: nil)
         
         let homeTab = setupViewController(viewController: homeVC, title: "", normalImage: "home", selectedImage: "home.fill")
         let favoriteTab = setupViewController(viewController: favoriteVC, title: "", normalImage: "heart", selectedImage: "heart.fill")
-        let exploreTab = setupViewController(viewController: exploreVC, title: "", normalImage: "compass", selectedImage: "compass.fill")
+        let searchTab = setupViewController(viewController: searchVC, title: "", normalImage: "search", selectedImage: "search")
         let profileTab = setupViewController(viewController: profileVC, title: "", normalImage: "user", selectedImage: "user.fill")
         
-        setViewControllers([homeTab, favoriteTab, profileTab], animated: true)
+        setViewControllers([homeTab, searchTab, profileTab], animated: true)
     }
 
     private func setupViewController(viewController: UIViewController, title: String, normalImage: String, selectedImage: String) -> UIViewController {

@@ -25,6 +25,7 @@ class SuggestCollectionViewCell: UICollectionViewCell {
     }
 
     override func prepareForReuse() {
+        super.prepareForReuse()
         nameLb.text = nil
         backgroundImgView.image = nil
         ratingView.prepareForReuse()

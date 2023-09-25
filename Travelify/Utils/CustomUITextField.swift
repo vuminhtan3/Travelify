@@ -70,7 +70,9 @@ class CustomUITextField2: UITextField {
 class CustomSearchBarUITextField2: UITextField {
     func setup() {
         let cornerRadius = CGFloat(self.frame.height/2)
-        self.backgroundColor = UIColor(hexString: "#919191")
+        self.backgroundColor = UIColor(hexString: "#F4F4F4")
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor(hexString: "#F4F4F4").cgColor
         self.layer.cornerRadius = cornerRadius
         self.clipsToBounds = true
     }
