@@ -185,7 +185,7 @@ extension DetailViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ratingTableView.dequeueReusableCell(withIdentifier: "RatingTableViewCell", for: indexPath) as! RatingTableViewCell
         if let reviews = place?.reviews {
-            let model = reviews[Int.random(in: 0..<reviews.count)]
+            let model = reviews.shuffled()[indexPath.row]
             cell.bindData(userName: model.ownerName!, createdAt: model.createdAt!, rating: model.rating!, title: model.title!, reviewDescription: model.content!)
         }
         return cell
@@ -327,6 +327,8 @@ extension DetailViewController {
         let newRating = review.rating
         let totalRating = place?.reviews?.reduce(0.0, { $0 + $1.rating! }) ?? 0.0
         let totalCount = place?.reviews?.count ?? 0
+        print(totalRating)
+        print(totalCount)
         let newAverageRating = (totalRating + newRating!) / Double(totalCount + 1)
         
         self.place?.rating = newAverageRating

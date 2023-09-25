@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             self.listPlaces = places
             completion(places)
-            print(self.listPlaces)
+//            print(self.listPlaces)
         }
     }
 }

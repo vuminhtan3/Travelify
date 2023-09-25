@@ -34,6 +34,8 @@ class HomeViewController: UIViewController {
         avatarImgView.layer.cornerRadius = avatarImgView.frame.height/2
         avatarImgView.clipsToBounds = true
         downloadAvatar()
+        self.setupCollectionView()
+        self.setupTableView()
         
         showLoading(isShow: true)
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
@@ -42,12 +44,15 @@ class HomeViewController: UIViewController {
                 self.showLoading(isShow: false)
                 
                 self.listPlaces = places
-                self.setupCollectionView()
-                self.setupTableView()
+                
+                DispatchQueue.main.async {
+                    self.suggestCollectionView.reloadData()
+                    self.highRatingTableView.reloadData()
+                }
             }
         }
         
-        print("🤣",listPlaces)
+//        print("🤣",listPlaces)
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -121,14 +126,14 @@ class HomeViewController: UIViewController {
         }
         
         suggestCollectionView.showsHorizontalScrollIndicator = false
-        self.suggestCollectionView.reloadData()
+//        self.suggestCollectionView.reloadData()
     }
     
     private func setupTableView() {
         highRatingTableView.delegate = self
         highRatingTableView.dataSource = self
         highRatingTableView.register(UINib(nibName: "HighRatingTableViewCell", bundle: nil), forCellReuseIdentifier: "HighRatingTableViewCell")
-        self.highRatingTableView.reloadData()
+//        self.highRatingTableView.reloadData()
     }
    
     
@@ -149,14 +154,11 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = suggestCollectionView.dequeueReusableCell(withReuseIdentifier: "SuggestCollectionViewCell", for: indexPath) as! SuggestCollectionViewCell
         cell.layer.cornerRadius = 10
-        
         let suggestionModel = listPlaces[indexPath.row]
         cell.bindData(name: suggestionModel.name!, backgroundImage: suggestionModel.avatar!, rating: suggestionModel.rating!)
         return cell
         
     }
-    
-    
 }
 
 //MARK: - CollectionView Delegate Methods
