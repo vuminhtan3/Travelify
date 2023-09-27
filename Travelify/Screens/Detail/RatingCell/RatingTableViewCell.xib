@@ -30,8 +30,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkY-A5-v9r" customClass="CosmosView" customModule="Cosmos">
-                                <rect key="frame" x="9.9999999999999858" y="35" width="237.66666666666663" height="20"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mkY-A5-v9r" customClass="FloatRatingView" customModule="FloatRatingView">
+                                <rect key="frame" x="10" y="35" width="187.66666666666669" height="20"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THs-zs-Gvw">
@@ -69,12 +69,12 @@
                             <constraint firstItem="mkY-A5-v9r" firstAttribute="height" secondItem="2bg-4K-jwu" secondAttribute="height" id="N8Q-iw-sT9"/>
                             <constraint firstAttribute="trailing" secondItem="2bg-4K-jwu" secondAttribute="trailing" constant="10" id="PvI-ef-nKl"/>
                             <constraint firstItem="2bg-4K-jwu" firstAttribute="top" secondItem="oal-je-RZm" secondAttribute="top" constant="10" id="f2Q-wn-zY0"/>
-                            <constraint firstAttribute="centerX" secondItem="mkY-A5-v9r" secondAttribute="trailing" id="gEO-hH-bNH"/>
+                            <constraint firstAttribute="centerX" secondItem="mkY-A5-v9r" secondAttribute="trailing" constant="50" id="gEO-hH-bNH"/>
                             <constraint firstItem="PaP-ke-Tu9" firstAttribute="top" secondItem="mkY-A5-v9r" secondAttribute="bottom" constant="15" id="hi8-fp-lan"/>
                             <constraint firstItem="2bg-4K-jwu" firstAttribute="leading" secondItem="oal-je-RZm" secondAttribute="leading" constant="10" id="qfZ-fW-1Ov"/>
                             <constraint firstItem="THs-zs-Gvw" firstAttribute="top" secondItem="PaP-ke-Tu9" secondAttribute="bottom" constant="5" id="rBj-Jp-now"/>
                             <constraint firstItem="PaP-ke-Tu9" firstAttribute="leading" secondItem="oal-je-RZm" secondAttribute="leading" constant="10" id="stE-Vq-hlm"/>
-                            <constraint firstItem="80j-Ln-NPq" firstAttribute="leading" secondItem="mkY-A5-v9r" secondAttribute="trailing" id="wd2-o8-d26"/>
+                            <constraint firstItem="80j-Ln-NPq" firstAttribute="leading" secondItem="mkY-A5-v9r" secondAttribute="trailing" constant="50" id="wd2-o8-d26"/>
                             <constraint firstAttribute="trailing" secondItem="PaP-ke-Tu9" secondAttribute="trailing" constant="10" id="wwe-SP-rrK"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>

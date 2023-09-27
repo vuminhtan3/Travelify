@@ -17,6 +17,7 @@ target 'Travelify' do
   pod 'Cosmos', '~> 23.0'
   pod "ESTabBarController-swift"
   pod "ImageSlideshow/Kingfisher"
+  pod 'FloatRatingView', '~> 4'
 
   # Pods for Travelify
 

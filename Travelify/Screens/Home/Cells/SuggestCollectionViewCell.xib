@@ -32,8 +32,8 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npd-Fr-6J2" customClass="CosmosView" customModule="Cosmos">
-                                <rect key="frame" x="0.0" y="25" width="59" height="15"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npd-Fr-6J2" customClass="FloatRatingView" customModule="FloatRatingView">
+                                <rect key="frame" x="0.0" y="25" width="78" height="15"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="pmR-oZ-FXt"/>
@@ -41,6 +41,9 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="starSize">
                                         <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starBorderWidth">
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -51,7 +54,7 @@
                             <constraint firstAttribute="bottom" secondItem="npd-Fr-6J2" secondAttribute="bottom" id="bow-GM-ZUP"/>
                             <constraint firstAttribute="trailing" secondItem="uu1-5N-Uyz" secondAttribute="trailing" id="e2g-cH-gdf"/>
                             <constraint firstItem="npd-Fr-6J2" firstAttribute="top" secondItem="uu1-5N-Uyz" secondAttribute="bottom" constant="5" id="gzk-zv-aYH"/>
-                            <constraint firstAttribute="centerX" secondItem="npd-Fr-6J2" secondAttribute="trailing" id="rll-JB-SN1"/>
+                            <constraint firstAttribute="trailing" secondItem="npd-Fr-6J2" secondAttribute="trailing" constant="40" id="rll-JB-SN1"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -76,16 +79,11 @@
                 <outlet property="backgroundImgView" destination="wEi-KD-kV0" id="QXa-ph-BRQ"/>
                 <outlet property="gradientView" destination="R3P-zM-xch" id="s4A-oR-MGO"/>
                 <outlet property="nameLb" destination="uu1-5N-Uyz" id="YUn-C4-feQ"/>
-                <outlet property="ratingView" destination="npd-Fr-6J2" id="HZQ-42-HFE"/>
+                <outlet property="ratingView" destination="npd-Fr-6J2" id="MeM-q7-w1h"/>
             </connections>
             <point key="canvasLocation" x="170.99236641221373" y="65.492957746478879"/>
         </collectionViewCell>
     </objects>
-    <designables>
-        <designable name="npd-Fr-6J2">
-            <size key="intrinsicContentSize" width="70" height="10"/>
-        </designable>
-    </designables>
     <resources>
         <image name="onboarding8" width="564" height="846"/>
     </resources>

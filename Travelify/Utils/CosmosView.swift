@@ -7,6 +7,7 @@
 
 import UIKit
 import Cosmos
+import FloatRatingView
 
 extension CosmosView {
     func setupCosmosView() {
@@ -21,5 +22,17 @@ extension CosmosView {
     open override func layoutSubviews() {
         super.layoutSubviews()
         setupCosmosView()
+    }
+}
+
+extension FloatRatingView {
+    func setupFloatRatingView() {
+        self.emptyImage = UIImage(named: "star")
+        self.fullImage = UIImage(named: "star.fill")
+    }
+    
+    open override func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
+        setupFloatRatingView()
     }
 }

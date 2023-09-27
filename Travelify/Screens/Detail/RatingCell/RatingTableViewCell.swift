@@ -7,13 +7,14 @@
 
 import UIKit
 import Cosmos
+import FloatRatingView
 
 class RatingTableViewCell: UITableViewCell {
 
     @IBOutlet weak var viewCell: UIView!
     @IBOutlet weak var userNameLb: UILabel!
     @IBOutlet weak var createdAtLb: UILabel!
-    @IBOutlet weak var userRatingView: CosmosView!
+    @IBOutlet weak var userRatingView: FloatRatingView!
     @IBOutlet weak var titleLb: UILabel!
     @IBOutlet weak var userReviewLb: UILabel!
     
@@ -21,13 +22,14 @@ class RatingTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        userRatingView.settings.updateOnTouch = false
+//        userRatingView.settings.updateOnTouch = false
+        userRatingView.editable = false
     }
     
     override func prepareForReuse() {
         userNameLb.text = nil
         userReviewLb.text = nil
-        userRatingView.prepareForReuse()
+//        userRatingView.prepareForReuse()
         
     }
 
