@@ -58,11 +58,11 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     @IBAction func googleLoginBtnTapped(_ sender: UIButton) {
-        
+        self.showAlert(title: "Tính năng đang phát triển", message: "Tính năng đang phát triển, xin vui lòng thử lại sau")
     }
     
     @IBAction func facebookLoginBtnTapped(_ sender: UIButton) {
-        
+        self.showAlert(title: "Tính năng đang phát triển", message: "Tính năng đang phát triển, xin vui lòng thử lại sau")
     }
     
     
