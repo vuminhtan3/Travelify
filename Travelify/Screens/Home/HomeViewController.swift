@@ -70,14 +70,7 @@ class HomeViewController: UIViewController {
         guard let currentUserID = currentUserID else {return}
         databaseRef.child("users").child(currentUserID).observeSingleEvent(of: .value) { snapshot in
             if let userData = snapshot.value as? [String: Any] {
-//                let id = userData["id"] as! String
                 let name = userData["name"] as? String ?? ""
-//                let gender = userData["gender"] as? String ?? ""
-//                let age = userData["age"] as? Int ?? 0
-//                let email = userData["email"] as! String
-//                let address = userData["address"] as? String ?? ""
-//                let phoneNumber = userData["phoneNumber"] as? String ?? ""
-//                let bio = userData["bio"] as? String ?? ""
                 let avatar = userData["avatar"] as? String ?? ""
                 
                 //Download ảnh từ url trong firebase database

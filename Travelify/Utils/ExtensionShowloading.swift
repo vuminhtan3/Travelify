@@ -1,5 +1,5 @@
 //
-//  ExtensionDismissKeyboard.swift
+//  ExtensionShowLoading.swift
 //  Travelify
 //
 //  Created by Minh Tan Vu on 21/07/2023.
@@ -12,8 +12,6 @@ extension UIViewController {
     func showLoading(isShow: Bool) {
         if isShow {
             let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-//            hud.mode = .annularDeterminate
-//            hud.progress = Float.random(in: 0...1)
             hud.label.text = "Đang tải..."
         } else {
             MBProgressHUD.hide(for: self.view, animated: true)

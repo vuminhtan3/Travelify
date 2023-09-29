@@ -62,7 +62,6 @@
 		B4B045A72AACDCA200460752 /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B045A52AACDCA200460752 /* LoadingTableViewCell.xib */; };
 		B4B045AE2AACF9F100460752 /* LoadingCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B045AC2AACF9F100460752 /* LoadingCollectionReusableView.swift */; };
 		B4B045AF2AACF9F100460752 /* LoadingCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B045AD2AACF9F100460752 /* LoadingCollectionReusableView.xib */; };
-		B4B7DFAF2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B7DFAE2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift */; };
 		B4B7DFB82A75907B00159B7B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B7DFB62A75907B00159B7B /* HomeViewController.swift */; };
 		B4B7DFB92A75907B00159B7B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B7DFB72A75907B00159B7B /* HomeViewController.xib */; };
 		B4B7DFBD2A7592D000159B7B /* SuggestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B7DFBB2A7592D000159B7B /* SuggestCollectionViewCell.swift */; };
@@ -138,7 +137,6 @@
 		B4B045A52AACDCA200460752 /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
 		B4B045AC2AACF9F100460752 /* LoadingCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCollectionReusableView.swift; sourceTree = "<group>"; };
 		B4B045AD2AACF9F100460752 /* LoadingCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCollectionReusableView.xib; sourceTree = "<group>"; };
-		B4B7DFAE2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleFirebaseErrorExtension.swift; sourceTree = "<group>"; };
 		B4B7DFB62A75907B00159B7B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B4B7DFB72A75907B00159B7B /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		B4B7DFBB2A7592D000159B7B /* SuggestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -352,7 +350,6 @@
 				B42079C62A6A69D4008AA03F /* ExtensionHexColor.swift */,
 				B42079CE2A6A7859008AA03F /* ExtensionShowloading.swift */,
 				B4BAAD422A6E618600599DB8 /* Validator.swift */,
-				B4B7DFAE2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift */,
 				B4EC4C282A76D581008A60D4 /* GradientView.swift */,
 			);
 			path = Utils;
@@ -597,7 +594,6 @@
 			files = (
 				B4BAAD452A70426500599DB8 /* CustomUITextField.swift in Sources */,
 				B45B79CD2A9A1B210072AB19 /* PlaceModel.swift in Sources */,
-				B4B7DFAF2A73C76E00159B7B /* HandleFirebaseErrorExtension.swift in Sources */,
 				B4B045A62AACDCA200460752 /* LoadingTableViewCell.swift in Sources */,
 				B44F54162AA3C40E005844EE /* AllReviewsViewController.swift in Sources */,
 				B4CBAE302A91E39E00301587 /* CornerRadius.swift in Sources */,

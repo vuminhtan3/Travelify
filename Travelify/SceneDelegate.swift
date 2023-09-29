@@ -22,8 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         (UIApplication.shared.delegate as? AppDelegate)?.window = window
-//        UINavigationBar.appearance().backIndicatorImage = UIImage(named: "back")
-//        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "back")
         var navigationAppearance = UINavigationBar.appearance()
         navigationAppearance.tintColor = .black
         

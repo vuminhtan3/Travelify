@@ -217,17 +217,10 @@ extension DetailViewController: MKMapViewDelegate {
         
         let region = MKCoordinateRegion(center: initialLocation, latitudinalMeters: 400, longitudinalMeters: 400)
         mapView.setRegion(region, animated: true)
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-//        mapView.addGestureRecognizer(tapGesture)
-        
     }
     
     @objc func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
         if gestureRecognizer.state == .ended {
-//            let locationInView = gestureRecognizer.location(in: mapView)
-//            let coordinate = mapView.convert(locationInView, toCoordinateFrom: mapView)
-            
-            // Open the map at the tapped location
             openMapAtCoordinate()
         }
     }
@@ -332,11 +325,6 @@ extension DetailViewController {
         let newAverageRating = (totalRating + newRating!) / Double(totalCount + 1)
         
         self.place?.rating = newAverageRating
-        
-//        DispatchQueue.main.async {
-//            self.totalRatingView.rating = newAverageRating
-//            self.totalRatingLb.text = String(format: "%.1f", newAverageRating)
-//        }
         
         let updatedRatingData: [String: Any] = [
             "rating": place?.rating

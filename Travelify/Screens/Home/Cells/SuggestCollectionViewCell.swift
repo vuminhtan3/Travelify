@@ -8,7 +8,6 @@
 import UIKit
 import Cosmos
 import Kingfisher
-import HCSStarRatingView
 import FloatRatingView
 
 class SuggestCollectionViewCell: UICollectionViewCell {
@@ -23,14 +22,6 @@ class SuggestCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         backgroundImgView.layer.cornerRadius = 5
         
-//        ratingView.settings.starSize = 12
-//        ratingView.settings.fillMode = .precise
-//        ratingView.settings.updateOnTouch = false
-        
-//        ratingView.allowsHalfStars = true
-        
-//        ratingView.isUserInteractionEnabled = false
-//        ratingView.contentMode = .scaleAspectFill
         ratingView.emptyImage = UIImage(named: "star")
         ratingView.fullImage = UIImage(named: "star.fill")
         ratingView.editable = false

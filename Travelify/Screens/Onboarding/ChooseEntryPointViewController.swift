@@ -18,8 +18,6 @@ class ChooseEntryPointViewController: UIViewController {
         registerBtn.layer.masksToBounds = true
         loginBtn.layer.cornerRadius = registerBtn.frame.height/2
         loginBtn.layer.masksToBounds = true
-
-        // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

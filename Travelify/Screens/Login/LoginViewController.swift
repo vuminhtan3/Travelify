@@ -30,7 +30,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         
-        // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -112,9 +111,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func googleLoginBtnTapped(_ sender: UIButton) {
+        self.showAlert(title: "Tính năng đang phát triển", message: "Tính năng đang phát triển, xin vui lòng thử lại sau")
     }
     
     @IBAction func facebookLoginBtnTapped(_ sender: UIButton) {
+        self.showAlert(title: "Tính năng đang phát triển", message: "Tính năng đang phát triển, xin vui lòng thử lại sau")
     }
     
     @IBAction func registerBtnTapped(_ sender: UIButton) {

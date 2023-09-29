@@ -24,6 +24,11 @@ class ForgotPasswordViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
+    
     func setupView() {
         emailWarningLb.isHidden = true
         

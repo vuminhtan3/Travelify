@@ -12,9 +12,6 @@ import FloatRatingView
 extension CosmosView {
     func setupCosmosView() {
         self.settings.fillMode = .half
-//        self.settings.filledColor = .label
-//        self.settings.emptyBorderColor = .label
-//        self.settings.starSize = 20
         self.settings.filledImage = UIImage(named: "star.fill")?.withRenderingMode(.alwaysOriginal)
         self.settings.emptyImage = UIImage(named: "star")?.withRenderingMode(.alwaysOriginal)
     }

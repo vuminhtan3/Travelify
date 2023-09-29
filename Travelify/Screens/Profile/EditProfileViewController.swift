@@ -182,7 +182,6 @@ class EditProfileViewController: UIViewController {
                 }
             }
             
-            //            print("😂 \(self.currentUser?.avatar)")
             databaseRef.child("users").child(currentUser.uid).setValue([
                 "id": currentUser.uid,
                 "name": newName,
@@ -238,7 +237,6 @@ class EditProfileViewController: UIViewController {
                 guard let currentUser = Auth.auth().currentUser?.uid else {return}
                 let userRef = self.databaseRef.child("users").child(currentUser).child("avatar")
                 userRef.setValue(downloadURL.absoluteString)
-//                print("Image URL: \(downloadURL)")
             }
         }
         
