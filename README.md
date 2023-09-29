@@ -1,4 +1,4 @@
-![Simulator Screen Shot - iPhone 14 Pro - 2023-09-30 at 00 05 33](https://github.com/vuminhtan3/Travelify/assets/108281025/d0993dd4-87b4-4493-af53-56ff0216e611)# Travelify
+# Travelify
 ![256](https://github.com/vuminhtan3/Travelify/assets/108281025/9d1fe8d6-ba4d-4af7-be04-ee7a0b8b83f3)
 ## Giới thiệu
 
