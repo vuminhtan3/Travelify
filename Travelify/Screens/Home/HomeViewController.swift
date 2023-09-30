@@ -82,26 +82,26 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    
-    func fetchPlacesData() {
-        FirebaseManager.shared.loadingHandler = { [weak self] isLoading in
-            DispatchQueue.main.async {
-                if isLoading {
-                    self?.showLoading(isShow: true)
-                } else {
-                    self?.showLoading(isShow: false)
-                }
-            }
-        }
-        
-        FirebaseManager.shared.fetchPlacesData { [weak self] places in
-            guard let self = self else { return }
-
-            self.listPlaces = places
-            self.setupCollectionView()
-            self.setupTableView()
-        }
-    }
+//    
+//    func fetchPlacesData() {
+//        FirebaseManager.shared.loadingHandler = { [weak self] isLoading in
+//            DispatchQueue.main.async {
+//                if isLoading {
+//                    self?.showLoading(isShow: true)
+//                } else {
+//                    self?.showLoading(isShow: false)
+//                }
+//            }
+//        }
+//        
+//        FirebaseManager.shared.fetchPlacesData { [weak self] places in
+//            guard let self = self else { return }
+//            self.listPlaces = []
+//            self.listPlaces = places
+//            self.setupTableView()
+//            self.setupCollectionView()
+//        }
+//    }
     
     private func setupCollectionView() {
         suggestCollectionView.delegate = self

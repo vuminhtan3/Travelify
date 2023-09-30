@@ -52,6 +52,10 @@ class DetailViewController: UIViewController {
         myRatingView.rating = 0
         myRatingView.settings.fillMode = .half
         
+        let rightBarBtnItem = UIBarButtonItem(image: UIImage(named: "heart24"), style: .plain, target: self, action: #selector(favoriteAction))
+        
+        navigationItem.rightBarButtonItem = rightBarBtnItem
+        
         navigationController?.isNavigationBarHidden = false
         navigationItem.title = place?.name
         navigationController?.navigationBar.tintColor = .label
@@ -66,8 +70,12 @@ class DetailViewController: UIViewController {
         
         self.reviews = place?.reviews
         
+        calculateAllRating()
         self.ratingTableView.reloadData()
         
+    }
+    @objc func favoriteAction() {
+        self.showAlert(title: "Tính năng đang phát triển", message: "Tính năng đang phát triển, xin vui lòng thử lại sau")
     }
     
     //Config Observer Value for tableView to setup tableViewHeight
@@ -157,6 +165,7 @@ class DetailViewController: UIViewController {
         if validateForm(title: title ?? "", content: content ?? "", rating: rating) {
             showLoading(isShow: true)
             addReviewToFirebase(placeID: place.id!, review: newReview)
+            calculateAllRating()
         }
     }
     
@@ -304,7 +313,6 @@ extension DetailViewController {
         }
         
         // Update UI
-        
        
     }
 
