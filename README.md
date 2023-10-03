@@ -11,11 +11,14 @@ https://github.com/vuminhtan3/Travelify/assets/108281025/09d6f795-6995-44be-aff2
 
 ![image](https://github.com/vuminhtan3/Travelify/assets/108281025/7aefef48-7cb4-4d1c-b3da-e3398eca34ee)
 
+
 ## Màn hình chính
-![Simulator Screen Shot - iPhone 14 Pro - 2023-09-30 at 00 04 47](https://github.com/vuminhtan3/Travelify/assets/108281025/a3387b71-6fa6-4dd4-b786-ecbfa4809eb4)
+![Simulator Screen Shot - iPhone 14 Pro - 2023-09-30 at 00 04](https://github.com/vuminhtan3/Travelify/assets/108281025/43f2d38b-1922-4929-91d9-78dd28027133)
+
 
 ## Màn hình tìm kiếm
-![Simulator Screen Shot - iPhone 14 Pro - 2023-09-30 at 00 05 33](https://github.com/vuminhtan3/Travelify/assets/108281025/3f0c83e2-8de3-469f-b34b-54f785140640)
+![Simulator Screen Shot - iPhone 14 Pro - 2023-09-30 at 00 05](https://github.com/vuminhtan3/Travelify/assets/108281025/c67fa83e-9d63-4b76-9053-fb80932e5c79)
+
 
 ## Màn hình chi tiết địa điểm
 ![image](https://github.com/vuminhtan3/Travelify/assets/108281025/f1de4e5a-c3b3-4bb2-93f4-85a1e1e56005)
